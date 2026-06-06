@@ -354,12 +354,17 @@
                             <!-- 直接メール宛先カード -->
                             <div class="direct-contact-card">
                                 <h4><i class="ph ph-envelope-simple"></i> 直接メールで応募・問い合わせ</h4>
-                                <p class="contact-email"><strong>fujimino.basket<span class="at-mark">[at]</span>gmail.com</strong></p>
-                                <p class="contact-desc">※[at]を@に変換して送信してください。</p>
+                                <button type="button" id="btn-reveal-email" class="btn-reveal-email">
+                                    <i class="ph ph-lock-key"></i> メールアドレスを表示する
+                                </button>
+                                <div id="revealed-email-container" class="contact-email-revealed">
+                                    <!-- Javascript will insert the decoded email link here -->
+                                </div>
+                                <p class="contact-desc">※スパム対策のため、ボタンを押すとアドレスが表示されます。</p>
                                 <p class="contact-handler">担当者：ミカミ</p>
                                 <div class="english-support">
                                     <h5>For Non-Japanese Speakers</h5>
-                                    <p>We can also provide support in English. Please send an email to the address above with your name, age, and basketball experience. Let's have fun playing basketball!</p>
+                                    <p>We can also provide support in English. Click the button above to reveal our email address and feel free to reach out with your details.</p>
                                 </div>
                             </div>
                         </div>

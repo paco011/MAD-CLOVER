@@ -100,8 +100,33 @@ document.addEventListener('DOMContentLoaded', () => {
         contactForm.removeAttribute('onsubmit');
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            alert('体験参加のご応募ありがとうございます！内容が確認されました。\n※この画面はデモ表示です。直接応募される場合はフォーム下部のメールアドレス（担当者：ミカミ）までご連絡ください。');
+            alert('体験参加のご応募ありがとうございます！内容が確認されました。\n※この画面はデモ表示です。直接応募される場合はフォーム下部の「メールアドレスを表示する」ボタンからご連絡ください。');
             contactForm.reset();
+        });
+    }
+
+    // Secure Email Reveal Logic
+    const btnRevealEmail = document.getElementById('btn-reveal-email');
+    const revealedEmailContainer = document.getElementById('revealed-email-container');
+    
+    if (btnRevealEmail && revealedEmailContainer) {
+        // Base64 encoded email: fujimino.basket@gmail.com
+        const encodedEmail = 'ZnVqaW1pbm8uYmFza2V0QGdtYWlsLmNvbQ==';
+        
+        btnRevealEmail.addEventListener('click', () => {
+            const email = atob(encodedEmail);
+            
+            // Render clickable mailto link
+            revealedEmailContainer.innerHTML = `
+                <a href="mailto:${email}" title="メールを送る">
+                    <i class="ph ph-envelope-simple-open"></i>
+                    <strong>${email}</strong>
+                </a>
+            `;
+            
+            // Hide reveal button and show revealed email
+            btnRevealEmail.style.display = 'none';
+            revealedEmailContainer.style.display = 'inline-block';
         });
     }
 });

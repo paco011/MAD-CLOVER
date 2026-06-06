@@ -208,6 +208,17 @@ header.scrolled .nav-menu a:not(.btn-primary):hover {
     color: var(--clr-blue);
 }
 
+/* Contact button color fix & hover animation */
+.nav-menu a.btn-primary {
+    color: var(--clr-white);
+}
+
+.nav-menu a.btn-primary:hover {
+    color: var(--clr-white) !important;
+    background: var(--gradient-accent);
+    box-shadow: 0 4px 14px 0 rgba(234, 107, 15, 0.4);
+}
+
 .mobile-menu-toggle {
     display: none;
     flex-direction: column;
@@ -1001,24 +1012,60 @@ footer {
     gap: 8px;
 }
 
-.contact-email {
+/* Secure email reveal styles */
+.btn-reveal-email {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: var(--gradient-primary);
+    color: var(--clr-white) !important;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--shadow-sm);
+    margin: 8px 0;
+}
+
+.btn-reveal-email:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+    background: var(--clr-blue);
+}
+
+.btn-reveal-email i {
+    font-size: 1.2rem;
+}
+
+.contact-email-revealed {
+    display: none;
     font-size: 1.15rem;
     color: var(--clr-text);
-    margin-bottom: 4px;
+    margin: 12px 0;
+    animation: fadeIn 0.4s ease;
 }
 
-.contact-email strong {
+.contact-email-revealed a {
     font-family: monospace;
     background: rgba(0, 86, 151, 0.05);
-    padding: 2px 8px;
-    border-radius: 4px;
-    border: 1px solid rgba(0, 86, 151, 0.1);
+    padding: 8px 16px;
+    border-radius: 6px;
+    border: 1px solid rgba(0, 86, 151, 0.15);
+    color: var(--clr-blue) !important;
+    font-weight: 700;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
 }
 
-.at-mark {
-    color: var(--clr-red);
-    font-weight: bold;
-    margin: 0 2px;
+.contact-email-revealed a:hover {
+    background: rgba(0, 86, 151, 0.1);
+    border-color: var(--clr-blue);
 }
 
 .contact-desc {
@@ -1162,11 +1209,18 @@ footer {
 
 /* Responsive */
 @media (max-width: 992px) {
-    .about-grid, .recruit-wrapper { grid-template-columns: 1fr; }
+    .about-grid, .recruit-wrapper { grid-template-columns: 1fr; gap: 40px; }
     .hero-title { font-size: 4rem; }
+    .section-title { font-size: 2.2rem; }
+    .about-text h3 { font-size: 2rem; }
     
     .stats-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .glass-card {
+        padding: 40px 24px;
+        gap: 24px;
     }
     
     .activity-details-grid {
@@ -1183,6 +1237,7 @@ footer {
         width: 80%;
         height: 100vh;
         background: var(--clr-white);
+        display: flex;
         flex-direction: column;
         justify-content: center;
         transition: 0.5s ease;
@@ -1190,12 +1245,40 @@ footer {
         z-index: 999;
     }
     .nav-menu.active { right: 0; }
-    .nav-menu ul { flex-direction: column; align-items: center; }
+    .nav-menu ul { 
+        flex-direction: column; 
+        align-items: center; 
+        gap: 24px;
+        width: 100%;
+        padding: 0 20px;
+    }
+    .nav-menu li {
+        width: 100%;
+        text-align: center;
+    }
+    .nav-menu a {
+        display: block;
+        font-size: 1.25rem;
+        padding: 10px 0;
+        color: var(--clr-text);
+    }
+    .nav-menu a.btn-primary {
+        display: inline-block;
+        width: auto;
+        padding: 12px 36px;
+        margin-top: 8px;
+    }
+    
     .mobile-menu-toggle { display: flex; z-index: 1000; }
     .mobile-menu-toggle.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
     .mobile-menu-toggle.active span:nth-child(2) { opacity: 0; }
     .mobile-menu-toggle.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+    
     .hero-title { font-size: 3rem; }
+    .hero-subtitle { font-size: 1.3rem; }
+    .section-title { font-size: 1.8rem; }
+    .about-text h3 { font-size: 1.6rem; }
+    
     .contact-form-card { padding: 32px 24px; }
     .footer-content { flex-direction: column; text-align: center; }
     
@@ -1212,14 +1295,22 @@ footer {
     
     .tab-buttons {
         grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
     }
     
     .form-grid-2 {
         grid-template-columns: 1fr;
-        gap: 0;
+        gap: 16px;
     }
     
     .schedule-grid {
         grid-template-columns: 1fr;
     }
+    
+    .hero-title { font-size: 2.2rem; }
+    .hero-subtitle { font-size: 1.1rem; }
+    .section-title { font-size: 1.6rem; }
+    .about-text h3 { font-size: 1.4rem; }
+    .about-logo-img { width: 120px; height: 120px; }
+    .activity-cards { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
 }
