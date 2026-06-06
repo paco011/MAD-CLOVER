@@ -243,57 +243,67 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-    // 開催予定（土曜日）の自動生成機能
+   // 開催予定（土曜日）の自動生成機能
     const scheduleGrid = document.getElementById('schedule-grid');
     if (scheduleGrid) {
-        // 表示したい件数（例: 8回分）
+        // ★ お休みしたい日付（YYYY/MM/DD 形式）をここに登録します
+        const inactiveDates = [
+            "2026/06/20", 
+            "2026/07/11"
+        ];
+
         const displayCount = 8; 
-        const upcomingSaturdays = getUpcomingSaturdays(displayCount);
+        const upcomingSaturdays = getUpcomingSaturdays(displayCount, inactiveDates);
         
-        // グリッド内をクリアして動的に生成した日付を挿入
         scheduleGrid.innerHTML = '';
-        upcomingSaturdays.forEach(dateStr => {
+        upcomingSaturdays.forEach(schedule => {
             const item = document.createElement('div');
             item.className = 'schedule-item';
-            item.textContent = dateStr;
+            
+            if (schedule.isInactive) {
+                // お休みの週のスタイル・テキスト
+                item.textContent = `${schedule.dateStr} 【休み】`;
+                item.style.opacity = '0.5';             // 表示を薄くする
+                item.style.textDecoration = 'line-through'; // 取り消し線を引く（お好みで）
+            } else {
+                item.textContent = schedule.dateStr;
+            }
+            
             scheduleGrid.appendChild(item);
         });
     }
 
-    /**
-     * 次の土曜日からの日程を算出する関数
-     */
-    function getUpcomingSaturdays(count) {
-        const dates = [];
+    function getUpcomingSaturdays(count, inactiveDates = []) {
+        const schedules = [];
         const today = new Date();
-        
-        // 日付計算用に今日の0時0分にリセットしたオブジェクトを作成
         const current = new Date(today.getFullYear(), today.getMonth(), today.getDate());
         
-        // 次の土曜日までの日数を計算
-        // 日(0)→6日後, 月(1)→5日後, 火(2)→4日後, 水(3)→3日後, 木(4)→2日後, 金(5)→1日後, 土(6)→0日後
         let daysToSaturday = (6 - current.getDay() + 7) % 7;
-        
-        // もし今日が「土曜日」かつ、すでに活動終了時刻（例: 21時）を過ぎている場合は、翌週の土曜日から表示する
         if (today.getDay() === 6 && today.getHours() >= 21) {
             daysToSaturday = 7;
         }
         
-        // 基準日を最初の土曜日に合わせる
         current.setDate(current.getDate() + daysToSaturday);
         
-        // 指定件数分、7日ずつ足しながら配列に追加
         for (let i = 0; i < count; i++) {
             const year = current.getFullYear();
             const month = String(current.getMonth() + 1).padStart(2, '0');
             const day = String(current.getDate()).padStart(2, '0');
             
-            dates.push(`${year}/${month}/${day} (土)`);
+            const dateStrWithoutEra = `${year}/${month}/${day}`;
+            const dateStr = `${dateStrWithoutEra} (土)`;
             
-            // 次の週へ
+            // お休みリストに含まれているかチェック
+            const isInactive = inactiveDates.includes(dateStrWithoutEra);
+            
+            schedules.push({
+                dateStr: dateStr,
+                isInactive: isInactive
+            });
+            
             current.setDate(current.getDate() + 7);
         }
         
-        return dates;
+        return schedules;
     }
 });
