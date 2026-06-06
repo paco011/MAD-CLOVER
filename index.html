@@ -3,10 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="埼玉県ふじみの市で活動する社会人中心のバスケットボールチーム、MAD CLOVERの公式ホームページです。メンバー募集中！">
-    <title>MAD CLOVER | 埼玉県ふじみの市の社会人バスケットボールチーム</title>
+    
+    <!-- SEO Optimization -->
+    <title>MAD CLOVER | 埼玉県ふじみ野市の社会人バスケットボールチーム</title>
+    <meta name="description" content="埼玉県ふじみ野市を拠点に活動する社会人バスケットボールチーム「MAD CLOVER」の公式ホームページです。現在、新規メンバーおよび女性マネージャーを募集中！練習日程や参加ルールなどの詳細はこちら。">
+    <meta name="keywords" content="MAD CLOVER,バスケットボール,ふじみ野市,埼玉県,社会人バスケ,メンバー募集,バスケサークル">
+    <link rel="canonical" href="https://mad-clover.jp/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mad-clover.jp/">
+    <meta property="og:title" content="MAD CLOVER | 埼玉県ふじみ野市の社会人バスケットボールチーム">
+    <meta property="og:description" content="埼玉県ふじみ野市を拠点に活動する社会人バスケットボールチーム「MAD CLOVER」の公式ホームページです。現在、メンバーおよび女性マネージャーを募集中！">
+    <meta property="og:image" content="https://mad-clover.jp/logo.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://mad-clover.jp/">
+    <meta property="twitter:title" content="MAD CLOVER | 埼玉県ふじみ野市の社会人バスケットボールチーム">
+    <meta property="twitter:description" content="埼玉県ふじみ野市を拠点に活動する社会人バスケットボールチーム「MAD CLOVER」の公式ホームページです。現在、メンバーおよび女性マネージャーを募集中！">
+    <meta property="twitter:image" content="https://mad-clover.jp/logo.png">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SportsTeam",
+      "name": "MAD CLOVER",
+      "sport": "Basketball",
+      "description": "埼玉県ふじみ野市を拠点に活動する社会人バスケットボールチームです。メンバー・マネージャー募集中！",
+      "url": "https://mad-clover.jp/",
+      "image": "https://mad-clover.jp/logo.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "ふじみ野市",
+        "addressRegion": "埼玉県",
+        "addressCountry": "JP"
+      },
+      "subOrganization": {
+        "@type": "SportsClub",
+        "name": "MAD CLOVER バスケットボールクラブ"
+      }
+    }
+    </script>
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
-       <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -38,10 +80,11 @@
             <div class="hero-bg"></div>
             <div class="hero-content">
                 <h1 class="hero-title">
+                    <span class="sr-only">MAD CLOVER（マッドクローバー）- 埼玉県ふじみ野市の社会人バスケットボールチーム</span>
                     <span class="fade-in-up">Play Hard,</span>
                     <span class="fade-in-up delay-1">Play Smart.</span>
                 </h1>
-                <p class="hero-subtitle fade-in-up delay-2">埼玉県ふじみの市で活動する<br>社会人バスケットボールチーム</p>
+                <p class="hero-subtitle fade-in-up delay-2">埼玉県ふじみ野市で活動する<br>社会人バスケットボールチーム</p>
                 <div class="hero-cta fade-in-up delay-3">
                     <a href="#recruit" class="btn-primary large">メンバー募集を見る</a>
                 </div>
@@ -294,25 +337,33 @@
                     <div class="recruit-action slide-in-right">
                         <div class="contact-form-card" id="contact">
                             <h3>体験・参加を申し込む</h3>
-                            <form id="contact-form" onsubmit="event.preventDefault(); alert('デモ画面のため送信されません。担当者への直接連絡は下部メールアドレスをご利用ください。');">
+                            <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+                                <!-- Web3Forms Access Key (Placeholder to be replaced by user) -->
+                                <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_PLACEHOLDER">
+                                <!-- Honeypot Spam Protection -->
+                                <input type="checkbox" name="botcheck" class="hidden-honeypot" style="display: none;">
+                                <!-- Email Metadata -->
+                                <input type="hidden" name="subject" value="【MAD CLOVER】ホームページから体験・参加申し込み">
+                                <input type="hidden" name="from_name" value="MAD CLOVER 公式ホームページ">
+                                
                                 <div class="form-group">
                                     <label for="name">お名前（ふりがな）</label>
-                                    <input type="text" id="name" required placeholder="山田 太郎（やまだ たろう）">
+                                    <input type="text" id="name" name="name" required placeholder="山田 太郎（やまだ たろう）">
                                 </div>
                                 
                                 <div class="form-grid-2">
                                     <div class="form-group">
                                         <label for="age">ご年齢</label>
-                                        <input type="number" id="age" required placeholder="25" min="15" max="100">
+                                        <input type="number" id="age" name="age" required placeholder="25" min="15" max="100">
                                     </div>
                                     <div class="form-group">
                                         <label for="gender">性別</label>
-                                        <select id="gender" required>
+                                        <select id="gender" name="gender" required>
                                             <option value="" disabled selected>選択してください</option>
-                                            <option value="male">男性</option>
-                                            <option value="female">女性（プレイヤー）</option>
-                                            <option value="manager">女性（マネージャー希望）</option>
-                                            <option value="other">その他</option>
+                                            <option value="男性">男性</option>
+                                            <option value="女性（プレイヤー）">女性（プレイヤー）</option>
+                                            <option value="女性（マネージャー希望）">女性（マネージャー希望）</option>
+                                            <option value="その他">その他</option>
                                         </select>
                                     </div>
                                 </div>
@@ -320,52 +371,39 @@
                                 <div class="form-grid-2">
                                     <div class="form-group">
                                         <label for="address">お住まい</label>
-                                        <input type="text" id="address" required placeholder="例：ふじみ野市、志木市">
+                                        <input type="text" id="address" name="address" required placeholder="例：ふじみ野市、志木市">
                                     </div>
                                     <div class="form-group">
                                         <label for="occupation">ご職業</label>
-                                        <input type="text" id="occupation" required placeholder="例：会社員、公務員">
+                                        <input type="text" id="occupation" name="occupation" required placeholder="例：会社員、公務員">
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="experience">競技歴</label>
-                                    <input type="text" id="experience" required placeholder="例：バスケ中学3年、テニス高校3年、初心者など">
+                                    <input type="text" id="experience" name="experience" required placeholder="例：バスケ中学3年、テニス高校3年、初心者など">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="exercise">最近の運動状況</label>
-                                    <input type="text" id="exercise" required placeholder="例：全くしていない、週1回ランニングなど">
+                                    <input type="text" id="exercise" name="exercise" required placeholder="例：全くしていない、週1回ランニングなど">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="start_date">参加開始希望日時</label>
-                                    <input type="text" id="start_date" required placeholder="例：なるべく早く、1ヶ月後からなど">
+                                    <input type="text" id="start_date" name="start_date" required placeholder="例：なるべく早く、1ヶ月後からなど">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="message">メッセージ・質問など（任意）</label>
-                                    <textarea id="message" rows="2" placeholder="質問などがあればご記入ください。"></textarea>
+                                    <textarea id="message" name="message" rows="2" placeholder="質問などがあればご記入ください。"></textarea>
                                 </div>
 
                                 <button type="submit" class="btn-submit">応募内容を送信する</button>
                             </form>
-                            
-                            <!-- 直接メール宛先カード -->
-                            <div class="direct-contact-card">
-                                <h4><i class="ph ph-envelope-simple"></i> 直接メールで応募・問い合わせ</h4>
-                                <button type="button" id="btn-reveal-email" class="btn-reveal-email">
-                                    <i class="ph ph-lock-key"></i> メールアドレスを表示する
-                                </button>
-                                <div id="revealed-email-container" class="contact-email-revealed">
-                                    <!-- Javascript will insert the decoded email link here -->
-                                </div>
-                                <p class="contact-desc">※スパム対策のため、ボタンを押すとアドレスが表示されます。</p>
-                                <p class="contact-handler">担当者：ミカミ</p>
-                                <div class="english-support">
-                                    <h5>For Non-Japanese Speakers</h5>
-                                    <p>We can also provide support in English. Click the button above to reveal our email address and feel free to reach out with your details.</p>
-                                </div>
+                            <div class="english-support">
+                                <h5><i class="ph ph-translate"></i> For Non-Japanese Speakers</h5>
+                                <p>We can also provide support in English. Feel free to fill out the form above in English. Let's have fun playing basketball!</p>
                             </div>
                         </div>
                     </div>
@@ -454,6 +492,75 @@
             </div>
         </div>
     </footer>
+
+    <!-- Confirmation Modal -->
+    <div id="confirm-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>入力内容の確認</h3>
+                <button type="button" class="modal-close-btn" id="btn-close-modal-x">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p>ご入力いただいた内容をご確認ください。よろしければ「送信する」ボタンを押してください。</p>
+                <div class="confirm-table-container">
+                    <table class="confirm-table">
+                        <tbody>
+                            <tr>
+                                <th>お名前</th>
+                                <td id="confirm-name"></td>
+                            </tr>
+                            <tr>
+                                <th>ご年齢</th>
+                                <td id="confirm-age"></td>
+                            </tr>
+                            <tr>
+                                <th>性別</th>
+                                <td id="confirm-gender"></td>
+                            </tr>
+                            <tr>
+                                <th>お住まい</th>
+                                <td id="confirm-address"></td>
+                            </tr>
+                            <tr>
+                                <th>ご職業</th>
+                                <td id="confirm-occupation"></td>
+                            </tr>
+                            <tr>
+                                <th>競技歴</th>
+                                <td id="confirm-experience"></td>
+                            </tr>
+                            <tr>
+                                <th>最近の運動状況</th>
+                                <td id="confirm-exercise"></td>
+                            </tr>
+                            <tr>
+                                <th>参加希望日時</th>
+                                <td id="confirm-start-date"></td>
+                            </tr>
+                            <tr>
+                                <th>メッセージ</th>
+                                <td id="confirm-message"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn-modal-back" id="btn-modal-back">修正する</button>
+                <button type="button" class="btn-modal-submit" id="btn-modal-submit">送信する</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="success-modal" class="modal-overlay">
+        <div class="modal-content success-content">
+            <div class="success-icon"><i class="ph ph-circle-wavy-check"></i></div>
+            <h3>送信完了しました！</h3>
+            <p>体験・参加の申し込みを受け付けました。ご入力いただいた内容を確認し、担当者より折り返しメールにてご連絡差し上げます。今しばらくお待ちください。</p>
+            <button type="button" class="btn-modal-close" id="btn-modal-close-ok">閉じる</button>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>

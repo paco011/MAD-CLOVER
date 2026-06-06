@@ -93,40 +93,154 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Form Submission Handling
+    // Form Submission & Confirmation Modal Logic
     const contactForm = document.getElementById('contact-form');
-    if (contactForm) {
-        // Remove direct onsubmit from HTML to manage it cleanly here
+    
+    // Modal elements
+    const confirmModal = document.getElementById('confirm-modal');
+    const successModal = document.getElementById('success-modal');
+    
+    // Modal buttons
+    const btnCloseModalX = document.getElementById('btn-close-modal-x');
+    const btnModalBack = document.getElementById('btn-modal-back');
+    const btnModalSubmit = document.getElementById('btn-modal-submit');
+    const btnModalCloseOk = document.getElementById('btn-modal-close-ok');
+    
+    // Form fields to verify
+    const formFields = [
+        { id: 'name', confirmId: 'confirm-name', label: 'お名前' },
+        { id: 'age', confirmId: 'confirm-age', label: 'ご年齢', suffix: '歳' },
+        { id: 'gender', confirmId: 'confirm-gender', label: '性別' },
+        { id: 'address', confirmId: 'confirm-address', label: 'お住まい' },
+        { id: 'occupation', confirmId: 'confirm-occupation', label: 'ご職業' },
+        { id: 'experience', confirmId: 'confirm-experience', label: '競技歴' },
+        { id: 'exercise', confirmId: 'confirm-exercise', label: '最近の運動状況' },
+        { id: 'start_date', confirmId: 'confirm-start-date', label: '参加希望日時' },
+        { id: 'message', confirmId: 'confirm-message', label: 'メッセージ' }
+    ];
+
+    if (contactForm && confirmModal && successModal) {
+        // Intercept form submit to show confirmation modal
         contactForm.removeAttribute('onsubmit');
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            alert('体験参加のご応募ありがとうございます！内容が確認されました。\n※この画面はデモ表示です。直接応募される場合はフォーム下部の「メールアドレスを表示する」ボタンからご連絡ください。');
-            contactForm.reset();
+            
+            // Check form validity
+            if (!contactForm.checkValidity()) {
+                contactForm.reportValidity();
+                return;
+            }
+            
+            // Populate confirmation modal details
+            formFields.forEach(field => {
+                const inputEl = document.getElementById(field.id);
+                const confirmEl = document.getElementById(field.confirmId);
+                if (inputEl && confirmEl) {
+                    let val = inputEl.value.trim();
+                    if (!val) {
+                        val = '（未入力）';
+                    } else if (field.id === 'gender') {
+                        // Display text for selected option
+                        val = inputEl.options[inputEl.selectedIndex].text;
+                    }
+                    
+                    if (field.suffix && val !== '（未入力）') {
+                        val += field.suffix;
+                    }
+                    
+                    confirmEl.textContent = val;
+                }
+            });
+            
+            // Show confirmation modal
+            confirmModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Disable background scrolling
         });
-    }
 
-    // Secure Email Reveal Logic
-    const btnRevealEmail = document.getElementById('btn-reveal-email');
-    const revealedEmailContainer = document.getElementById('revealed-email-container');
-    
-    if (btnRevealEmail && revealedEmailContainer) {
-        // Base64 encoded email: fujimino.basket@gmail.com
-        const encodedEmail = 'ZnVqaW1pbm8uYmFza2V0QGdtYWlsLmNvbQ==';
+        // Close confirmation modal
+        const closeConfirmModal = () => {
+            confirmModal.style.display = 'none';
+            document.body.style.overflow = ''; // Enable background scrolling
+        };
+
+        if (btnCloseModalX) btnCloseModalX.addEventListener('click', closeConfirmModal);
+        if (btnModalBack) btnModalBack.addEventListener('click', closeConfirmModal);
+
+        // Submit form data securely
+        if (btnModalSubmit) {
+            btnModalSubmit.addEventListener('click', async () => {
+                // Change button state to loading
+                const originalBtnText = btnModalSubmit.textContent;
+                btnModalSubmit.textContent = '送信中...';
+                btnModalSubmit.disabled = true;
+
+                const formData = new FormData(contactForm);
+                const accessKey = formData.get('access_key');
+                
+                // Check if honeypot is filled (spam protection)
+                const botCheck = formData.get('botcheck');
+                if (botCheck) {
+                    console.warn('Bot submission detected.');
+                    closeConfirmModal();
+                    alert('送信に失敗しました。');
+                    return;
+                }
+
+                try {
+                    // If it is a placeholder key, simulate API call for demo purposes
+                    if (accessKey === 'YOUR_ACCESS_KEY_PLACEHOLDER') {
+                        await new Promise(resolve => setTimeout(resolve, 1000));
+                        console.log('Demo submission successful. Form values:', Object.fromEntries(formData.entries()));
+                    } else {
+                        // Actual Web3Forms API submission
+                        const response = await fetch('https://api.web3forms.com/submit', {
+                            method: 'POST',
+                            body: formData
+                        });
+                        
+                        const result = await response.json();
+                        if (!response.ok || !result.success) {
+                            throw new Error(result.message || 'API submission failed');
+                        }
+                    }
+                    
+                    // Hide confirmation modal
+                    closeConfirmModal();
+                    
+                    // Show success modal
+                    successModal.style.display = 'flex';
+                    document.body.style.overflow = 'hidden';
+                    
+                    // Reset form
+                    contactForm.reset();
+                    
+                } catch (err) {
+                    console.error('Submission error:', err);
+                    alert('申し訳ありません。送信中にエラーが発生しました。時間をおいて再度お試しください。');
+                } finally {
+                    // Restore button state
+                    btnModalSubmit.textContent = originalBtnText;
+                    btnModalSubmit.disabled = false;
+                }
+            });
+        }
+
+        // Close success modal
+        if (btnModalCloseOk) {
+            btnModalCloseOk.addEventListener('click', () => {
+                successModal.style.display = 'none';
+                document.body.style.overflow = '';
+            });
+        }
         
-        btnRevealEmail.addEventListener('click', () => {
-            const email = atob(encodedEmail);
-            
-            // Render clickable mailto link
-            revealedEmailContainer.innerHTML = `
-                <a href="mailto:${email}" title="メールを送る">
-                    <i class="ph ph-envelope-simple-open"></i>
-                    <strong>${email}</strong>
-                </a>
-            `;
-            
-            // Hide reveal button and show revealed email
-            btnRevealEmail.style.display = 'none';
-            revealedEmailContainer.style.display = 'inline-block';
+        // Close modals on clicking outside modal content
+        window.addEventListener('click', (e) => {
+            if (e.target === confirmModal) {
+                closeConfirmModal();
+            } else if (e.target === successModal) {
+                successModal.style.display = 'none';
+                document.body.style.overflow = '';
+            }
         });
     }
 });
