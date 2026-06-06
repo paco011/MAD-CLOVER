@@ -43,4 +43,65 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const animatedElements = document.querySelectorAll('.fade-in-up, .slide-in-left, .slide-in-right');
     animatedElements.forEach(el => observer.observe(el));
+
+    // Recruit Section Tabs Switching
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+    
+    tabButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            tabButtons.forEach(b => b.classList.remove('active'));
+            tabContents.forEach(c => c.classList.remove('active'));
+            
+            btn.classList.add('active');
+            const tabId = btn.getAttribute('data-tab');
+            const targetContent = document.getElementById(tabId);
+            if (targetContent) {
+                targetContent.classList.add('active');
+            }
+        });
+    });
+
+    // FAQ Accordion Toggle
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+            const item = question.parentElement;
+            const answer = item.querySelector('.faq-answer');
+            const isActive = item.classList.contains('active');
+            
+            // Close other open FAQ items for clean experience
+            document.querySelectorAll('.faq-item').forEach(otherItem => {
+                if (otherItem !== item) {
+                    otherItem.classList.remove('active');
+                    const otherAnswer = otherItem.querySelector('.faq-answer');
+                    if (otherAnswer) {
+                        otherAnswer.style.maxHeight = null;
+                    }
+                }
+            });
+            
+            // Toggle active state
+            if (isActive) {
+                item.classList.remove('active');
+                if (answer) answer.style.maxHeight = null;
+            } else {
+                item.classList.add('active');
+                if (answer) answer.style.maxHeight = answer.scrollHeight + 'px';
+            }
+        });
+    });
+
+    // Form Submission Handling
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        // Remove direct onsubmit from HTML to manage it cleanly here
+        contactForm.removeAttribute('onsubmit');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('体験参加のご応募ありがとうございます！内容が確認されました。\n※この画面はデモ表示です。直接応募される場合はフォーム下部のメールアドレス（担当者：ミカミ）までご連絡ください。');
+            contactForm.reset();
+        });
+    }
 });
