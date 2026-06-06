@@ -248,8 +248,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (scheduleGrid) {
         // ★ お休みしたい日付（YYYY/MM/DD 形式）をここに登録します
         const inactiveDates = [
-            "2026/06/20", 
-            "2026/07/11"
+            
         ];
 
         const displayCount = 8; 
