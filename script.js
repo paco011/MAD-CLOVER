@@ -251,7 +251,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
         ];
 
-        const displayCount = 8; 
+        const displayCount = 9; 
         const upcomingSaturdays = getUpcomingSaturdays(displayCount, inactiveDates);
         
         scheduleGrid.innerHTML = '';
