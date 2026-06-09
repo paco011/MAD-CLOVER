@@ -1,29 +1,30 @@
 :root {
-    /* Logo Colors */
-    --clr-blue: #005697;
-    --clr-red: #e85047;
-    --clr-orange: #ea6b0f;
-    --clr-yellow: #ef9e1c;
-    --clr-dark-green: #003511;
+    /* Logo Colors (少し柔らかく、透明感を高めたトーンに調整) */
+    --clr-blue: #0d62a1;         /* 爽やかで清潔感のある明るめのブルー */
+    --clr-red: #ed6158;          /* 少しコーラル（珊瑚色）に寄せた優しいレッド */
+    --clr-orange: #f0833a;       /* 尖り感を丸くした温かみのあるアプリコットオレンジ */
+    --clr-yellow: #f4b042;       /* 少し明るくしたソフトなゴールドイエロー */
+    --clr-dark-green: #0b4a1f;
 
-    /* Theme Colors */
-    --clr-bg: #ffffff;
-    --clr-bg-alt: #f8fafc;
+    /* Theme Colors (背景をやや温かみのある白、テキストを少しだけ優しく) */
+    --clr-bg: #fdfdfd;           /* ほんのり温かみのあるホワイト */
+    --clr-bg-alt: #f5f8fa;       /* 少しブルーがかったクリーンな背景グレー */
     --clr-text: #1e293b;
-    --clr-text-light: #64748b;
+    --clr-text-light: #526075;   /* グレーを少しだけ濃くして文字の読みやすさをキープ */
     --clr-white: #ffffff;
     
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, var(--clr-blue), #003d6d);
+    /* Gradients (グラデーションの重なりを少し柔らかく) */
+    --gradient-primary: linear-gradient(135deg, var(--clr-blue), #0d4b7a);
     --gradient-accent: linear-gradient(135deg, var(--clr-orange), var(--clr-red));
 
     /* UI Elements */
-    --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-    --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.03), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+    --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.06), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.03);
     
-    --radius-md: 12px;
-    --radius-lg: 24px;
+    /* 角の丸み（丸みを少し大きくして、女性的な優しい印象をプラス） */
+    --radius-md: 16px;           /* 12px から 16px に拡大 */
+    --radius-lg: 32px;           /* 24px から 32px に拡大 */
     
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
