@@ -124,13 +124,33 @@ document.addEventListener('DOMContentLoaded', () => {
         // Intercept form submit to show confirmation modal
         contactForm.removeAttribute('onsubmit');
         contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            // Check form validity
-            if (!contactForm.checkValidity()) {
-                contactForm.reportValidity();
-                return;
-            }
+    e.preventDefault();
+    
+    // スマートフォン向けカスタム・バリデーションチェック
+    const requiredInputs = contactForm.querySelectorAll('[required]');
+    let missingFields = [];
+    
+    requiredInputs.forEach(input => {
+        if (!input.value.trim()) {
+            // 未入力の項目のラベル名を取得
+            const labelEl = contactForm.querySelector(`label[for="${input.id}"]`);
+            const fieldName = labelEl ? labelEl.textContent.replace('（ふりがな）', '').replace('（連絡先）', '') : '未設定項目';
+            missingFields.push(fieldName);
+        }
+    });
+    
+    // 未入力の必須項目がある場合、スマホでも確実にポップアップで警告する
+    if (missingFields.length > 0) {
+        alert(`未入力の必須項目があります：\n\n・${missingFields.join('\n・')}\n\nすべての項目を入力してから、再度送信してください。`);
+        
+        // 最初の未入力項目にカーソル（フォーカス）を自動で移動させる
+        const firstEmptyInput = Array.from(requiredInputs).find(input => !input.value.trim());
+        if (firstEmptyInput) {
+            firstEmptyInput.focus();
+            firstEmptyInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        return;
+    }
             
             // Populate confirmation modal details
             formFields.forEach(field => {
