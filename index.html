@@ -338,6 +338,12 @@
                                     <label for="name">お名前（ふりがな）</label>
                                     <input type="text" id="name" name="name" required placeholder="山田 太郎（やまだ たろう）">
                                 </div>
+
+                                <!-- ↓↓↓メールアドレス欄をここに追加↓↓↓ -->
+<div class="form-group">
+    <label for="email">メールアドレス（連絡先）</label>
+    <input type="email" id="email" name="email" required placeholder="example@example.com">
+</div>
                                 
                                 <div class="form-grid-2">
                                     <div class="form-group">
@@ -497,6 +503,11 @@
                                 <th>お名前</th>
                                 <td id="confirm-name"></td>
                             </tr>
+                              <!-- ↓↓↓確認テーブルにメールアドレスの行を追加↓↓↓ -->
+        <tr>
+            <th>メールアドレス</th>
+            <td id="confirm-email"></td>
+        </tr>
                             <tr>
                                 <th>ご年齢</th>
                                 <td id="confirm-age"></td>

@@ -109,6 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Form fields to verify
     const formFields = [
         { id: 'name', confirmId: 'confirm-name', label: 'お名前' },
+            { id: 'email', confirmId: 'confirm-email', label: 'メールアドレス' },
         { id: 'age', confirmId: 'confirm-age', label: 'ご年齢', suffix: '歳' },
         { id: 'gender', confirmId: 'confirm-gender', label: '性別' },
         { id: 'address', confirmId: 'confirm-address', label: 'お住まい' },
