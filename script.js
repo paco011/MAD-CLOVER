@@ -93,7 +93,63 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-   // Form Submission & Confirmation Modal Logic
+    // 開催予定（土曜日）の自動生成機能
+    const scheduleGrid = document.getElementById('schedule-grid');
+    if (scheduleGrid) {
+        // ★ お休みしたい土曜日の日付（YYYY/MM/DD）があれば、ここに登録します（例： "2026/06/20" ）
+        const inactiveDates = []; 
+
+        const displayCount = 8; 
+        const upcomingSaturdays = getUpcomingSaturdays(displayCount, inactiveDates);
+        
+        scheduleGrid.innerHTML = '';
+        upcomingSaturdays.forEach(schedule => {
+            const item = document.createElement('div');
+            item.className = 'schedule-item';
+            
+            if (schedule.isInactive) {
+                item.textContent = `${schedule.dateStr} 【お休み】`;
+                item.style.opacity = '0.5';
+                item.style.textDecoration = 'line-through';
+            } else {
+                item.textContent = schedule.dateStr;
+            }
+            scheduleGrid.appendChild(item);
+        });
+    }
+
+    function getUpcomingSaturdays(count, inactiveDates = []) {
+        const schedules = [];
+        const today = new Date();
+        const current = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+        
+        let daysToSaturday = (6 - current.getDay() + 7) % 7;
+        if (today.getDay() === 6 && today.getHours() >= 21) {
+            daysToSaturday = 7;
+        }
+        
+        current.setDate(current.getDate() + daysToSaturday);
+        
+        for (let i = 0; i < count; i++) {
+            const year = current.getFullYear();
+            const month = String(current.getMonth() + 1).padStart(2, '0');
+            const day = String(current.getDate()).padStart(2, '0');
+            
+            const dateStrWithoutEra = `${year}/${month}/${day}`;
+            const dateStr = `${dateStrWithoutEra} (土)`;
+            const isInactive = inactiveDates.includes(dateStrWithoutEra);
+            
+            schedules.push({
+                dateStr: dateStr,
+                isInactive: isInactive
+            });
+            
+            current.setDate(current.getDate() + 7);
+        }
+        return schedules;
+    }
+
+    // Form Submission & Confirmation Modal Logic
     const contactForm = document.getElementById('contact-form');
     
     // Modal elements
@@ -132,18 +188,15 @@ document.addEventListener('DOMContentLoaded', () => {
             
             requiredInputs.forEach(input => {
                 if (!input.value.trim()) {
-                    // 未入力の項目のラベル名を取得
                     const labelEl = contactForm.querySelector(`label[for="${input.id}"]`);
                     const fieldName = labelEl ? labelEl.textContent.replace('（ふりがな）', '').replace('（連絡先）', '') : '未設定項目';
                     missingFields.push(fieldName);
                 }
             });
             
-            // 未入力の必須項目がある場合、スマホでも確実にポップアップで警告する
             if (missingFields.length > 0) {
                 alert(`未入力の必須項目があります：\n\n・${missingFields.join('\n・')}\n\nすべての項目を入力してから、再度送信してください。`);
                 
-                // 最初の未入力項目にカーソル（フォーカス）を自動で移動させる
                 const firstEmptyInput = Array.from(requiredInputs).find(input => !input.value.trim());
                 if (firstEmptyInput) {
                     firstEmptyInput.focus();
