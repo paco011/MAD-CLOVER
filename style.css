@@ -1,32 +1,32 @@
 :root {
-    /* Logo Colors (少し柔らかく、透明感を高めたトーンに調整) */
-    --clr-blue: #0d62a1;         /* 爽やかで清潔感のある明るめのブルー */
-    --clr-red: #ed6158;          /* 少しコーラル（珊瑚色）に寄せた優しいレッド */
-    --clr-orange: #f0833a;       /* 尖り感を丸くした温かみのあるアプリコットオレンジ */
-    --clr-yellow: #f4b042;       /* 少し明るくしたソフトなゴールドイエロー */
-    --clr-dark-green: #0b4a1f;
+    /* Logo Colors (モダンでシックな高級スポーツブランドを意識したカラー) */
+    --clr-blue: #2d3748;         /* 深みのあるダークスレート（知性と落ち着き） */
+    --clr-red: #cc7d6a;          /* くすんだテラコッタ（温かみとモダンさ） */
+    --clr-orange: #e5a982;       /* 柔らかなソフトアプリコット（親しみやすさ） */
+    --clr-yellow: #e2b65c;       /* 落ち着いたゴールドベージュ */
+    --clr-dark-green: #1a3a2a;
 
-    /* Theme Colors (背景をやや温かみのある白、テキストを少しだけ優しく) */
-    --clr-bg: #fdfdfd;           /* ほんのり温かみのあるホワイト */
-    --clr-bg-alt: #f5f8fa;       /* 少しブルーがかったクリーンな背景グレー */
-    --clr-text: #1e293b;
-    --clr-text-light: #526075;   /* グレーを少しだけ濃くして文字の読みやすさをキープ */
+    /* Theme Colors (背景を洗練されたソフトなトーンに) */
+    --clr-bg: #fafafa;           /* 清潔感のある、ほんのり温かいオフホワイト */
+    --clr-bg-alt: #f1f3f5;       /* 静かで洗練されたライトグレー */
+    --clr-text: #1a202c;         /* 読みやすく、強すぎないダークグレー */
+    --clr-text-light: #5a6578;   /* 落ち着いたスレートグレー */
     --clr-white: #ffffff;
     
-    /* Gradients (グラデーションの重なりを少し柔らかく) */
-    --gradient-primary: linear-gradient(135deg, var(--clr-blue), #0d4b7a);
+    /* Gradients (ギラギラ感をなくし、シックで滑らかなグラデーションに) */
+    --gradient-primary: linear-gradient(135deg, var(--clr-blue), #1a202c);
     --gradient-accent: linear-gradient(135deg, var(--clr-orange), var(--clr-red));
 
-    /* UI Elements */
-    --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.03), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
-    --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.06), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
-    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.03);
+    /* UI Elements (影をより薄く、よりフラットでシンプルに) */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.02);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.04);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.04);
     
-    /* 角の丸み（丸みを少し大きくして、女性的な優しい印象をプラス） */
-    --radius-md: 16px;           /* 12px から 16px に拡大 */
-    --radius-lg: 32px;           /* 24px から 32px に拡大 */
+    /* 角の丸み（大人っぽさを出すため、丸すぎず適度な丸みに微調整） */
+    --radius-md: 12px;           
+    --radius-lg: 20px;           
     
-    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition: all 0.25s ease-out;
 }
 
 * {
