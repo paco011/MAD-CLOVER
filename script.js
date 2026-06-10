@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Form Submission & Confirmation Modal Logic
+   // Form Submission & Confirmation Modal Logic
     const contactForm = document.getElementById('contact-form');
     
     // Modal elements
@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Form fields to verify
     const formFields = [
         { id: 'name', confirmId: 'confirm-name', label: 'お名前' },
-            { id: 'email', confirmId: 'confirm-email', label: 'メールアドレス' },
+        { id: 'email', confirmId: 'confirm-email', label: 'メールアドレス' },
         { id: 'age', confirmId: 'confirm-age', label: 'ご年齢', suffix: '歳' },
         { id: 'gender', confirmId: 'confirm-gender', label: '性別' },
         { id: 'address', confirmId: 'confirm-address', label: 'お住まい' },
@@ -121,36 +121,36 @@ document.addEventListener('DOMContentLoaded', () => {
     ];
 
     if (contactForm && confirmModal && successModal) {
-        // Intercept form submit to show confirmation modal
         contactForm.removeAttribute('onsubmit');
-        contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    // スマートフォン向けカスタム・バリデーションチェック
-    const requiredInputs = contactForm.querySelectorAll('[required]');
-    let missingFields = [];
-    
-    requiredInputs.forEach(input => {
-        if (!input.value.trim()) {
-            // 未入力の項目のラベル名を取得
-            const labelEl = contactForm.querySelector(`label[for="${input.id}"]`);
-            const fieldName = labelEl ? labelEl.textContent.replace('（ふりがな）', '').replace('（連絡先）', '') : '未設定項目';
-            missingFields.push(fieldName);
-        }
-    });
-    
-    // 未入力の必須項目がある場合、スマホでも確実にポップアップで警告する
-    if (missingFields.length > 0) {
-        alert(`未入力の必須項目があります：\n\n・${missingFields.join('\n・')}\n\nすべての項目を入力してから、再度送信してください。`);
         
-        // 最初の未入力項目にカーソル（フォーカス）を自動で移動させる
-        const firstEmptyInput = Array.from(requiredInputs).find(input => !input.value.trim());
-        if (firstEmptyInput) {
-            firstEmptyInput.focus();
-            firstEmptyInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-        return;
-    }
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // スマートフォン向けカスタム・バリデーションチェック
+            const requiredInputs = contactForm.querySelectorAll('[required]');
+            let missingFields = [];
+            
+            requiredInputs.forEach(input => {
+                if (!input.value.trim()) {
+                    // 未入力の項目のラベル名を取得
+                    const labelEl = contactForm.querySelector(`label[for="${input.id}"]`);
+                    const fieldName = labelEl ? labelEl.textContent.replace('（ふりがな）', '').replace('（連絡先）', '') : '未設定項目';
+                    missingFields.push(fieldName);
+                }
+            });
+            
+            // 未入力の必須項目がある場合、スマホでも確実にポップアップで警告する
+            if (missingFields.length > 0) {
+                alert(`未入力の必須項目があります：\n\n・${missingFields.join('\n・')}\n\nすべての項目を入力してから、再度送信してください。`);
+                
+                // 最初の未入力項目にカーソル（フォーカス）を自動で移動させる
+                const firstEmptyInput = Array.from(requiredInputs).find(input => !input.value.trim());
+                if (firstEmptyInput) {
+                    firstEmptyInput.focus();
+                    firstEmptyInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+                return;
+            }
             
             // Populate confirmation modal details
             formFields.forEach(field => {
@@ -161,7 +161,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (!val) {
                         val = '（未入力）';
                     } else if (field.id === 'gender') {
-                        // Display text for selected option
                         val = inputEl.options[inputEl.selectedIndex].text;
                     }
                     
@@ -175,13 +174,13 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Show confirmation modal
             confirmModal.style.display = 'flex';
-            document.body.style.overflow = 'hidden'; // Disable background scrolling
+            document.body.style.overflow = 'hidden';
         });
 
         // Close confirmation modal
         const closeConfirmModal = () => {
             confirmModal.style.display = 'none';
-            document.body.style.overflow = ''; // Enable background scrolling
+            document.body.style.overflow = '';
         };
 
         if (btnCloseModalX) btnCloseModalX.addEventListener('click', closeConfirmModal);
@@ -190,7 +189,6 @@ document.addEventListener('DOMContentLoaded', () => {
         // Submit form data securely
         if (btnModalSubmit) {
             btnModalSubmit.addEventListener('click', async () => {
-                // Change button state to loading
                 const originalBtnText = btnModalSubmit.textContent;
                 btnModalSubmit.textContent = '送信中...';
                 btnModalSubmit.disabled = true;
@@ -198,7 +196,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 const formData = new FormData(contactForm);
                 const accessKey = formData.get('access_key');
                 
-                // Check if honeypot is filled (spam protection)
                 const botCheck = formData.get('botcheck');
                 if (botCheck) {
                     console.warn('Bot submission detected.');
@@ -208,12 +205,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
 
                 try {
-                    // If it is a placeholder key, simulate API call for demo purposes
                     if (accessKey === 'YOUR_ACCESS_KEY_PLACEHOLDER') {
                         await new Promise(resolve => setTimeout(resolve, 1000));
                         console.log('Demo submission successful. Form values:', Object.fromEntries(formData.entries()));
                     } else {
-                        // Actual Web3Forms API submission
                         const response = await fetch('https://api.web3forms.com/submit', {
                             method: 'POST',
                             body: formData
@@ -225,28 +220,21 @@ document.addEventListener('DOMContentLoaded', () => {
                         }
                     }
                     
-                    // Hide confirmation modal
                     closeConfirmModal();
-                    
-                    // Show success modal
                     successModal.style.display = 'flex';
                     document.body.style.overflow = 'hidden';
-                    
-                    // Reset form
                     contactForm.reset();
                     
                 } catch (err) {
                     console.error('Submission error:', err);
                     alert('申し訳ありません。送信中にエラーが発生しました。時間をおいて再度お試しください。');
                 } finally {
-                    // Restore button state
                     btnModalSubmit.textContent = originalBtnText;
                     btnModalSubmit.disabled = false;
                 }
             });
         }
 
-        // Close success modal
         if (btnModalCloseOk) {
             btnModalCloseOk.addEventListener('click', () => {
                 successModal.style.display = 'none';
@@ -254,7 +242,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
         
-        // Close modals on clicking outside modal content
         window.addEventListener('click', (e) => {
             if (e.target === confirmModal) {
                 closeConfirmModal();
@@ -263,67 +250,5 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.body.style.overflow = '';
             }
         });
-    }
-   // 開催予定（土曜日）の自動生成機能
-    const scheduleGrid = document.getElementById('schedule-grid');
-    if (scheduleGrid) {
-        // ★ お休みしたい日付（YYYY/MM/DD 形式）をここに登録します
-        const inactiveDates = [
-            
-        ];
-
-        const displayCount = 9; 
-        const upcomingSaturdays = getUpcomingSaturdays(displayCount, inactiveDates);
-        
-        scheduleGrid.innerHTML = '';
-        upcomingSaturdays.forEach(schedule => {
-            const item = document.createElement('div');
-            item.className = 'schedule-item';
-            
-            if (schedule.isInactive) {
-                // お休みの週のスタイル・テキスト
-                item.textContent = `${schedule.dateStr} 【休み】`;
-                item.style.opacity = '0.5';             // 表示を薄くする
-                item.style.textDecoration = 'line-through'; // 取り消し線を引く（お好みで）
-            } else {
-                item.textContent = schedule.dateStr;
-            }
-            
-            scheduleGrid.appendChild(item);
-        });
-    }
-
-    function getUpcomingSaturdays(count, inactiveDates = []) {
-        const schedules = [];
-        const today = new Date();
-        const current = new Date(today.getFullYear(), today.getMonth(), today.getDate());
-        
-        let daysToSaturday = (6 - current.getDay() + 7) % 7;
-        if (today.getDay() === 6 && today.getHours() >= 21) {
-            daysToSaturday = 7;
-        }
-        
-        current.setDate(current.getDate() + daysToSaturday);
-        
-        for (let i = 0; i < count; i++) {
-            const year = current.getFullYear();
-            const month = String(current.getMonth() + 1).padStart(2, '0');
-            const day = String(current.getDate()).padStart(2, '0');
-            
-            const dateStrWithoutEra = `${year}/${month}/${day}`;
-            const dateStr = `${dateStrWithoutEra} (土)`;
-            
-            // お休みリストに含まれているかチェック
-            const isInactive = inactiveDates.includes(dateStrWithoutEra);
-            
-            schedules.push({
-                dateStr: dateStr,
-                isInactive: isInactive
-            });
-            
-            current.setDate(current.getDate() + 7);
-        }
-        
-        return schedules;
     }
 });
