@@ -1,3 +1,22 @@
+// ==========================================================================
+// 1. ホームページ管理用設定（お休みしたい日をここに登録します）
+// ==========================================================================
+// ★お休みしたい土曜日を以下のように登録できます。
+// 表記は「2026/06/20」でも「2026-6-20」でも動作します。
+// 理由を書きたい場合は、{ date: "日付", reason: "理由" } の形式で書けます。
+const INACTIVE_DATES = [
+    "2026/06/20",                                // パターンA: 日付のみ（自動でお休みと表示されます）
+    { date: "2026/08/15", reason: "お盆休み" },  // パターンB: 理由付き（お盆休みのためお休み、等と表示されます）
+    { date: "2026/12/26", reason: "年末年始" }
+];
+
+// 表示する土曜日の件数（標準は8週分）
+const DISPLAY_SCHEDULE_COUNT = 9;
+
+
+// ==========================================================================
+// 2. ホームページ基本動作ロジック（ここより下は通常書き換える必要はありません）
+// ==========================================================================
 document.addEventListener('DOMContentLoaded', () => {
     // Header Scroll Effect
     const header = document.getElementById('header');
@@ -96,11 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 開催予定（土曜日）の自動生成機能
     const scheduleGrid = document.getElementById('schedule-grid');
     if (scheduleGrid) {
-        // ★ お休みしたい土曜日の日付（YYYY/MM/DD）があれば、ここに登録します（例： "2026/06/20" ）
-        const inactiveDates = []; 
-
-        const displayCount = 8; 
-        const upcomingSaturdays = getUpcomingSaturdays(displayCount, inactiveDates);
+        const upcomingSaturdays = getUpcomingSaturdays(DISPLAY_SCHEDULE_COUNT, INACTIVE_DATES);
         
         scheduleGrid.innerHTML = '';
         upcomingSaturdays.forEach(schedule => {
@@ -108,9 +123,11 @@ document.addEventListener('DOMContentLoaded', () => {
             item.className = 'schedule-item';
             
             if (schedule.isInactive) {
-                item.textContent = `${schedule.dateStr} 【お休み】`;
+                const reasonText = schedule.reason ? `【休み：${schedule.reason}】` : '【お休み】';
+                item.textContent = `${schedule.dateStr} ${reasonText}`;
                 item.style.opacity = '0.5';
                 item.style.textDecoration = 'line-through';
+                item.style.backgroundColor = 'rgba(255, 255, 255, 0.03)';
             } else {
                 item.textContent = schedule.dateStr;
             }
@@ -118,30 +135,63 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    function getUpcomingSaturdays(count, inactiveDates = []) {
+    // 日付フォーマット正規化用関数（スラッシュや一桁月日を統一する）
+    function normalizeDateStr(dateInput) {
+        if (!dateInput) return '';
+        
+        let dateTarget = '';
+        if (typeof dateInput === 'string') {
+            dateTarget = dateInput;
+        } else if (typeof dateInput === 'object' && dateInput.date) {
+            dateTarget = dateInput.date;
+        }
+
+        const cleanStr = dateTarget.replace(/-/g, '/'); // ハイフン区切りをスラッシュに
+        const parts = cleanStr.split('/');
+        if (parts.length !== 3) return '';
+
+        const y = parts[0];
+        const m = String(parseInt(parts[1], 10)).padStart(2, '0');
+        const d = String(parseInt(parts[2], 10)).padStart(2, '0');
+        return `${y}/${m}/${d}`;
+    }
+
+    function getUpcomingSaturdays(count, inactiveList = []) {
         const schedules = [];
         const today = new Date();
         const current = new Date(today.getFullYear(), today.getMonth(), today.getDate());
         
+        // 直近の土曜日までの日数を計算
         let daysToSaturday = (6 - current.getDay() + 7) % 7;
+        // 土曜日の21時を過ぎていたら、次の週の土曜日を基準にする
         if (today.getDay() === 6 && today.getHours() >= 21) {
             daysToSaturday = 7;
         }
         
         current.setDate(current.getDate() + daysToSaturday);
         
+        // 比較用にお休みリストをパース・正規化してマップ化
+        const inactiveMap = {};
+        inactiveList.forEach(item => {
+            const normKey = normalizeDateStr(item);
+            if (normKey) {
+                inactiveMap[normKey] = typeof item === 'object' ? (item.reason || '') : '';
+            }
+        });
+        
         for (let i = 0; i < count; i++) {
             const year = current.getFullYear();
             const month = String(current.getMonth() + 1).padStart(2, '0');
             const day = String(current.getDate()).padStart(2, '0');
             
-            const dateStrWithoutEra = `${year}/${month}/${day}`;
-            const dateStr = `${dateStrWithoutEra} (土)`;
-            const isInactive = inactiveDates.includes(dateStrWithoutEra);
+            const dateKey = `${year}/${month}/${day}`;
+            const dateStr = `${year}/${month}/${day} (土)`;
+            const isInactive = dateKey in inactiveMap;
             
             schedules.push({
                 dateStr: dateStr,
-                isInactive: isInactive
+                isInactive: isInactive,
+                reason: isInactive ? inactiveMap[dateKey] : ''
             });
             
             current.setDate(current.getDate() + 7);
