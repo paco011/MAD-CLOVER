@@ -149,20 +149,18 @@ document.addEventListener('DOMContentLoaded', () => {
         return schedules;
     }
 
-    // Form Submission & Confirmation Modal Logic
+    // ==========================================================================
+    // Form Submission & Confirmation Modal Logic (バリデーション強化版)
+    // ==========================================================================
     const contactForm = document.getElementById('contact-form');
-    
-    // Modal elements
     const confirmModal = document.getElementById('confirm-modal');
     const successModal = document.getElementById('success-modal');
     
-    // Modal buttons
     const btnCloseModalX = document.getElementById('btn-close-modal-x');
     const btnModalBack = document.getElementById('btn-modal-back');
     const btnModalSubmit = document.getElementById('btn-modal-submit');
     const btnModalCloseOk = document.getElementById('btn-modal-close-ok');
     
-    // Form fields to verify
     const formFields = [
         { id: 'name', confirmId: 'confirm-name', label: 'お名前' },
         { id: 'email', confirmId: 'confirm-email', label: 'メールアドレス' },
@@ -179,33 +177,115 @@ document.addEventListener('DOMContentLoaded', () => {
     if (contactForm && confirmModal && successModal) {
         contactForm.removeAttribute('onsubmit');
         
+        // --- 共通エラー表示関数 ---
+        const showError = (input, message) => {
+            let errorEl = input.parentNode.querySelector('.error-text');
+            if (!errorEl) {
+                errorEl = document.createElement('span');
+                errorEl.className = 'error-text';
+                input.parentNode.appendChild(errorEl);
+            }
+            errorEl.textContent = message;
+            input.classList.add('input-error');
+        };
+
+        const clearError = (input) => {
+            const errorEl = input.parentNode.querySelector('.error-text');
+            if (errorEl) {
+                errorEl.remove();
+            }
+            input.classList.remove('input-error');
+        };
+
+        // --- 各項目の個別判定ロジック ---
+        const validateField = (input) => {
+            const val = input.value.trim();
+            const id = input.id;
+
+            // 1. 必須チェック
+            if (input.hasAttribute('required') && val === '') {
+                const labelEl = contactForm.querySelector(`label[for="${id}"]`);
+                const name = labelEl ? labelEl.textContent.replace('（ふりがな）', '').replace('（連絡先）', '') : '項目';
+                showError(input, `${name}を入力してください。`);
+                return false;
+            }
+
+            // 2. メールアドレス形式チェック（正規表現）
+            if (id === 'email' && val !== '') {
+                const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+                if (!emailRegex.test(val)) {
+                    showError(input, '有効なメールアドレスの形式で入力してください。');
+                    return false;
+                }
+            }
+
+            // 3. 年齢の妥当性チェック
+            if (id === 'age' && val !== '') {
+                const ageNum = parseInt(val, 10);
+                if (isNaN(ageNum) || ageNum < 15 || ageNum > 85) {
+                    showError(input, '15歳から85歳までの半角数字（整数）で入力してください。');
+                    return false;
+                }
+            }
+
+            // 4. メッセージ欄のURLスパム判定
+            if (id === 'message' && val !== '') {
+                const urlCount = (val.match(/https?:\/\//gi) || []).length;
+                if (urlCount > 1) { // 複数のURLリンクがある場合は自動スパムと判定
+                    showError(input, 'セキュリティ保護のため、リンク（URL）の複数貼り付けは禁止されています。');
+                    return false;
+                }
+            }
+
+            // エラーがない場合はクリア
+            clearError(input);
+            return true;
+        };
+
+        // --- リアルタイム判定のバインド ---
+        const inputsToValidate = contactForm.querySelectorAll('input, select, textarea');
+        inputsToValidate.forEach(input => {
+            // フォーカスが外れたとき（blur）
+            input.addEventListener('blur', () => {
+                validateField(input);
+            });
+            // 選択式項目や入力が変更されたとき（input / change）
+            input.addEventListener('input', () => {
+                const errorEl = input.parentNode.querySelector('.error-text');
+                if (errorEl) {
+                    validateField(input); // すでにエラーが出ている場合はリアルタイムにエラー消去を走らせる
+                }
+            });
+        });
+
+        // --- フォーム送信時のチェック ---
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
             
-            // スマートフォン向けカスタム・バリデーションチェック
-            const requiredInputs = contactForm.querySelectorAll('[required]');
-            let missingFields = [];
-            
-            requiredInputs.forEach(input => {
-                if (!input.value.trim()) {
-                    const labelEl = contactForm.querySelector(`label[for="${input.id}"]`);
-                    const fieldName = labelEl ? labelEl.textContent.replace('（ふりがな）', '').replace('（連絡先）', '') : '未設定項目';
-                    missingFields.push(fieldName);
+            let isAllValid = true;
+            let firstInvalidInput = null;
+
+            // すべての入力項目を一斉に検査
+            inputsToValidate.forEach(input => {
+                const isValid = validateField(input);
+                if (!isValid) {
+                    isAllValid = false;
+                    if (!firstInvalidInput) {
+                        firstInvalidInput = input;
+                    }
                 }
             });
             
-            if (missingFields.length > 0) {
-                alert(`未入力の必須項目があります：\n\n・${missingFields.join('\n・')}\n\nすべての項目を入力してから、再度送信してください。`);
-                
-                const firstEmptyInput = Array.from(requiredInputs).find(input => !input.value.trim());
-                if (firstEmptyInput) {
-                    firstEmptyInput.focus();
-                    firstEmptyInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            // エラーが存在する場合は、最初のエラー項目へフォーカスを当ててスムーズスクロール
+            if (!isAllValid) {
+                if (firstInvalidInput) {
+                    firstInvalidInput.focus();
+                    firstInvalidInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 }
                 return;
             }
             
-            // Populate confirmation modal details
+            // 確認モーダル（テーブル）へデータを挿入
             formFields.forEach(field => {
                 const inputEl = document.getElementById(field.id);
                 const confirmEl = document.getElementById(field.confirmId);
@@ -225,12 +305,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
             
-            // Show confirmation modal
+            // 確認モーダルを開く
             confirmModal.style.display = 'flex';
             document.body.style.overflow = 'hidden';
         });
 
-        // Close confirmation modal
+        // 確認モーダルを閉じる処理
         const closeConfirmModal = () => {
             confirmModal.style.display = 'none';
             document.body.style.overflow = '';
@@ -239,7 +319,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (btnCloseModalX) btnCloseModalX.addEventListener('click', closeConfirmModal);
         if (btnModalBack) btnModalBack.addEventListener('click', closeConfirmModal);
 
-        // Submit form data securely
+        // APIデータ送信処理
         if (btnModalSubmit) {
             btnModalSubmit.addEventListener('click', async () => {
                 const originalBtnText = btnModalSubmit.textContent;
