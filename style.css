@@ -37,6 +37,8 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden; /* ★追加 */
+    width: 100%;        /* ★追加 */
 }
 
 body {
@@ -45,6 +47,7 @@ body {
     color: var(--clr-text);
     line-height: 1.6;
     overflow-x: hidden;
+    width: 100%;        /* ★追加 */
 }
 
 a {
@@ -341,6 +344,7 @@ header.scrolled .nav-menu a:not(.btn-primary):hover {
 .about {
     padding: 120px 0;
     background-color: var(--clr-bg);
+    overflow: hidden; /* ★ 追加：子要素（.slide-in-rightなど）のはみ出しを防ぐ */
 }
 
 .about-grid {
