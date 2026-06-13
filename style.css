@@ -1500,53 +1500,91 @@ footer {
 }
 
 /* ==========================================================================
-   スマホ表示（768px以下）でのスケジュール・持ち物のアコーディオン（タップ開閉）化
+   スケジュール・持ち物のセクション一括開閉（アコーディオン）- 全デバイス共通
    ========================================================================== */
+
+/* 1. タイトルをタップ・クリック可能にし、矢印（プラス・マイナス）マークをつける */
+.details-title {
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    justify-content: space-between; /* 矢印マークを右端に寄せる */
+    align-items: center;
+    padding: 16px 0;
+    border-bottom: 2px solid rgba(0, 86, 151, 0.1);
+    transition: color 0.2s ease;
+}
+
+.details-title:hover {
+    color: var(--clr-blue); /* ホバー時にチームカラーの青に */
+}
+
+.details-title:active {
+    color: var(--clr-red);  /* クリックした瞬間に一瞬テラコッタ色に */
+}
+
+/* プラス・マイナスマークをCSSで追加 */
+.details-title::after {
+    content: '＋';
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--clr-blue);
+    transition: transform 0.2s ease;
+    margin-left: 12px;
+}
+
+/* 開いた（is-expandedクラスがついた）時はマイナスマークにする */
+.is-expanded .details-title::after {
+    content: '－';
+}
+
+/* 2. タイムスケジュール全体の開閉制御 */
+.timeline {
+    max-height: 0;       /* 初期状態は高さを0に隠す */
+    opacity: 0;          /* 非表示 */
+    overflow: hidden;
+    padding-top: 0;
+    transition: max-height 0.5s cubic-bezier(0, 1, 0, 1), opacity 0.3s ease;
+}
+
+/* 開いた時 */
+.timeline-container.is-expanded .timeline {
+    max-height: 1200px;  /* 全体が収まる十分な高さ */
+    opacity: 1;
+    padding-top: 24px;   /* 上に余白をあける */
+    transition: max-height 0.5s cubic-bezier(0.9, 0, 0.1, 1), opacity 0.3s ease;
+}
+
+/* 3. 持ち物グリッド全体の開閉制御 */
+.belongings-grid {
+    max-height: 0;       /* 初期状態は非表示 */
+    opacity: 0;
+    overflow: hidden;
+    margin-top: 0;
+    transition: max-height 0.5s cubic-bezier(0, 1, 0, 1), opacity 0.3s ease;
+}
+
+/* 開いた時 */
+.belongings-container.is-expanded .belongings-grid {
+    max-height: 1200px;  /* 全体が収まる十分な高さ */
+    opacity: 1;
+    margin-top: 24px;
+    transition: max-height 0.5s cubic-bezier(0.9, 0, 0.1, 1), opacity 0.3s ease;
+}
+
+/* --- 4. スマホ表示（768px以下）での微調整（レスポンシブ用のカラム数など） --- */
 @media (max-width: 768px) {
-    /* タップできることを示すカーソルと調整 */
-    .timeline-item, .belonging-card {
-        cursor: pointer;
-        user-select: none;
-        transition: background-color 0.2s ease, var(--transition);
-    }
-    
-    /* タップした時の少しの変化（フィードバック） */
-    .timeline-item:active, .belonging-card:active {
-        background-color: rgba(0, 86, 151, 0.03);
-    }
-
-    /* --- 1. タイムスケジュール（タイムライン）の開閉制御 --- */
-    .timeline-item {
-        margin-bottom: 16px;
-    }
-    .timeline-item .event p {
-        max-height: 0;       /* 初期状態は高さを0にする */
-        opacity: 0;          /* 非表示 */
-        overflow: hidden;
-        margin-top: 0;
-        transition: max-height 0.3s cubic-bezier(0, 1, 0, 1), opacity 0.3s ease, margin 0.3s ease;
-    }
-    
-    /* タップされて「is-expanded」クラスがついた時 */
-    .timeline-item.is-expanded .event p {
-        max-height: 120px;   /* 文字が表示される高さに広げる */
-        opacity: 1;          /* 表示する */
-        margin-top: 8px;
-        transition: max-height 0.3s cubic-bezier(0.9, 0, 0.1, 1), opacity 0.3s ease, margin 0.3s ease;
-    }
-
-    /* --- 2. 持ち物の2列グリッド ＋ 開閉制御 --- */
-    .belongings-grid {
+    .belongings-container.is-expanded .belongings-grid {
+        /* スマホ時はスッキリ見せるため2列グリッドで展開 */
         display: grid;
-        grid-template-columns: repeat(2, 1fr); /* スマホ時は2列並びにする */
+        grid-template-columns: repeat(2, 1fr);
         gap: 12px;
     }
     .belonging-card {
-        grid-template-columns: 1fr; /* アイコンと文字を縦並びに */
+        grid-template-columns: 1fr;
         text-align: center;
         padding: 16px 10px;
         justify-items: center;
-        box-shadow: var(--shadow-sm);
     }
     .belonging-card .b-icon {
         width: 40px;
@@ -1558,23 +1596,8 @@ footer {
         font-size: 0.9rem;
         font-weight: 700;
     }
-    
-    /* 初期状態は詳細テキストを非表示にする */
     .belonging-card p {
-        max-height: 0;
-        opacity: 0;
-        overflow: hidden;
-        margin-top: 0;
-        transition: max-height 0.3s cubic-bezier(0, 1, 0, 1), opacity 0.3s ease, margin 0.3s ease;
-    }
-    
-    /* タップされて「is-expanded」クラスがついた時 */
-    .belonging-card.is-expanded p {
-        max-height: 150px;
-        opacity: 1;
-        margin-top: 8px;
-        font-size: 0.8rem; /* スマホ用に詳細文字を少し小さく */
+        font-size: 0.8rem;
         line-height: 1.4;
-        transition: max-height 0.3s cubic-bezier(0.9, 0, 0.1, 1), opacity 0.3s ease, margin 0.3s ease;
     }
 }

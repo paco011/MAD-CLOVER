@@ -431,12 +431,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // ★ ここに追加しました！（スケジュールと持ち物のタップ開閉制御）
-    const interactiveElements = document.querySelectorAll('.timeline-item, .belonging-card');
-    interactiveElements.forEach(el => {
-        el.addEventListener('click', () => {
-            if (window.innerWidth <= 768) {
-                el.classList.toggle('is-expanded');
+    // --- スケジュールと持ち物のセクション一括開閉（アコーディオン）制御（全デバイス対応） ---
+    const sectionTitles = document.querySelectorAll('.details-title');
+    sectionTitles.forEach(title => {
+        title.addEventListener('click', () => {
+            // PCでもスマホでも、クリックされたら親コンテナに開閉クラスを切り替える
+            const container = title.parentElement;
+            if (container) {
+                container.classList.toggle('is-expanded');
             }
         });
     });
