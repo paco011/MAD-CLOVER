@@ -1498,3 +1498,48 @@ footer {
         transform: translateY(0);
     }
 }
+
+/* ==========================================================================
+   スマホ表示（768px以下）でのスケジュール・持ち物の超軽量化（引き算）
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* --- 1. タイムスケジュール（タイムライン）のコンパクト化 --- */
+    .timeline-item {
+        margin-bottom: 16px; /* 縦の余白を詰める */
+    }
+    .timeline-item::before {
+        width: 14px;  /* ドットを少し小さく */
+        height: 14px;
+        left: -30px;
+    }
+    .timeline-item .event p {
+        display: none; /* ★スマホでは詳しい説明文を非表示にし、時間とタイトルのみにする */
+    }
+
+    /* --- 2. 持ち物（ビロンギングス）の2列コンパクト化 --- */
+    .belongings-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 1列から「2列並び」に変更 */
+        gap: 12px; /* 隙間を小さく */
+    }
+    .belonging-card {
+        grid-template-columns: 1fr; /* 横並びから、アイコンと文字が縦に並ぶ形に変更 */
+        text-align: center;
+        padding: 16px 10px;
+        justify-items: center;
+        box-shadow: var(--shadow-sm);
+    }
+    .belonging-card .b-icon {
+        width: 40px;  /* アイコンサークルを少し小さく */
+        height: 40px;
+        font-size: 1.4rem;
+        margin-bottom: 8px;
+    }
+    .belonging-card h4 {
+        font-size: 0.9rem;
+        font-weight: 700;
+    }
+    .belonging-card p {
+        display: none; /* ★スマホでは「シューズを持参してください」等の説明文を非表示にする */
+    }
+}
