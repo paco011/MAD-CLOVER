@@ -1601,3 +1601,23 @@ footer {
         line-height: 1.4;
     }
 }
+
+/* ==========================================================================
+   スマホ表示（768px以下）での横揺れアニメーション防止（縦スライドへの切り替え）
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* スマホ時は横方向のtranslateXを禁止し、縦方向のtranslateYに上書きします */
+    .slide-in-left, 
+    .slide-in-right {
+        opacity: 0;
+        transform: translateY(20px) !important; /* 横ブレを防ぐため、下から上への20pxスライドに変更 */
+        transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    
+    /* アニメーション発火時（表示された時） */
+    .slide-in-left.visible, 
+    .slide-in-right.visible {
+        opacity: 1;
+        transform: translateY(0) !important;
+    }
+}
