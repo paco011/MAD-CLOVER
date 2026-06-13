@@ -1500,37 +1500,56 @@ footer {
 }
 
 /* ==========================================================================
-   スマホ表示（768px以下）でのスケジュール・持ち物の超軽量化（引き算）
+   スマホ表示（768px以下）でのスケジュール・持ち物のアコーディオン（タップ開閉）化
    ========================================================================== */
 @media (max-width: 768px) {
-    /* --- 1. タイムスケジュール（タイムライン）のコンパクト化 --- */
-    .timeline-item {
-        margin-bottom: 16px; /* 縦の余白を詰める */
+    /* タップできることを示すカーソルと調整 */
+    .timeline-item, .belonging-card {
+        cursor: pointer;
+        user-select: none;
+        transition: background-color 0.2s ease, var(--transition);
     }
-    .timeline-item::before {
-        width: 14px;  /* ドットを少し小さく */
-        height: 14px;
-        left: -30px;
-    }
-    .timeline-item .event p {
-        display: none; /* ★スマホでは詳しい説明文を非表示にし、時間とタイトルのみにする */
+    
+    /* タップした時の少しの変化（フィードバック） */
+    .timeline-item:active, .belonging-card:active {
+        background-color: rgba(0, 86, 151, 0.03);
     }
 
-    /* --- 2. 持ち物（ビロンギングス）の2列コンパクト化 --- */
+    /* --- 1. タイムスケジュール（タイムライン）の開閉制御 --- */
+    .timeline-item {
+        margin-bottom: 16px;
+    }
+    .timeline-item .event p {
+        max-height: 0;       /* 初期状態は高さを0にする */
+        opacity: 0;          /* 非表示 */
+        overflow: hidden;
+        margin-top: 0;
+        transition: max-height 0.3s cubic-bezier(0, 1, 0, 1), opacity 0.3s ease, margin 0.3s ease;
+    }
+    
+    /* タップされて「is-expanded」クラスがついた時 */
+    .timeline-item.is-expanded .event p {
+        max-height: 120px;   /* 文字が表示される高さに広げる */
+        opacity: 1;          /* 表示する */
+        margin-top: 8px;
+        transition: max-height 0.3s cubic-bezier(0.9, 0, 0.1, 1), opacity 0.3s ease, margin 0.3s ease;
+    }
+
+    /* --- 2. 持ち物の2列グリッド ＋ 開閉制御 --- */
     .belongings-grid {
         display: grid;
-        grid-template-columns: repeat(2, 1fr); /* 1列から「2列並び」に変更 */
-        gap: 12px; /* 隙間を小さく */
+        grid-template-columns: repeat(2, 1fr); /* スマホ時は2列並びにする */
+        gap: 12px;
     }
     .belonging-card {
-        grid-template-columns: 1fr; /* 横並びから、アイコンと文字が縦に並ぶ形に変更 */
+        grid-template-columns: 1fr; /* アイコンと文字を縦並びに */
         text-align: center;
         padding: 16px 10px;
         justify-items: center;
         box-shadow: var(--shadow-sm);
     }
     .belonging-card .b-icon {
-        width: 40px;  /* アイコンサークルを少し小さく */
+        width: 40px;
         height: 40px;
         font-size: 1.4rem;
         margin-bottom: 8px;
@@ -1539,7 +1558,23 @@ footer {
         font-size: 0.9rem;
         font-weight: 700;
     }
+    
+    /* 初期状態は詳細テキストを非表示にする */
     .belonging-card p {
-        display: none; /* ★スマホでは「シューズを持参してください」等の説明文を非表示にする */
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        margin-top: 0;
+        transition: max-height 0.3s cubic-bezier(0, 1, 0, 1), opacity 0.3s ease, margin 0.3s ease;
+    }
+    
+    /* タップされて「is-expanded」クラスがついた時 */
+    .belonging-card.is-expanded p {
+        max-height: 150px;
+        opacity: 1;
+        margin-top: 8px;
+        font-size: 0.8rem; /* スマホ用に詳細文字を少し小さく */
+        line-height: 1.4;
+        transition: max-height 0.3s cubic-bezier(0.9, 0, 0.1, 1), opacity 0.3s ease, margin 0.3s ease;
     }
 }

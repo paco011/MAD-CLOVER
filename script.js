@@ -422,13 +422,24 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
         
-        window.addEventListener('click', (e) => {
-            if (e.target === confirmModal) {
-                closeConfirmModal();
-            } else if (e.target === successModal) {
-                successModal.style.display = 'none';
-                document.body.style.overflow = '';
+       window.addEventListener('click', (e) => {
+        if (e.target === confirmModal) {
+            closeConfirmModal();
+        } else if (e.target === successModal) {
+            successModal.style.display = 'none';
+            document.body.style.overflow = '';
+        }
+    });
+
+    // ★ ここに追加しました！（スケジュールと持ち物のタップ開閉制御）
+    const interactiveElements = document.querySelectorAll('.timeline-item, .belonging-card');
+    interactiveElements.forEach(el => {
+        el.addEventListener('click', () => {
+            if (window.innerWidth <= 768) {
+                el.classList.toggle('is-expanded');
             }
         });
-    }
-});
+    });
+
+} // 元の 433 行目のカッコ
+}); // 元の 434 行目のカッコ
