@@ -217,7 +217,6 @@ document.addEventListener('DOMContentLoaded', () => {
         { id: 'address', confirmId: 'confirm-address', label: 'お住まい' },
         { id: 'occupation', confirmId: 'confirm-occupation', label: 'ご職業' },
         { id: 'experience', confirmId: 'confirm-experience', label: '競技歴' },
-        { id: 'exercise', confirmId: 'confirm-exercise', label: '最近の運動状況' },
         { id: 'start_date', confirmId: 'confirm-start-date', label: '参加希望日時' },
         { id: 'message', confirmId: 'confirm-message', label: 'メッセージ' }
     ];

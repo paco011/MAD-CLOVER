@@ -347,64 +347,61 @@
                                 <input type="hidden" name="subject" value="【MAD CLOVER】ホームページから体験・参加申し込み">
                                 <input type="hidden" name="from_name" value="MAD CLOVER 公式ホームページ">
                                 
-                                <div class="form-group">
-                                    <label for="name">お名前（ふりがな）</label>
-               　                     <input type="text" id="name" name="name" required placeholder="山田 太郎（やまだ たろう）">
-                                </div>
+                               <!-- index.html のフォーム部分差し替え用 -->
+<div class="form-group">
+    <label for="name">お名前（ニックネーム・イニシャル可）</label>
+    <input type="text" id="name" name="name" required placeholder="例：マック、Y.T、山田など">
+</div>
 
-                                <!-- ↓↓↓メールアドレス欄をここに追加↓↓↓ -->
 <div class="form-group">
     <label for="email">メールアドレス（連絡先）</label>
     <input type="email" id="email" name="email" required placeholder="example@example.com">
 </div>
-                                
-                                <div class="form-grid-2">
-                                    <div class="form-group">
-                                        <label for="age">ご年齢</label>
-                                        <input type="number" id="age" name="age" required placeholder="25" min="15" max="100">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="gender">性別</label>
-                                        <select id="gender" name="gender" required>
-                                            <option value="" disabled selected>選択してください</option>
-                                            <option value="男性">男性</option>
-                                            <option value="女性（プレイヤー）">女性（プレイヤー）</option>
-                                            <option value="女性（マネージャー希望）">女性（マネージャー希望）</option>
-                                            <option value="その他">その他</option>
-                                        </select>
-                                    </div>
-                                </div>
 
-                                <div class="form-grid-2">
-                                    <div class="form-group">
-                                        <label for="address">お住まい</label>
-                                        <input type="text" id="address" name="address" required placeholder="例：ふじみ野市、志木市">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="occupation">ご職業</label>
-                                        <input type="text" id="occupation" name="occupation" required placeholder="例：会社員、公務員">
-                                    </div>
-                                </div>
+<div class="form-grid-2">
+    <div class="form-group">
+        <label for="age">ご年齢（任意）</label>
+        <input type="number" id="age" name="age" placeholder="例：25" min="15" max="100">
+    </div>
+    <div class="form-group">
+        <label for="gender">性別</label>
+        <select id="gender" name="gender" required>
+            <option value="" disabled selected>選択してください</option>
+            <option value="男性">男性</option>
+            <option value="女性（プレイヤー）">女性（プレイヤー）</option>
+            <option value="女性（マネージャー希望）">女性（マネージャー希望）</option>
+            <option value="その他">その他</option>
+        </select>
+    </div>
+</div>
 
-                                <div class="form-group">
-                                    <label for="experience">競技歴</label>
-                                    <input type="text" id="experience" name="experience" required placeholder="例：バスケ中学3年、テニス高校3年、初心者など">
-                                </div>
+<div class="form-grid-2">
+    <div class="form-group">
+        <label for="address">お住まい（任意）</label>
+        <input type="text" id="address" name="address" placeholder="例：ふじみ野市、志木市">
+    </div>
+    <div class="form-group">
+        <label for="occupation">ご職業（任意）</label>
+        <input type="text" id="occupation" name="occupation" placeholder="例：会社員、公務員">
+    </div>
+</div>
 
-                                <div class="form-group">
-                                    <label for="exercise">最近の運動状況</label>
-                                    <input type="text" id="exercise" name="exercise" required placeholder="例：全くしていない、週1回ランニングなど">
-                                </div>
+<div class="form-group">
+    <label for="experience">競技歴</label>
+    <input type="text" id="experience" name="experience" required placeholder="例：バスケ中学3年、テニス高校3年、初心者など">
+</div>
 
-                                <div class="form-group">
-                                    <label for="start_date">参加開始希望日時</label>
-                                    <input type="text" id="start_date" name="start_date" required placeholder="例：なるべく早く、1ヶ月後からなど">
-                                </div>
+<!-- 「最近の運動状況」は削除しました -->
 
-                                <div class="form-group">
-                                    <label for="message">メッセージ・質問など（任意）</label>
-                                    <textarea id="message" name="message" rows="2" placeholder="質問などがあればご記入ください。"></textarea>
-                                </div>
+<div class="form-group">
+    <label for="start_date">参加開始希望日時（任意）</label>
+    <input type="text" id="start_date" name="start_date" placeholder="例：なるべく早く、1ヶ月後からなど">
+</div>
+
+<div class="form-group">
+    <label for="message">メッセージ・質問など（任意）</label>
+    <textarea id="message" name="message" rows="2" placeholder="質問などがあればご記入ください。"></textarea>
+</div>
 
                                 <button type="submit" class="btn-submit">応募内容を送信する</button>
                             </form>
@@ -540,10 +537,6 @@
                             <tr>
                                 <th>競技歴</th>
                                 <td id="confirm-experience"></td>
-                            </tr>
-                            <tr>
-                                <th>最近の運動状況</th>
-                                <td id="confirm-exercise"></td>
                             </tr>
                             <tr>
                                 <th>参加希望日時</th>
