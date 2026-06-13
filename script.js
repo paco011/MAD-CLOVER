@@ -441,6 +441,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 container.classList.toggle('is-expanded');
             }
         });
+        // --- スマホ・PC共通：応募フォームカードの展開（スライド）制御 ---
+    const btnOpenForm = document.getElementById('btn-open-form');
+    const formCtaContainer = document.getElementById('form-cta-container');
+    const formExpandContainer = document.getElementById('form-expand-container');
+
+    if (btnOpenForm && formCtaContainer && formExpandContainer) {
+        btnOpenForm.addEventListener('click', () => {
+            // CTAボタンエリアを非表示にし、フォームエリアを滑らかに展開する
+            formCtaContainer.style.maxHeight = '0';
+            formCtaContainer.style.opacity = '0';
+            formCtaContainer.style.overflow = 'hidden';
+            formCtaContainer.style.marginBottom = '0';
+
+            formExpandContainer.style.maxHeight = '1500px'; // フォーム全体が収まる高さ
+            formExpandContainer.style.opacity = '1';
+        });
+    }
     });
 
 } // 元の 433 行目のカッコ
