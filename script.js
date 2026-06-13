@@ -209,11 +209,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnModalSubmit = document.getElementById('btn-modal-submit');
     const btnModalCloseOk = document.getElementById('btn-modal-close-ok');
     
+// script.js 内の formFields（性別と年齢の順番入れ替え後）
     const formFields = [
         { id: 'name', confirmId: 'confirm-name', label: 'お名前' },
         { id: 'email', confirmId: 'confirm-email', label: 'メールアドレス' },
-        { id: 'age', confirmId: 'confirm-age', label: 'ご年齢', suffix: '歳' },
-        { id: 'gender', confirmId: 'confirm-gender', label: '性別' },
+        { id: 'gender', confirmId: 'confirm-gender', label: '性別' }, // ★ 上に移動
+        { id: 'age', confirmId: 'confirm-age', label: 'ご年齢', suffix: '歳' }, // ★ 下に移動
         { id: 'address', confirmId: 'confirm-address', label: 'お住まい' },
         { id: 'occupation', confirmId: 'confirm-occupation', label: 'ご職業' },
         { id: 'experience', confirmId: 'confirm-experience', label: '競技歴' },

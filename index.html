@@ -361,22 +361,25 @@
                                 <input type="email" id="email" name="email" required placeholder="example@example.com">
                             </div>
                             
-                            <div class="form-grid-2">
-                                <div class="form-group">
-                                    <label for="age">ご年齢（任意）</label>
-                                    <input type="number" id="age" name="age" placeholder="例：25" min="15" max="100">
-                                </div>
-                                <div class="form-group">
-                                    <label for="gender">性別</label>
-                                    <select id="gender" name="gender" required>
-                                        <option value="" disabled selected>選択してください</option>
-                                        <option value="男性">男性</option>
-                                        <option value="女性（プレイヤー）">女性（プレイヤー）</option>
-                                        <option value="女性（マネージャー希望）">女性（マネージャー希望）</option>
-                                        <option value="その他">その他</option>
-                                    </select>
-                                </div>
-                            </div>
+                           <!-- index.html 入力フォーム部分（性別と年齢の入れ替え後） -->
+<div class="form-grid-2">
+    <!-- 性別を左（先）に配置します -->
+    <div class="form-group">
+        <label for="gender">性別</label>
+        <select id="gender" name="gender" required>
+            <option value="" disabled selected>選択してください</option>
+            <option value="男性">男性</option>
+            <option value="女性（プレイヤー）">女性（プレイヤー）</option>
+            <option value="女性（マネージャー希望）">女性（マネージャー希望）</option>
+            <option value="その他">その他</option>
+        </select>
+    </div>
+    <!-- 年齢を右（後）に配置します -->
+    <div class="form-group">
+        <label for="age">ご年齢（任意）</label>
+        <input type="number" id="age" name="age" placeholder="例：25" min="15" max="100">
+    </div>
+</div>
 
                             <div class="form-grid-2">
                                 <div class="form-group">
@@ -512,27 +515,28 @@
                 <div class="confirm-table-container">
                     <table class="confirm-table">
                         <tbody>
-                            <tr>
-                                <th>お名前</th>
-                                <td id="confirm-name"></td>
-                            </tr>
-                              <!-- ↓↓↓確認テーブルにメールアドレスの行を追加↓↓↓ -->
-        <tr>
-            <th>メールアドレス</th>
-            <td id="confirm-email"></td>
-        </tr>
-                            <tr>
-                                <th>ご年齢</th>
-                                <td id="confirm-age"></td>
-                            </tr>
-                            <tr>
-                                <th>性別</th>
-                                <td id="confirm-gender"></td>
-                            </tr>
-                            <tr>
-                                <th>お住まい</th>
-                                <td id="confirm-address"></td>
-                            </tr>
+                            <!-- index.html 確認モーダル内テーブル（入れ替え後） -->
+<tr>
+    <th>お名前</th>
+    <td id="confirm-name"></td>
+</tr>
+<tr>
+    <th>メールアドレス</th>
+    <td id="confirm-email"></td>
+</tr>
+<!-- 性別を上、ご年齢を下に並べ替えました -->
+<tr>
+    <th>性別</th>
+    <td id="confirm-gender"></td>
+</tr>
+<tr>
+    <th>ご年齢</th>
+    <td id="confirm-age"></td>
+</tr>
+<tr>
+    <th>お住まい</th>
+    <td id="confirm-address"></td>
+</tr>
                             <tr>
                                 <th>ご職業</th>
                                 <td id="confirm-occupation"></td>
