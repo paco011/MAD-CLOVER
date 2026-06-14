@@ -209,15 +209,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnModalSubmit = document.getElementById('btn-modal-submit');
     const btnModalCloseOk = document.getElementById('btn-modal-close-ok');
     
-// script.js 内の formFields（性別と年齢の順番入れ替え後）
+// script.js 内の formFields（新：全6項目の統合スリム版）
     const formFields = [
         { id: 'name', confirmId: 'confirm-name', label: 'お名前' },
         { id: 'email', confirmId: 'confirm-email', label: 'メールアドレス' },
-        { id: 'gender', confirmId: 'confirm-gender', label: '性別' }, // ★ 上に移動
-        { id: 'age', confirmId: 'confirm-age', label: 'ご年齢', suffix: '歳' }, // ★ 下に移動
-        { id: 'address', confirmId: 'confirm-address', label: 'お住まい' },
-        { id: 'occupation', confirmId: 'confirm-occupation', label: 'ご職業' },
-        { id: 'experience', confirmId: 'confirm-experience', label: '競技歴' },
+        { id: 'gender', confirmId: 'confirm-gender', label: '性別' },
+        { id: 'profile', confirmId: 'confirm-profile', label: '年齢・住まい・職業等' }, // ★ 新統合項目
         { id: 'start_date', confirmId: 'confirm-start-date', label: '参加希望日時' },
         { id: 'message', confirmId: 'confirm-message', label: 'メッセージ' }
     ];
