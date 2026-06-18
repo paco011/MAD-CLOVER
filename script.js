@@ -458,10 +458,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     });
 
-    // --- プライバシーポリシーモーダルの開閉制御 ---
+   // --- プライバシーポリシーモーダルの開閉制御（フッター整理後） ---
     const privacyModal = document.getElementById('privacy-modal');
     const linkPrivacyInline = document.getElementById('link-privacy-inline');
-    const linkPrivacyFooter = document.getElementById('link-privacy-footer');
+    // ★ linkPrivacyFooter の変数定義を削除しました
     const btnClosePrivacy = document.getElementById('btn-close-privacy');
     const btnPrivacyOk = document.getElementById('btn-privacy-ok');
 
@@ -476,7 +476,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         if (linkPrivacyInline) linkPrivacyInline.addEventListener('click', openPrivacy);
-        if (linkPrivacyFooter) linkPrivacyFooter.addEventListener('click', openPrivacy);
+        // ★ linkPrivacyFooter のイベントリスナーを削除しました
         if (btnClosePrivacy) btnClosePrivacy.addEventListener('click', closePrivacy);
         if (btnPrivacyOk) btnPrivacyOk.addEventListener('click', closePrivacy);
 
