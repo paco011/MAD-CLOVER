@@ -627,11 +627,11 @@ footer {
 
 .footer-content {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column; /* ★ 縦一列に並べます */
+    align-items: center;    /* ★ 中央に寄せます */
+    text-align: center;     /* ★ 文字も中央揃えにします */
     margin-bottom: 64px;
-    flex-wrap: wrap;
-    gap: 32px;
+    gap: 32px;              /* ロゴとリンクの縦の間隔 */
 }
 
 .footer-logo h2 {
@@ -648,6 +648,8 @@ footer {
 .footer-links {
     display: flex;
     gap: 32px;
+    justify-content: center; /* ★ リンクの並びも中央寄せにします */
+    flex-wrap: wrap;
 }
 
 .footer-links a {
