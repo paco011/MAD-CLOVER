@@ -9,7 +9,7 @@ const INACTIVE_DATES = [
 ];
 
 // 表示する土曜日の件数（標準は8週分）
-const DISPLAY_SCHEDULE_COUNT = 9;
+const DISPLAY_SCHEDULE_COUNT = 6;
 
 
 // ==========================================================================
