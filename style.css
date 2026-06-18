@@ -740,8 +740,7 @@ footer {
 /* Activity Details (Timeline & Things to Bring) */
 .activity-details-grid {
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 48px;
+    grid-template-columns: 1fr 1fr; /* ★修正後：左右「5対5」の完全均等に変更 */    gap: 48px;
     margin-top: 80px;
 }
 
