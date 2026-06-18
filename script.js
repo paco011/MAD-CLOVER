@@ -209,12 +209,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnModalSubmit = document.getElementById('btn-modal-submit');
     const btnModalCloseOk = document.getElementById('btn-modal-close-ok');
     
-// script.js 内の formFields（新：全6項目の統合スリム版）
+// script.js 内の formFields（年齢復活＆お住まい・ご職業ラベル修正版）
     const formFields = [
         { id: 'name', confirmId: 'confirm-name', label: 'お名前' },
         { id: 'email', confirmId: 'confirm-email', label: 'メールアドレス' },
         { id: 'gender', confirmId: 'confirm-gender', label: '性別' },
-        { id: 'profile', confirmId: 'confirm-profile', label: '年齢・住まい・職業等' }, // ★ 新統合項目
+        { id: 'age', confirmId: 'confirm-age', label: 'ご年齢' }, // ★ ageを復活
+        { id: 'profile', confirmId: 'confirm-profile', label: 'お住まい・ご職業等' }, // ★ ラベルを修正
         { id: 'start_date', confirmId: 'confirm-start-date', label: '参加希望日時' },
         { id: 'message', confirmId: 'confirm-message', label: 'メッセージ' }
     ];

@@ -354,7 +354,7 @@
                             <input type="hidden" name="from_name" value="MAD CLOVER 公式ホームページ">
                             <input type="hidden" name="プライバシーポリシーへの合意" value="送信時に合意済み（2026/06/14公開版）">
                             
-                            <!-- index.html のフォーム部分差し替え用 -->
+                           <!-- index.html のフォーム部分差し替え用 -->
 <div class="form-group">
     <label for="name">お名前（ニックネーム・イニシャル可）</label>
     <input type="text" id="name" name="name" required placeholder="例：マック、Y.T、山田など">
@@ -365,25 +365,36 @@
     <input type="email" id="email" name="email" required placeholder="example@example.com">
 </div>
 
-<!-- 性別を1行でスッキリ表示させます -->
-<div class="form-group">
-    <label for="gender">性別</label>
-    <select id="gender" name="gender" required>
-        <option value="" disabled selected>選択してください</option>
-        <option value="男性">男性</option>
-        <option value="女性（プレイヤー）">女性（プレイヤー）</option>
-        <option value="女性（マネージャー希望）">女性（マネージャー希望）</option>
-        <option value="その他">その他</option>
-    </select>
+<!-- 性別とご年齢（プルダウン）を2列でスッキリ並べます -->
+<div class="form-grid-2">
+    <div class="form-group">
+        <label for="gender">性別</label>
+        <select id="gender" name="gender" required>
+            <option value="" disabled selected>選択してください</option>
+            <option value="男性">男性</option>
+            <option value="女性（プレイヤー）">女性（プレイヤー）</option>
+            <option value="女性（マネージャー希望）">女性（マネージャー希望）</option>
+            <option value="その他">その他</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="age">ご年齢</label>
+        <select id="age" name="age" required>
+            <option value="" disabled selected>選択してください</option>
+            <option value="20代">20代</option>
+            <option value="30代">30代</option>
+            <option value="40代">40代</option>
+            <option value="50代">50代</option>
+            <option value="60代">60代</option>
+        </select>
+    </div>
 </div>
 
-<!-- 年齢・住まい・職業を1つに統合した新しい記述欄です -->
+<!-- 年齢が抜けたため、お住まい・ご職業（任意）に変更しました -->
 <div class="form-group">
-    <label for="profile">ご年齢・お住まい・ご職業など（任意）</label>
-    <input type="text" id="profile" name="profile" placeholder="例：25歳、ふじみ野、会社員など">
+    <label for="profile">お住まい・ご職業（任意）</label>
+    <input type="text" id="profile" name="profile" placeholder="例：ふじみ野、会社員など">
 </div>
-
-<!-- 「競技歴」および「最近の運動状況」は完全に削除されました -->
 
 <div class="form-group">
     <label for="start_date">参加開始希望日時（任意）</label>
@@ -502,7 +513,7 @@
             <div class="modal-body">
                 <p>ご入力いただいた内容をご確認ください。よろしければ「送信する」ボタンを押してください。</p>
                 <div class="confirm-table-container">
-                    <!-- index.html 確認モーダル内テーブル（変更後） -->
+                   <!-- index.html 確認モーダル内テーブル（変更後） -->
 <table class="confirm-table">
     <tbody>
         <tr>
@@ -517,9 +528,13 @@
             <th>性別</th>
             <td id="confirm-gender"></td>
         </tr>
-        <!-- ★ 年齢・住まい・職業を1つの行にマージしました -->
+        <!-- ★ ご年齢行を復活させ、お住まい・ご職業を統合した表示にします -->
         <tr>
-            <th>年齢・住まい・職業等</th>
+            <th>ご年齢</th>
+            <td id="confirm-age"></td>
+        </tr>
+        <tr>
+            <th>お住まい・ご職業等</th>
             <td id="confirm-profile"></td>
         </tr>
         <tr>
