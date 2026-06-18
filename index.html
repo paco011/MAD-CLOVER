@@ -26,22 +26,28 @@
 <meta property="twitter:description" content="埼玉県ふじみ野周辺を拠点に活動する社会人バスケットボールチーム「MAD CLOVER」の公式ホームページです。現在、メンバーおよび女性マネージャーを募集中！">
 <meta property="twitter:image" content="https://paco011.github.io/MAD-CLOVER/logo.png">
 
-<!-- Structured Data (JSON-LD) -->
+<!-- index.html 構造化データの地域拡張版（30行目〜56行目あたり） -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "SportsTeam",
   "name": "MAD CLOVER",
   "sport": "Basketball",
-  "description": "埼玉県ふじみ野周辺を拠点に活動する社会人・男女MIXのバスケットボールチームです。メンバー・マネージャー募集中！",
-  <!-- ★構造化データ内のURLも変更 -->
+  "description": "埼玉県ふじみ野市、富士見市、三芳町、川越市、志木市、新座市、さいたま市周辺を拠点に活動する社会人・男女MIXのバスケットボールチームです。メンバー・マネージャー募集中！",
   "url": "https://paco011.github.io/MAD-CLOVER/",
   "image": "https://paco011.github.io/MAD-CLOVER/logo.png",
   "foundingDate": "2016",
-  "areaServed": {
-    "@type": "AdministrativeArea",
-    "name": "埼玉県ふじみ野"
-  },
+  <!-- ★ 対象地域（areaServed）を近隣市町村に一挙拡張しました -->
+  "areaServed": [
+    { "@type": "AdministrativeArea", "name": "ふじみ野市" },
+    { "@type": "AdministrativeArea", "name": "富士見市" },
+    { "@type": "AdministrativeArea", "name": "三芳町" },
+    { "@type": "AdministrativeArea", "name": "川越市" },
+    { "@type": "AdministrativeArea", "name": "志木市" },
+    { "@type": "AdministrativeArea", "name": "新座市" },
+    { "@type": "AdministrativeArea", "name": "さいたま市" },
+    { "@type": "AdministrativeArea", "name": "埼玉県" }
+  ],
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "ふじみ野",
@@ -112,8 +118,7 @@
             <div class="container">
                 <div class="section-header">
                     <!-- ★ 見出しに隠しSEOキーワードを仕込みました -->
-                    <h2 class="section-title">About Us <span class="sr-only">（ふじみ野の社会人バスケチーム紹介）</span></h2>
-                    <p class="section-subtitle">MAD CLOVER について</p>
+<h2 class="section-title">About Us <span class="sr-only">（ふじみ野、富士見、三芳、川越、志木、新座、さいたま周辺の社会人バスケチーム紹介）</span></h2>                    <p class="section-subtitle">MAD CLOVER について</p>
                 </div>
                 <div class="about-grid">
                     <div class="about-text slide-in-left">
