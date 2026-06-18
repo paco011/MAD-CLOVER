@@ -419,10 +419,8 @@ header.scrolled .nav-menu a:not(.btn-primary):hover {
 .about-logo-img {
     width: 150px;
     height: 150px;
-    border-radius: 50%;
-    box-shadow: 0 0 0 2px #fff, 0 0 0 6px var(--clr-blue);
     object-fit: contain;
-    background: var(--clr-white);
+    /* 丸枠線、丸い白背景、影をすべて削除してスマートに透過させます */
 }
 
 .card-info h4 {
