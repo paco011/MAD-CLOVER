@@ -386,6 +386,9 @@
 </div>
 
                             <button type="submit" class="btn-submit">確認画面へ進む</button>
+                            <p class="form-privacy-note" style="font-size: 0.75rem; color: var(--clr-text-light); text-align: center; margin-top: 14px; line-height: 1.4;">
+    ※「確認画面へ進む」を押すことで、当チームの<a href="javascript:void(0)" id="link-privacy-inline" style="color: var(--clr-blue); text-decoration: underline; font-weight: 700;">プライバシーポリシー（免責事項）</a>に同意したものとみなされます。
+</p>
                         </form>
                     </div>
 
@@ -471,9 +474,10 @@
                     <a href="#faq">FAQ</a>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 MAD CLOVER. All rights reserved.</p>
-            </div>
+            <!-- フッター部分（変更後） -->
+<div class="footer-bottom">
+    <p>&copy; 2026 MAD CLOVER. All rights reserved. | <a href="javascript:void(0)" id="link-privacy-footer" style="color: inherit; text-decoration: underline;">プライバシーポリシー</a></p>
+</div>
         </div>
     </footer>
 
@@ -533,6 +537,34 @@
             <h3>送信完了しました！</h3>
             <p>体験・参加の申し込みを受け付けました。ご入力いただいた内容を確認し、担当者より折り返しメールにてご連絡差し上げます。今しばらくお待ちください。</p>
             <button type="button" class="btn-modal-close" id="btn-modal-close-ok">閉じる</button>
+        </div>
+    </div>
+
+    <!-- Privacy Policy Modal -->
+    <div id="privacy-modal" class="modal-overlay">
+        <div class="modal-content" style="max-width: 500px;">
+            <div class="modal-header">
+                <h3>プライバシーポリシー（免責事項）</h3>
+                <button type="button" class="modal-close-btn" id="btn-close-privacy">&times;</button>
+            </div>
+            <div class="modal-body" style="font-size: 0.85rem; line-height: 1.6; color: var(--clr-text); text-align: left;">
+                <p style="font-weight: 700; margin-bottom: 12px;">当チーム「MAD CLOVER」における個人情報の取り扱い規定および免責事項は以下の通りです。</p>
+                
+                <h4 style="font-weight: 700; margin-top: 16px; margin-bottom: 4px; color: var(--clr-blue);">1. 個人情報の利用目的</h4>
+                <p style="margin-bottom: 12px;">ご提供いただいたお名前、メールアドレス等の情報は、体験参加の手続きおよびお問い合わせに対する返信目的のみに利用いたします。</p>
+                
+                <h4 style="font-weight: 700; margin-top: 16px; margin-bottom: 4px; color: var(--clr-blue);">2. 第三者提供の禁止</h4>
+                <p style="margin-bottom: 12px;">取得した個人情報を、ご本人の同意を得ることなく第三者に開示・提供することはいたしません。</p>
+                
+                <h4 style="font-weight: 700; margin-top: 16px; margin-bottom: 4px; color: var(--clr-blue);">3. 安全管理とAPI利用</h4>
+                <p style="margin-bottom: 12px;">個人情報の漏洩を防ぐため適切な管理を行います。なお、本フォームは安全な送信のため外部システム（Web3Forms）を介してデータを安全に処理しています。</p>
+                
+                <h4 style="font-weight: 700; margin-top: 16px; margin-bottom: 4px; color: var(--clr-blue);">4. 免責事項</h4>
+                <p style="margin-bottom: 12px;">開発者および当チームは、システム上の不可抗力（ハッキング、不正アクセス、利用している外部サーバーの不具合等）に起因する個人情報の不利益について、一切の責任を負いかねます。あらかじめご了承の上ご送信ください。</p>
+            </div>
+            <div class="modal-footer" style="grid-template-columns: 1fr; padding: 12px 24px;">
+                <button type="button" class="btn-modal-submit" id="btn-privacy-ok" style="background: var(--gradient-primary); width: 100%;">確認しました</button>
+            </div>
         </div>
     </div>
 

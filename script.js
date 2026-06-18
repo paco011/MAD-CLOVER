@@ -458,5 +458,34 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     });
 
+    // --- プライバシーポリシーモーダルの開閉制御 ---
+    const privacyModal = document.getElementById('privacy-modal');
+    const linkPrivacyInline = document.getElementById('link-privacy-inline');
+    const linkPrivacyFooter = document.getElementById('link-privacy-footer');
+    const btnClosePrivacy = document.getElementById('btn-close-privacy');
+    const btnPrivacyOk = document.getElementById('btn-privacy-ok');
+
+    if (privacyModal) {
+        const openPrivacy = () => {
+            privacyModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        };
+        const closePrivacy = () => {
+            privacyModal.style.display = 'none';
+            document.body.style.overflow = '';
+        };
+
+        if (linkPrivacyInline) linkPrivacyInline.addEventListener('click', openPrivacy);
+        if (linkPrivacyFooter) linkPrivacyFooter.addEventListener('click', openPrivacy);
+        if (btnClosePrivacy) btnClosePrivacy.addEventListener('click', closePrivacy);
+        if (btnPrivacyOk) btnPrivacyOk.addEventListener('click', closePrivacy);
+
+        window.addEventListener('click', (e) => {
+            if (e.target === privacyModal) {
+                closePrivacy();
+            }
+        });
+    }
+
 } // 元の 433 行目のカッコ
 }); // 元の 434 行目のカッコ
