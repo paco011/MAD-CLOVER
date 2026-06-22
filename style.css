@@ -1620,3 +1620,53 @@ footer {
         transform: translateY(0) !important;
     }
 }
+
+/* ==========================================================================
+   FAQセクション全体の一括開閉（アコーディオン）- 全デバイス共通
+   ========================================================================== */
+.faq .section-header {
+    cursor: pointer;
+    user-select: none;
+    transition: color 0.2s ease;
+    display: inline-block;
+    width: 100%;
+}
+
+.faq .section-header:hover {
+    color: var(--clr-blue);
+}
+
+.faq .section-header:active {
+    color: var(--clr-red);
+}
+
+/* セクションタイトルに開閉のプラス・マイナスマークを追加 */
+.faq .section-header .section-title::after {
+    content: ' ＋';
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--clr-blue);
+    transition: transform 0.2s ease;
+}
+
+/* 開いた（is-expandedクラスがついた）時はマイナスマークにする */
+.faq.is-expanded .section-header .section-title::after {
+    content: ' －';
+}
+
+/* FAQカードコンテナ全体の開閉制御 */
+.faq-accordion-container {
+    max-height: 0;       /* 初期状態は非表示 */
+    opacity: 0;
+    overflow: hidden;
+    margin-top: 0;
+    transition: max-height 0.6s cubic-bezier(0, 1, 0, 1), opacity 0.3s ease, margin-top 0.4s ease;
+}
+
+/* 開いた時 */
+.faq.is-expanded .faq-accordion-container {
+    max-height: 1500px;  /* 質問カード4枚が余裕で収まる高さ */
+    opacity: 1;
+    margin-top: 64px;    /* タイトルとの余白 */
+    transition: max-height 0.6s cubic-bezier(0.9, 0, 0.1, 1), opacity 0.3s ease, margin-top 0.4s ease;
+}

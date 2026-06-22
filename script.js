@@ -488,5 +488,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+// --- FAQセクション全体の開閉（アコーディオン）制御（全デバイス対応） ---
+    const faqSection = document.getElementById('faq');
+    if (faqSection) {
+        const faqHeader = faqSection.querySelector('.section-header');
+        if (faqHeader) {
+            faqHeader.addEventListener('click', () => {
+                faqSection.classList.toggle('is-expanded');
+            });
+        }
+    }
 } // 元の 433 行目のカッコ
 }); // 元の 434 行目のカッコ
