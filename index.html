@@ -330,8 +330,7 @@
             <div class="recruit-action slide-in-right">
                 <div class="contact-form-card" id="contact">
                     <!-- 初期表示：スマートな入り口 -->
-                    <div id="form-cta-container" style="text-align: center;">
-                        <span style="font-size: 2.5rem; color: var(--clr-blue); display: inline-block; margin-bottom: 16px;"><i class="ph ph-envelope-open"></i></span>
+<div id="form-cta-container" style="text-align: center; transition: max-height 0.6s cubic-bezier(0.9, 0, 0.1, 1), opacity 0.4s ease, margin 0.4s ease;">                        <span style="font-size: 2.5rem; color: var(--clr-blue); display: inline-block; margin-bottom: 16px;"><i class="ph ph-envelope-open"></i></span>
                         <h3 style="font-size: 1.5rem; margin-bottom: 12px; font-weight: 800;">体験・参加を申し込む</h3>
                         <p style="color: var(--clr-text-light); font-size: 0.9rem; margin-bottom: 24px; line-height: 1.5;">
                             ニックネームや質問だけの簡単なご連絡でも大歓迎です。<br>まずはお気軽にお問い合わせください。
@@ -404,6 +403,10 @@
 </div>
 
                             <button type="submit" class="btn-submit">確認画面へ進む</button>
+                            <!-- ★ 追加：フォームを閉じて元の案内画面に戻るためのリンク -->
+<p style="text-align: center; margin-top: 16px; font-size: 0.85rem;">
+    <a href="javascript:void(0)" id="btn-close-form" style="color: var(--clr-text-light); text-decoration: underline; font-weight: 500;">申し込みフォームを閉じる</a>
+</p>
                             <p class="form-privacy-note" style="font-size: 0.75rem; color: var(--clr-text-light); text-align: center; margin-top: 14px; line-height: 1.4;">
     ※「確認画面へ進む」を押すことで、当チームの<a href="javascript:void(0)" id="link-privacy-inline" style="color: var(--clr-blue); text-decoration: underline; font-weight: 700;">プライバシーポリシー（免責事項）</a>に同意したものとみなされます。
 </p>

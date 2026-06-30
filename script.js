@@ -440,21 +440,33 @@ document.addEventListener('DOMContentLoaded', () => {
                 container.classList.toggle('is-expanded');
             }
         });
-        // --- スマホ・PC共通：応募フォームカードの展開（スライド）制御 ---
+       // --- スマホ・PC共通：応募フォームカードの双方向開閉（スライド）制御 ---
     const btnOpenForm = document.getElementById('btn-open-form');
+    const btnCloseForm = document.getElementById('btn-close-form'); // ★ 閉じるボタンを取得
     const formCtaContainer = document.getElementById('form-cta-container');
     const formExpandContainer = document.getElementById('form-expand-container');
 
-    if (btnOpenForm && formCtaContainer && formExpandContainer) {
+    if (btnOpenForm && btnCloseForm && formCtaContainer && formExpandContainer) {
+        // ① フォームを開く動作
         btnOpenForm.addEventListener('click', () => {
-            // CTAボタンエリアを非表示にし、フォームエリアを滑らかに展開する
             formCtaContainer.style.maxHeight = '0';
             formCtaContainer.style.opacity = '0';
             formCtaContainer.style.overflow = 'hidden';
             formCtaContainer.style.marginBottom = '0';
 
-            formExpandContainer.style.maxHeight = '1500px'; // フォーム全体が収まる高さ
+            formExpandContainer.style.maxHeight = '1500px'; /* フォーム全体が収まる高さ */
             formExpandContainer.style.opacity = '1';
+        });
+
+        // ② フォームを閉じて元の案内画面に戻す動作
+        btnCloseForm.addEventListener('click', () => {
+            formExpandContainer.style.maxHeight = '0';
+            formExpandContainer.style.opacity = '0';
+
+            // 元の案内画面（CTA）を滑らかに再表示します
+            formCtaContainer.style.maxHeight = '500px'; /* 元のコンテンツの最大高さ */
+            formCtaContainer.style.opacity = '1';
+            formCtaContainer.style.marginBottom = ''; /* デフォルト値に戻す */
         });
     }
     });
