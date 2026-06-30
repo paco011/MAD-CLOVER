@@ -42,8 +42,7 @@ html {
 }
 
 body {
-    font-family: 'Inter', 'Noto Sans JP', sans-serif;
-    background-color: var(--clr-bg);
+    font-family: 'Inter', 'BIZ UDPGothic', sans-serif; /* ★ BIZ UDPゴシックに変更します */    background-color: var(--clr-bg);
     color: var(--clr-text);
     line-height: 1.6;
     overflow-x: hidden;
