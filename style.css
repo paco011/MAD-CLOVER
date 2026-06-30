@@ -295,12 +295,13 @@ header.scrolled .nav-menu a:not(.btn-primary):hover {
 
 .hero-title {
     font-size: 5rem;
-    font-weight: 800;
+    font-weight: 700;       /* ★ 800から700へしなやかに */
     line-height: 1.1;
     margin-bottom: 24px;
     color: var(--clr-blue);
     display: flex;
     flex-direction: column;
+    letter-spacing: 0.03em; /* ★ わずかに文字の間隔を開けてエレガントに */
 }
 
 .hero-subtitle {
@@ -420,9 +421,10 @@ header.scrolled .nav-menu a:not(.btn-primary):hover {
 }
 
 .card-info h4 {
-    font-size: 1.5rem;
+    font-size: 1.3rem;      /* ★ 1.5から1.3へ、一回りスマートに */
     color: var(--clr-blue);
-    font-weight: 800;
+    font-weight: 700;       /* ★ 700へ落とします */
+    letter-spacing: 0.12em; /* ★ 文字間隔を広げてロゴとしての美しさを最大化 */
 }
 
 .card-info p {
@@ -631,9 +633,10 @@ footer {
 }
 
 .footer-logo h2 {
-    font-size: 2rem;
-    font-weight: 800;
+    font-size: 1.8rem;      /* ★ 少しスマートに */
+    font-weight: 700;       /* ★ 700へ落とします */
     color: var(--clr-white);
+    letter-spacing: 0.12em; /* ★ 文字間隔をゆったりと広げてフッターの品格を高めます */
 }
 
 .footer-logo p {
