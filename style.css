@@ -1052,6 +1052,9 @@ footer {
     align-items: center;
     justify-content: center;
     padding: 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
     animation: fadeIn 0.3s ease;
 }
 
@@ -1059,12 +1062,12 @@ footer {
     background: var(--clr-white);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-lg);
-    width: 100%;
-    max-width: 600px;
-    max-height: 90vh;
     display: flex;
     flex-direction: column;
+    max-height: 90vh;
+    max-width: 600px;
     overflow: hidden;
+    width: 100%;
     animation: slideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -1523,10 +1526,44 @@ footer {
     display: inline-block;
 }
 
-/* 開いた（is-expanded）時 */
+/* 開いた（is-expanded）時の矢印の回転 */
 .is-expanded .details-title::after {
     transform: rotate(180deg);
     color: var(--clr-red);
+}
+
+/* ★ 復活：タイムスケジュール（タイムライン）全体の開閉制御 */
+.timeline {
+    max-height: 0;       /* 初期状態は高さを0に隠す */
+    opacity: 0;          /* 非表示 */
+    overflow: hidden;
+    padding-top: 0;
+    transition: max-height 0.5s cubic-bezier(0, 1, 0, 1), opacity 0.3s ease;
+}
+
+/* 開いた時 */
+.timeline-container.is-expanded .timeline {
+    max-height: 1200px;  /* 全体が収まる十分な高さ */
+    opacity: 1;
+    padding-top: 24px;   /* 上に余白をあける */
+    transition: max-height 0.5s cubic-bezier(0.9, 0, 0.1, 1), opacity 0.3s ease;
+}
+
+/* ★ 復活：持ち物（ビロンギングス）全体の開閉制御 */
+.belongings-grid {
+    max-height: 0;       /* 初期状態は非表示 */
+    opacity: 0;
+    overflow: hidden;
+    margin-top: 0;
+    transition: max-height 0.5s cubic-bezier(0, 1, 0, 1), opacity 0.3s ease;
+}
+
+/* 開いた時 */
+.belongings-container.is-expanded .belongings-grid {
+    max-height: 1200px;  /* 全体が収まる十分な高さ */
+    opacity: 1;
+    margin-top: 24px;
+    transition: max-height 0.5s cubic-bezier(0.9, 0, 0.1, 1), opacity 0.3s ease;
 }
 
 /* ==========================================================================
@@ -1574,54 +1611,7 @@ footer {
     border-radius: 10px;
 }
 .scroll-indicator .arrow {
-    width: 1px !important; /* スクロール誘導線を極細にして繊細な印象に */
-}
-
-/* --- 3. アコーディオン見出しを「100%左右対称」にし、矢印の回転アニメーションを実装 --- */
-.details-title,
-.faq .section-header .section-title {
-    cursor: pointer;
-    user-select: none;
-    display: flex;
-    justify-content: space-between; /* 完全に両端に配置 */
-    align-items: center;
-    width: 100%;
-    transition: color 0.25s ease;
-}
-
-/* プラス・マイナスではなく、回転する上品な「V」字アイコンに変更します */
-.details-title::after,
-.faq .section-header .section-title::after {
-    content: '↓';    /* 直感的でシンプルな下矢印記号 */
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: var(--clr-text-light);
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.25s ease;
-    margin-left: 16px;
-    display: inline-block;
-}
-
-/* セクションが開いた（is-expanded）時：矢印を「上向き（180度反転）」に滑らかに回転させます */
-.is-expanded .details-title::after,
-.faq.is-expanded .section-header .section-title::after {
-    content: '↓';
-    transform: rotate(180deg); /* 矢印をくるりと半回転させます */
-    color: var(--clr-red);      /* 開いた時は差し色（テラコッタ）にして視線を誘導 */
-}
-
-/* FAQ全体の余白の微調整 */
-.faq-accordion-container {
-    max-height: 0;
-    opacity: 0;
-    overflow: hidden;
-    margin-top: 0;
-    transition: max-height 0.6s cubic-bezier(0, 1, 0, 1), opacity 0.3s ease, margin-top 0.4s ease;
-}
-.faq.is-expanded .faq-accordion-container {
-    max-height: 1500px;
-    opacity: 1;
-    margin-top: 48px; /* 開いた時の見出しとの上品な距離 */
-    transition: max-height 0.6s cubic-bezier(0.9, 0, 0.1, 1), opacity 0.3s ease, margin-top 0.4s ease;
+    width: 1px !important; /* スクロール誘導線を極細にして繊浅な印象に */
 }
 
 /* ==========================================================================
@@ -1682,4 +1672,34 @@ footer {
     max-height: 1500px;
     opacity: 1;
     transition: max-height 0.6s cubic-bezier(0.9, 0, 0.1, 1), opacity 0.3s ease;
+}
+
+/* --- 5. スマホ表示（768px以下）での微調整（レスポンシブ用のカラム数など） --- */
+@media (max-width: 768px) {
+    .belongings-container.is-expanded .belongings-grid {
+        /* スマホ時はスッキリ見せるため2列グリッドで展開 */
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+    .belonging-card {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 16px 10px;
+        justify-items: center;
+    }
+    .belonging-card .b-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.4rem;
+        margin-bottom: 8px;
+    }
+    .belonging-card h4 {
+        font-size: 0.9rem;
+        font-weight: 700;
+    }
+    .belonging-card p {
+        font-size: 0.8rem;
+        line-height: 1.4;
+    }
 }
