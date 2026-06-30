@@ -759,7 +759,9 @@ footer {
 }
 
 .details-title i {
-    color: var(--clr-orange);
+    color: var(--clr-blue); /* 深みのある青に統一 */
+    opacity: 0.55;          /* ★ 55%に透かすことで、主張を抑えて上品に */
+    font-size: 1.4rem;      /* サイズも少しだけ小ぶりに調整 */
 }
 
 /* Timeline style */
