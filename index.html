@@ -403,12 +403,15 @@
 </div>
 
                             <button type="submit" class="btn-submit">確認画面へ進む</button>
-                            <!-- ★ 追加：フォームを閉じて元の案内画面に戻るためのリンク -->
-<p style="text-align: center; margin-top: 16px; font-size: 0.85rem;">
-    <a href="javascript:void(0)" id="btn-close-form" style="color: var(--clr-text-light); text-decoration: underline; font-weight: 500;">申し込みフォームを閉じる</a>
-</p>
-                            <p class="form-privacy-note" style="font-size: 0.75rem; color: var(--clr-text-light); text-align: center; margin-top: 14px; line-height: 1.4;">
+
+<!-- 1. 同意注釈文をボタンのすぐ直下に配置して繋げます -->
+<p class="form-privacy-note" style="font-size: 0.75rem; color: var(--clr-text-light); text-align: center; margin-top: 14px; line-height: 1.4;">
     ※「確認画面へ進む」を押すことで、当チームの<a href="javascript:void(0)" id="link-privacy-inline" style="color: var(--clr-blue); text-decoration: underline; font-weight: 700;">プライバシーポリシー（免責事項）</a>に同意したものとみなされます。
+</p>
+
+<!-- 2. キャンセル（閉じる）リンクを最下部に配置して美しく締めくくります -->
+<p style="text-align: center; margin-top: 16px; font-size: 0.85rem; margin-bottom: 0;">
+    <a href="javascript:void(0)" id="btn-close-form" style="color: var(--clr-text-light); text-decoration: underline; font-weight: 500;">申し込みフォームを閉じる</a>
 </p>
                         </form>
                     </div>
