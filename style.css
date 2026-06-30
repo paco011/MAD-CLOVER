@@ -1626,51 +1626,76 @@ footer {
 }
 
 /* ==========================================================================
-   FAQセクション全体の一括開閉（アコーディオン）- 全デバイス共通
+   全デバイス共通：最上級の美しさを引き出す「引き算」デザイン調整
    ========================================================================== */
-.faq .section-header {
+
+/* --- 1. テキスト選択時のハイライトカラーをチームカラーに変更 --- */
+::selection {
+    background-color: rgba(45, 55, 72, 0.15); /* チームのダークスレート色の薄い背景 */
+    color: var(--clr-blue);
+}
+
+/* --- 2. ブラウザのスクロールバーのカスタマイズ（極細・スタイリッシュに） --- */
+::-webkit-scrollbar {
+    width: 8px; /* スクロールバーの横幅を細くして存在感を抑えます */
+}
+::-webkit-scrollbar-track {
+    background: var(--clr-bg);
+}
+.scrolled::-webkit-scrollbar-track {
+    background: var(--clr-bg-alt);
+}
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1; /* スレートグレーの細いバー */
+    border-radius: 10px;
+}
+.scroll-indicator .arrow {
+    width: 1px !important; /* スクロール誘導線を極細にして繊細な印象に */
+}
+
+/* --- 3. アコーディオン見出しを「100%左右対称」にし、矢印の回転アニメーションを実装 --- */
+.details-title,
+.faq .section-header .section-title {
     cursor: pointer;
     user-select: none;
-    transition: color 0.2s ease;
-    display: inline-block;
+    display: flex;
+    justify-content: space-between; /* 完全に両端に配置 */
+    align-items: center;
     width: 100%;
+    transition: color 0.25s ease;
 }
 
-.faq .section-header:hover {
-    color: var(--clr-blue);
-}
-
-.faq .section-header:active {
-    color: var(--clr-red);
-}
-
-/* セクションタイトルに開閉のプラス・マイナスマークを追加 */
+/* プラス・マイナスではなく、回転する上品な「V」字アイコンに変更します */
+.details-title::after,
 .faq .section-header .section-title::after {
-    content: ' ＋';
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: var(--clr-blue);
-    transition: transform 0.2s ease;
+    content: '↓';    /* 直感的でシンプルな下矢印記号 */
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--clr-text-light);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.25s ease;
+    margin-left: 16px;
+    display: inline-block;
 }
 
-/* 開いた（is-expandedクラスがついた）時はマイナスマークにする */
+/* セクションが開いた（is-expanded）時：矢印を「上向き（180度反転）」に滑らかに回転させます */
+.is-expanded .details-title::after,
 .faq.is-expanded .section-header .section-title::after {
-    content: ' －';
+    content: '↓';
+    transform: rotate(180deg); /* 矢印をくるりと半回転させます */
+    color: var(--clr-red);      /* 開いた時は差し色（テラコッタ）にして視線を誘導 */
 }
 
-/* FAQカードコンテナ全体の開閉制御 */
+/* FAQ全体の余白の微調整 */
 .faq-accordion-container {
-    max-height: 0;       /* 初期状態は非表示 */
+    max-height: 0;
     opacity: 0;
     overflow: hidden;
     margin-top: 0;
     transition: max-height 0.6s cubic-bezier(0, 1, 0, 1), opacity 0.3s ease, margin-top 0.4s ease;
 }
-
-/* 開いた時 */
 .faq.is-expanded .faq-accordion-container {
-    max-height: 1500px;  /* 質問カード4枚が余裕で収まる高さ */
+    max-height: 1500px;
     opacity: 1;
-    margin-top: 64px;    /* タイトルとの余白 */
+    margin-top: 48px; /* 開いた時の見出しとの上品な距離 */
     transition: max-height 0.6s cubic-bezier(0.9, 0, 0.1, 1), opacity 0.3s ease, margin-top 0.4s ease;
 }
