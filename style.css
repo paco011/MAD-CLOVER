@@ -26,8 +26,7 @@
     --radius-md: 12px;           
     --radius-lg: 20px;           
     
-    --transition: all 0.25s ease-out;
-}
+--transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); /* 上質な余韻を残す滑らかな減速 */}
 
 * {
     margin: 0;
@@ -48,6 +47,7 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
     width: 100%;        /* ★追加 */
+        letter-spacing: 0.04em; /* ★ 追加：全体にわずかな空気感を持たせます */
 }
 
 a {
@@ -102,18 +102,20 @@ ul {
 
 .section-title {
     font-size: 2.5rem;
-    font-weight: 800;
+    font-weight: 700;
     color: var(--clr-blue);
     margin-bottom: 8px;
     position: relative;
     display: inline-block;
+        letter-spacing: 0.12em; /* ★ 追加：英語タイトルを優雅に広げます */
 }
 
 .section-subtitle {
-    font-size: 1rem;
+    font-size: 0.85rem; /* ★ 1remから0.85remへ少し控えめに */
     color: var(--clr-text-light);
     font-weight: 500;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em; /* ★ わずかに広げます */
+    opacity: 0.7; /* ★ 追加：70%の不透明度にして上品に馴染ませます */
 }
 
 /* Buttons */
