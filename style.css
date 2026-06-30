@@ -759,15 +759,16 @@ footer {
 }
 
 .details-title {
-    font-size: 1.8rem;
+    font-size: 1.3rem;      /* ★ 1.8remから「1.3rem」へ一回り小ぶりに変更 */
     color: var(--clr-blue);
-    font-weight: 800;
+    font-weight: 700;       /* ★ 800から「700（しなやかな太字）」に少し控えめに */
     margin-bottom: 32px;
     display: flex;
     align-items: center;
     gap: 12px;
-    border-bottom: 2px solid rgba(0, 86, 151, 0.1);
+    border-bottom: 1px solid rgba(45, 55, 72, 0.12); /* ★ 2pxから「極細1px」の下線にし、色もグレーに馴染ませます */
     padding-bottom: 12px;
+    letter-spacing: 0.05em; /* ★ 文字間隔にわずかなゆとりを与えます */
 }
 
 .details-title i {
