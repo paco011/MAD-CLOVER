@@ -118,7 +118,7 @@ ul {
     opacity: 0.7; /* 70%の不透明度にして上品に馴染ませます */
 }
 
-/* Buttons */
+/* style.css の .btn-primary 関連を書き換え */
 .btn-primary {
     display: inline-block;
     background: var(--gradient-primary);
@@ -127,14 +127,16 @@ ul {
     border-radius: 50px;
     font-weight: 600;
     transition: var(--transition);
-    box-shadow: 0 4px 14px 0 rgba(0, 86, 151, 0.39);
+    /* 修正後：青い光を消し、上質なマットスレートの極薄の影にします */
+    box-shadow: 0 4px 16px rgba(45, 55, 72, 0.06); 
     border: none;
     cursor: pointer;
 }
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(0, 86, 151, 0.23);
+    /* 修正後：ホバー時も影の広がりを優しく抑えます */
+    box-shadow: 0 6px 24px rgba(45, 55, 72, 0.12);
 }
 
 .btn-primary.large {
@@ -311,6 +313,7 @@ header.scrolled .nav-menu a:not(.btn-primary):hover {
     margin-bottom: 40px;
 }
 
+/* --- 1. スクロールインジケーター（静かな呼吸アニメーション） --- */
 .scroll-indicator {
     position: absolute;
     bottom: 40px;
@@ -320,9 +323,8 @@ header.scrolled .nav-menu a:not(.btn-primary):hover {
     flex-direction: column;
     align-items: center;
     gap: 12px;
-    opacity: 0.7;
-    position: absolute;
-    animation: bounce 2s infinite;
+    opacity: 0.6; /* わずかに薄くして存在感を一歩引かせます */
+    z-index: 1;
 }
 
 .scroll-indicator span {
@@ -333,15 +335,26 @@ header.scrolled .nav-menu a:not(.btn-primary):hover {
 }
 
 .scroll-indicator .arrow {
-    width: 2px;
-    height: 40px;
     background: var(--clr-blue);
+    height: 40px;
+    width: 1px !important; /* スクロール誘導線を極細にして繊細な印象に */
 }
 
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
-    40% { transform: translateY(-10px) translateX(-50%); }
-    60% { transform: translateY(-5px) translateX(-50%); }
+/* ★ 呼吸のようにゆっくりと沈み込んでフェードする新しいアニメーション定義 */
+@keyframes silentPulse {
+    0%, 100% {
+        opacity: 0.3;
+        transform: translateY(0) translateX(-50%);
+    }
+    50% {
+        opacity: 0.7;
+        transform: translateY(6px) translateX(-50%); /* 6pxだけ静かに沈み込ませます */
+    }
+}
+
+/* 実際に上のアニメーションを適用します */
+.scroll-indicator {
+    animation: silentPulse 2.5s cubic-bezier(0.25, 1, 0.5, 1) infinite !important;
 }
 
 /* About Section */
@@ -453,8 +466,9 @@ header.scrolled .nav-menu a:not(.btn-primary):hover {
     border: 1px solid rgba(0,0,0,0.03);
 }
 
+/* .activity-card:hover 内のアイコンズーム率を極限まで抑えます */
 .activity-card:hover .card-icon {
-    transform: scale(1.1);
+    transform: scale(1.04); /* ★ 1.1から1.04へ変更。かすかな変化に留めます */
 }
 
 .card-icon {
