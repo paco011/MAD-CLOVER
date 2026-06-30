@@ -26,7 +26,8 @@
     --radius-md: 12px;           
     --radius-lg: 20px;           
     
---transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); /* 上質な余韻を残す滑らかな減速 */}
+    --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); /* 上質な余韻を残す滑らかな減速 */
+}
 
 * {
     margin: 0;
@@ -36,8 +37,8 @@
 
 html {
     scroll-behavior: smooth;
-    overflow-x: hidden; /* ★追加 */
-    width: 100%;        /* ★追加 */
+    overflow-x: hidden;
+    width: 100%;
 }
 
 body {
@@ -46,8 +47,8 @@ body {
     color: var(--clr-text);
     line-height: 1.6;
     overflow-x: hidden;
-    width: 100%;        /* ★追加 */
-        letter-spacing: 0.04em; /* ★ 追加：全体にわずかな空気感を持たせます */
+    width: 100%;
+    letter-spacing: 0.04em; /* 全体にわずかな空気感を持たせます */
 }
 
 a {
@@ -102,20 +103,20 @@ ul {
 
 .section-title {
     font-size: 2.5rem;
-    font-weight: 700;
+    font-weight: 700; /* 800から700へ少し細く調整 */
     color: var(--clr-blue);
     margin-bottom: 8px;
     position: relative;
     display: inline-block;
-        letter-spacing: 0.12em; /* ★ 追加：英語タイトルを優雅に広げます */
+    letter-spacing: 0.12em; /* 英語タイトルを優雅に広げます */
 }
 
 .section-subtitle {
-    font-size: 0.85rem; /* ★ 1remから0.85remへ少し控えめに */
+    font-size: 0.85rem; /* 1remから0.85remへ少し控えめに */
     color: var(--clr-text-light);
     font-weight: 500;
-    letter-spacing: 0.08em; /* ★ わずかに広げます */
-    opacity: 0.7; /* ★ 追加：70%の不透明度にして上品に馴染ませます */
+    letter-spacing: 0.08em; /* わずかに広げます */
+    opacity: 0.7; /* 70%の不透明度にして上品に馴染ませます */
 }
 
 /* Buttons */
@@ -320,6 +321,7 @@ header.scrolled .nav-menu a:not(.btn-primary):hover {
     align-items: center;
     gap: 12px;
     opacity: 0.7;
+    position: absolute;
     animation: bounce 2s infinite;
 }
 
@@ -346,7 +348,7 @@ header.scrolled .nav-menu a:not(.btn-primary):hover {
 .about {
     padding: 120px 0;
     background-color: var(--clr-bg);
-    overflow: hidden; /* ★ 追加：子要素（.slide-in-rightなど）のはみ出しを防ぐ */
+    overflow: hidden; /* 子要素（.slide-in-rightなど）のはみ出しを防ぐ */
 }
 
 .about-grid {
@@ -354,13 +356,6 @@ header.scrolled .nav-menu a:not(.btn-primary):hover {
     grid-template-columns: 1fr 1fr;
     gap: 64px;
     align-items: center;
-}
-
-.about-text h3 {
-    font-size: 2.5rem;
-    font-weight: 800;
-    margin-bottom: 24px;
-    line-height: 1.3;
 }
 
 .about-text p {
@@ -742,7 +737,8 @@ footer {
 /* Activity Details (Timeline & Things to Bring) */
 .activity-details-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* ★修正後：左右「5対5」の完全均等に変更 */    gap: 48px;
+    grid-template-columns: 1fr 1fr; /* ★修正後：左右「5対5」の完全均等に変更 */
+    gap: 48px;
     margin-top: 80px;
 }
 
@@ -839,12 +835,11 @@ footer {
     background: var(--clr-white);
     border: 1px solid rgba(0, 0, 0, 0.03);
     border-radius: var(--radius-md);
-    padding: 16px 20px;
+    box-shadow: var(--shadow-sm);
     display: grid;
     grid-template-columns: auto 1fr;
     gap: 16px;
-    align-items: center;
-    box-shadow: var(--shadow-sm);
+    padding: 16px 20px;
     transition: var(--transition);
 }
 
@@ -865,6 +860,7 @@ footer {
     align-items: center;
     justify-content: center;
     transition: var(--transition);
+    width: 48px;
 }
 
 .belonging-card:hover .b-icon {
@@ -909,11 +905,11 @@ footer {
 .tab-btn {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-md);
     color: rgba(255, 255, 255, 0.8);
     padding: 10px 4px;
     font-size: 0.85rem;
     font-weight: 600;
-    border-radius: var(--radius-md);
     cursor: pointer;
     transition: var(--transition);
     text-align: center;
@@ -1259,8 +1255,8 @@ footer {
 
 /* FAQ Accordion */
 .faq {
-    padding: 120px 0;
     background-color: var(--clr-bg);
+    padding: 120px 0;
 }
 
 .faq-accordion-container {
@@ -1315,8 +1311,8 @@ footer {
 }
 
 .faq-item.active .faq-icon {
-    transform: rotate(180deg);
     color: var(--clr-blue);
+    transform: rotate(180deg);
 }
 
 .faq-item.active .faq-question {
@@ -1325,10 +1321,10 @@ footer {
 }
 
 .faq-answer {
+    background: var(--clr-bg-alt);
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    background: var(--clr-bg-alt);
 }
 
 .faq-answer-content {
@@ -1506,103 +1502,31 @@ footer {
    スケジュール・持ち物のセクション一括開閉（アコーディオン）- 全デバイス共通
    ========================================================================== */
 
-/* 1. タイトルをタップ・クリック可能にし、矢印（プラス・マイナス）マークをつける */
+/* スケジュールと持ち物の見出し（左に文字、右に回転矢印） */
 .details-title {
     cursor: pointer;
     user-select: none;
     display: flex;
-    justify-content: space-between; /* 矢印マークを右端に寄せる */
+    justify-content: space-between; /* 左右の両端にきれいに分散 */
     align-items: center;
-    padding: 16px 0;
-    border-bottom: 2px solid rgba(0, 86, 151, 0.1);
-    transition: color 0.2s ease;
+    width: 100%;
+    transition: color 0.25s ease;
 }
 
-.details-title:hover {
-    color: var(--clr-blue); /* ホバー時にチームカラーの青に */
-}
-
-.details-title:active {
-    color: var(--clr-red);  /* クリックした瞬間に一瞬テラコッタ色に */
-}
-
-/* プラス・マイナスマークをCSSで追加 */
 .details-title::after {
-    content: '＋';
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--clr-blue);
-    transition: transform 0.2s ease;
-    margin-left: 12px;
+    content: '↓';    /* 繊細な下矢印記号 */
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--clr-text-light);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.25s ease;
+    margin-left: 16px;
+    display: inline-block;
 }
 
-/* 開いた（is-expandedクラスがついた）時はマイナスマークにする */
+/* 開いた（is-expanded）時 */
 .is-expanded .details-title::after {
-    content: '－';
-}
-
-/* 2. タイムスケジュール全体の開閉制御 */
-.timeline {
-    max-height: 0;       /* 初期状態は高さを0に隠す */
-    opacity: 0;          /* 非表示 */
-    overflow: hidden;
-    padding-top: 0;
-    transition: max-height 0.5s cubic-bezier(0, 1, 0, 1), opacity 0.3s ease;
-}
-
-/* 開いた時 */
-.timeline-container.is-expanded .timeline {
-    max-height: 1200px;  /* 全体が収まる十分な高さ */
-    opacity: 1;
-    padding-top: 24px;   /* 上に余白をあける */
-    transition: max-height 0.5s cubic-bezier(0.9, 0, 0.1, 1), opacity 0.3s ease;
-}
-
-/* 3. 持ち物グリッド全体の開閉制御 */
-.belongings-grid {
-    max-height: 0;       /* 初期状態は非表示 */
-    opacity: 0;
-    overflow: hidden;
-    margin-top: 0;
-    transition: max-height 0.5s cubic-bezier(0, 1, 0, 1), opacity 0.3s ease;
-}
-
-/* 開いた時 */
-.belongings-container.is-expanded .belongings-grid {
-    max-height: 1200px;  /* 全体が収まる十分な高さ */
-    opacity: 1;
-    margin-top: 24px;
-    transition: max-height 0.5s cubic-bezier(0.9, 0, 0.1, 1), opacity 0.3s ease;
-}
-
-/* --- 4. スマホ表示（768px以下）での微調整（レスポンシブ用のカラム数など） --- */
-@media (max-width: 768px) {
-    .belongings-container.is-expanded .belongings-grid {
-        /* スマホ時はスッキリ見せるため2列グリッドで展開 */
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-    }
-    .belonging-card {
-        grid-template-columns: 1fr;
-        text-align: center;
-        padding: 16px 10px;
-        justify-items: center;
-    }
-    .belonging-card .b-icon {
-        width: 40px;
-        height: 40px;
-        font-size: 1.4rem;
-        margin-bottom: 8px;
-    }
-    .belonging-card h4 {
-        font-size: 0.9rem;
-        font-weight: 700;
-    }
-    .belonging-card p {
-        font-size: 0.8rem;
-        line-height: 1.4;
-    }
+    transform: rotate(180deg);
+    color: var(--clr-red);
 }
 
 /* ==========================================================================
@@ -1646,7 +1570,7 @@ footer {
     background: var(--clr-bg-alt);
 }
 ::-webkit-scrollbar-thumb {
-    background: #cbd5e1; /* スレートグレーの細いバー */
+    background: #cbd5e1; /* スレートグレー of 細いバー */
     border-radius: 10px;
 }
 .scroll-indicator .arrow {
@@ -1698,4 +1622,64 @@ footer {
     opacity: 1;
     margin-top: 48px; /* 開いた時の見出しとの上品な距離 */
     transition: max-height 0.6s cubic-bezier(0.9, 0, 0.1, 1), opacity 0.3s ease, margin-top 0.4s ease;
+}
+
+/* ==========================================================================
+   FAQセクション全体の一括開閉（中央寄せ ＋ 大幅な省スペーススリム化）
+   ========================================================================== */
+
+/* ① FAQエリア全体の上下の広がりを半分（60px）に削減してスリム化 */
+.faq {
+    padding: 60px 0 !important;
+}
+
+.faq .section-header {
+    cursor: pointer;
+    user-select: none;
+    transition: color 0.25s ease;
+    margin-bottom: 0px; /* ★ 閉じている時は下の余白を完全にゼロにして省スペース化 */
+    text-align: center;
+}
+
+/* 開いた時だけ、質問リストとの間に上品な余白を作ります */
+.faq.is-expanded .section-header {
+    margin-bottom: 40px;
+}
+
+/* ② 見出しのテキスト配置（中央寄せを100%維持します） */
+.faq .section-header .section-title {
+    display: inline-block;
+    position: relative;
+    text-align: center;
+}
+
+/* 中央寄せの見出しテキストのすぐ右隣に、回転する矢印を可愛らしく配置 */
+.faq .section-header .section-title::after {
+    content: ' ↓';
+    font-size: 1.2rem;
+    color: var(--clr-blue);
+    display: inline-block;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.25s ease;
+    margin-left: 12px;
+    vertical-align: middle;
+}
+
+/* 開いた（is-expanded）時 */
+.faq.is-expanded .section-header .section-title::after {
+    transform: rotate(180deg);
+    color: var(--clr-red);
+}
+
+/* FAQ全体のアコーディオン開閉制御 */
+.faq-accordion-container {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.6s cubic-bezier(0, 1, 0, 1), opacity 0.3s ease;
+}
+
+.faq.is-expanded .faq-accordion-container {
+    max-height: 1500px;
+    opacity: 1;
+    transition: max-height 0.6s cubic-bezier(0.9, 0, 0.1, 1), opacity 0.3s ease;
 }
