@@ -759,7 +759,7 @@ footer {
 }
 
 .details-title {
-    font-size: 1.3rem;      /* ★ 1.8remから「1.3rem」へ一回り小ぶりに変更 */
+    font-size: 1.4rem;      /* ★ 1.8remから「1.3rem」へ一回り小ぶりに変更 */
     color: var(--clr-blue);
     font-weight: 700;       /* ★ 800から「700（しなやかな太字）」に少し控えめに */
     margin-bottom: 32px;
