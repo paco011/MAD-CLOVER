@@ -295,7 +295,7 @@ header.scrolled .nav-menu a:not(.btn-primary):hover {
 
 .hero-title {
     font-size: 4rem;
-    font-weight: 600;       /* ★ 800から700へしなやかに */
+    font-weight: 500;       /* ★ 800から700へしなやかに */
     line-height: 1.1;
     margin-bottom: 24px;
     color: var(--clr-blue);
