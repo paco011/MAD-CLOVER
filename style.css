@@ -874,8 +874,8 @@ footer {
 
 /* Recruit Tabs style (明るい背景用の配色 ＋ 押せる感の強化) */
 .recruit-tabs {
-    background: rgba(0, 0, 0, 0.015); /* 極薄のグレー背景 */
-    border: 1px solid rgba(0, 0, 0, 0.04); /* 極細のアウトライン線 */
+    background: var(--clr-bg-alt); /* ★ サイト標準のライトグレーに変更して引き締めます */
+    border: 1px solid rgba(0, 0, 0, 0.04);
     border-radius: var(--radius-lg);
     margin-top: 32px;
     padding: 24px;
