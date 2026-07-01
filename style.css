@@ -976,9 +976,10 @@ footer {
     position: relative;
 }
 
-/* 箇条書きドットは、上品なくすんだテラコッタ（赤）にして、可愛らしいアクセントにします */
+/* 箇条書きドットを、全体の深い青に統一します */
 .tab-content ul li::before {
-    color: var(--clr-red); /* テラコッタ */
+    color: var(--clr-blue); /* ★深い青に統一 */
+    opacity: 0.7;           /* ★不透明度を70%にして優しく馴染ませます */
     content: '•';
     font-size: 1.2rem;
     font-weight: bold;
