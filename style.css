@@ -163,6 +163,7 @@ ul {
     background: var(--clr-blue); /* ★ 触れた瞬間に深い青へ */
 }
 
+
 /* Header */
 header {
     position: fixed;
@@ -212,34 +213,36 @@ header.scrolled {
     gap: 32px;
 }
 
+/* メニューのリンク文字（少し小ぶりにして上品さを際立たせます） */
 .nav-menu a {
     font-weight: 500;
-    font-size: 1rem;
-    color: var(--clr-text);
+    font-size: 0.95rem; /* 1remから0.95remに微調整 */
+    color: var(--clr-text-light); /* 柔らかいスレートグレー */
     transition: var(--transition);
+    position: relative;
+    padding: 6px 0;
 }
 
-.nav-menu a:hover:not(.btn-primary) {
-    color: var(--clr-blue);
+.nav-menu a:hover {
+    color: var(--clr-blue); /* ホバー時は深い青へ */
 }
 
-header.scrolled .nav-menu a:not(.btn-primary) {
-    color: var(--clr-text);
-}
-header.scrolled .nav-menu a:not(.btn-primary):hover {
-    color: var(--clr-blue);
+/* ★ 新設：ホバー時に中央からスーッと伸びる極細（1px）のヘアライン線 */
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 1px; /* 極細 */
+    background-color: var(--clr-blue);
+    transition: var(--transition);
+    transform: translateX(-50%);
 }
 
-/* Contact button color fix & hover animation */
-.nav-menu a.btn-primary {
-    color: var(--clr-white);
-}
-
-/* --- Contactボタン（ヘッダー内）のホバー --- */
-.nav-menu a.btn-primary:hover {
-    color: var(--clr-white) !important;
-    background: var(--clr-blue) !important; /* ★ 触れた瞬間に深い青へ */
-    box-shadow: 0 6px 24px rgba(45, 55, 72, 0.12);
+/* ホバーされた時に線を100%（文字幅いっぱい）に広げます */
+.nav-menu a:hover::after {
+    width: 100%;
 }
 
 .mobile-menu-toggle {
