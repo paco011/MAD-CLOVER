@@ -118,21 +118,23 @@ ul {
     opacity: 0.7; /* 70%の不透明度にして上品に馴染ませます */
 }
 
+/* --- 通常時のボタン：スレートグレーで徹底的に気配を消します --- */
 .btn-primary {
     display: inline-block;
-    background: var(--clr-blue); /* ★深い青に統一 */
+    background: var(--clr-text-light); /* ★ スレートグレーにして一歩後ろに引かせます */
     color: var(--clr-white);
     padding: 12px 28px;
     border-radius: 50px;
     font-weight: 600;
     transition: var(--transition);
-    box-shadow: 0 4px 16px rgba(45, 55, 72, 0.06); /* 薄いスレートグレーの影 */
+    box-shadow: 0 4px 16px rgba(90, 101, 120, 0.05); /* 影もスレートグレー用に極薄く */
     border: none;
     cursor: pointer;
 }
 
+/* --- ホバー時：触れた瞬間だけ、深い青（主役の色）へと変化させます --- */
 .btn-primary:hover {
-    background: #1a202c; /* ホバー時はさらに深みのあるダークグレーに */
+    background: var(--clr-blue) !important; /* ★ 触れた瞬間だけ、知的な青に変身します */
     transform: translateY(-2px);
     box-shadow: 0 6px 24px rgba(45, 55, 72, 0.12);
 }
@@ -142,8 +144,9 @@ ul {
     font-size: 1.1rem;
 }
 
+/* --- 通常時の送信ボタン --- */
 .btn-submit {
-    background: var(--clr-blue); /* ★深い青に統一 */
+    background: var(--clr-text-light); /* ★ スレートグレーに統一 */
     color: var(--clr-white);
     padding: 14px;
     border-radius: var(--radius-md);
@@ -155,8 +158,9 @@ ul {
     width: 100%;
 }
 
+/* --- ホバー時の送信ボタン --- */
 .btn-submit:hover {
-    background: #1a202c; /* ホバー時はダークグレーに */
+    background: var(--clr-blue); /* ★ 触れた瞬間に深い青へ */
 }
 
 /* Header */
@@ -231,9 +235,10 @@ header.scrolled .nav-menu a:not(.btn-primary):hover {
     color: var(--clr-white);
 }
 
+/* --- Contactボタン（ヘッダー内）のホバー --- */
 .nav-menu a.btn-primary:hover {
     color: var(--clr-white) !important;
-    background: #1a202c !important; /* ★ホバー時のダークグレーに統一 */
+    background: var(--clr-blue) !important; /* ★ 触れた瞬間に深い青へ */
     box-shadow: 0 6px 24px rgba(45, 55, 72, 0.12);
 }
 
