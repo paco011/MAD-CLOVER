@@ -518,16 +518,17 @@ header.scrolled {
     width: 1000px;
 }
 
+/* 修正後（min-heightを消去し、上端だけを綺麗に揃えます） */
 .recruit-wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 64px;
-    align-items: flex-start; /* ★ stretch から flex-start（上端揃え）に変更して独立させます */
+    align-items: flex-start; /* ★ 上端（始まりの高さ）を完璧に一列に揃えます */
     position: relative;
     z-index: 1;
 }
 
-/* 左右のエリアの中身のflex指定は削除してシンプルにします */
+/* ★ 480pxの高さ固定は削除し、以前のように文字数で自由に伸縮するように戻しました */
 
 /* ★ フォームが閉じている時に、デスクトップでの高さを「480px」で美しく統一します */
 .recruit-tabs,
@@ -885,7 +886,6 @@ footer {
     background: var(--clr-bg-alt); /* ★ サイト標準のライトグレーに変更して引き締めます */
     border: 1px solid rgba(0, 0, 0, 0.04);
     border-radius: var(--radius-lg);
-    margin-top: 32px;
     padding: 24px;
 }
 
