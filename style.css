@@ -120,20 +120,21 @@ ul {
 
 .btn-primary {
     display: inline-block;
-    background: var(--clr-red); /* ★テラコッタに変更 */
+    background: var(--clr-blue); /* ★深い青に統一 */
     color: var(--clr-white);
     padding: 12px 28px;
     border-radius: 50px;
     font-weight: 600;
     transition: var(--transition);
-    box-shadow: 0 4px 16px rgba(204, 125, 106, 0.15); /* テラコッタ系の淡い影 */
+    box-shadow: 0 4px 16px rgba(45, 55, 72, 0.06); /* 薄いスレートグレーの影 */
     border: none;
     cursor: pointer;
 }
+
 .btn-primary:hover {
-    background: #b56e5c; /* ★ホバー時は少し深みのあるテラコッタに */
+    background: #1a202c; /* ホバー時はさらに深みのあるダークグレーに */
     transform: translateY(-2px);
-    box-shadow: 0 6px 24px rgba(204, 125, 106, 0.25);
+    box-shadow: 0 6px 24px rgba(45, 55, 72, 0.12);
 }
 
 .btn-primary.large {
@@ -142,7 +143,7 @@ ul {
 }
 
 .btn-submit {
-    background: var(--clr-red); /* ★テラコッタに変更 */
+    background: var(--clr-blue); /* ★深い青に統一 */
     color: var(--clr-white);
     padding: 14px;
     border-radius: var(--radius-md);
@@ -153,8 +154,9 @@ ul {
     margin-top: 24px;
     width: 100%;
 }
+
 .btn-submit:hover {
-    background: #b56e5c; /* ★ホバー時は深みのあるテラコッタに */
+    background: #1a202c; /* ホバー時はダークグレーに */
 }
 
 /* Header */
@@ -231,8 +233,8 @@ header.scrolled .nav-menu a:not(.btn-primary):hover {
 
 .nav-menu a.btn-primary:hover {
     color: var(--clr-white) !important;
-    background: #b56e5c !important; /* ★ホバー時のテラコッタ色に統一 */
-    box-shadow: 0 6px 24px rgba(204, 125, 106, 0.25);
+    background: #1a202c !important; /* ★ホバー時のダークグレーに統一 */
+    box-shadow: 0 6px 24px rgba(45, 55, 72, 0.12);
 }
 
 .mobile-menu-toggle {
@@ -902,8 +904,8 @@ footer {
 }
 
 .tab-btn.active {
-    background: var(--clr-red); /* ★テラコッタに変更 */
-    border-color: var(--clr-red);
+    background: var(--clr-blue); /* ★深い青に統一 */
+    border-color: var(--clr-blue);
     color: var(--clr-white);
     box-shadow: var(--shadow-md);
 }
