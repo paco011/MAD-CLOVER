@@ -435,7 +435,8 @@ header.scrolled {
     width: 150px;
     height: 150px;
     object-fit: contain;
-    /* 丸枠線、丸い白背景、影をすべて削除してスマートに透過させます */
+    border-radius: 50%; /* ★ 追加：四角い白画像の「四隅の角」を丸く綺麗に削ぎ落とします */
+    overflow: hidden;   /* ★ 追加：はみ出した白角を完全にカットします */
 }
 
 .card-info h4 {
