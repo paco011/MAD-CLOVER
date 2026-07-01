@@ -766,13 +766,14 @@ footer {
 }
 
 .timeline::before {
-    content: '';
-    position: absolute;
-    left: 8px;
-    top: 8px;
+    /* 深い青から、下に向かって極薄グレーへと消え入るように美しくグラデーションさせます */
+    background: linear-gradient(to bottom, var(--clr-blue) 0%, rgba(45, 55, 72, 0.04) 100%);
     bottom: 8px;
-    width: 2px;
-    background: linear-gradient(to bottom, var(--clr-blue) 0%, var(--clr-orange) 100%);
+    content: '';
+    left: 8px;
+    position: absolute;
+    top: 8px;
+    width: 1px; /* ★ 2pxから「極細1px」に変更して繊細さを演出 */
 }
 
 .timeline-item {
@@ -799,8 +800,8 @@ footer {
 }
 
 .timeline-item:hover::before {
-    border-color: var(--clr-orange);
-    transform: scale(1.2);
+    border-color: var(--clr-red); /* ★ 派手なオレンジから、上品なくすんだテラコッタへ変更 */
+    transform: scale(1.15);       /* ★ 1.2から1.15へ、少し控えめなしなやかな拡大に変更 */
 }
 
 .timeline-item .time {
