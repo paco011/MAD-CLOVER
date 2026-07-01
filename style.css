@@ -493,78 +493,81 @@ header.scrolled .nav-menu a:not(.btn-primary):hover {
     color: var(--clr-text-light);
 }
 
-/* Recruit Section */
+/* Recruit Section (明るいライトトーン対応版にリニューアル) */
 .recruit {
     padding: 120px 0;
-    background: var(--clr-blue);
+    background: var(--clr-bg); /* 暗い青から、サイト標準のオフホワイトへ変更 */
     position: relative;
     overflow: hidden;
 }
 
 .recruit::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -10%;
-    width: 1000px;
-    height: 1000px;
-    background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+    /* 背景が明るくなったため、装飾用の円の不透明度をさらに極薄（0.015）に下げて、静かなテクスチャにします */
+    background: radial-gradient(circle, rgba(45, 55, 72, 0.015) 0%, transparent 70%);
     border-radius: 50%;
+    content: '';
+    height: 1000px;
+    position: absolute;
+    right: -10%;
+    top: -50%;
+    width: 1000px;
 }
 
 .recruit-wrapper {
+    align-items: center;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 64px;
-    align-items: center;
     position: relative;
     z-index: 1;
 }
 
 .recruit-desc {
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--clr-text-light); /* 白から、上品なスレートグレーへ */
     font-size: 1.2rem;
     margin-bottom: 40px;
 }
 
 .req-box {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 32px;
+    background: rgba(0, 0, 0, 0.015); /* 白透過から、極薄グレー透過へ */
+    border: 1px solid rgba(0, 0, 0, 0.05);
     border-radius: var(--radius-md);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 32px;
 }
 
 .req-box h4 {
-    color: var(--clr-white);
+    color: var(--clr-blue); /* 白から、深い青へ */
     font-size: 1.2rem;
     margin-bottom: 16px;
 }
 
 .req-box ul li {
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--clr-text-light); /* 白からスレートグレーへ */
     margin-bottom: 12px;
     padding-left: 20px;
     position: relative;
 }
 
 .req-box ul li::before {
+    color: var(--clr-red); /* オレンジから、くすんだテラコッタへ */
     content: '✓';
+    font-weight: bold;
     position: absolute;
     left: 0;
-    color: var(--clr-orange);
-    font-weight: bold;
 }
 
+/* 申し込みフォームのカード */
 .contact-form-card {
     background: var(--clr-white);
-    padding: 48px;
     border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-lg);
+    box-shadow: var(--shadow-md); /* 影を柔らかく */
+    border: 1px solid rgba(0, 0, 0, 0.04); /* 極細のアウトライン線を追加して浮かび上がらせます */
+    padding: 48px;
 }
 
 .contact-form-card h3 {
-    font-size: 1.8rem;
     color: var(--clr-text);
+    font-size: 1.8rem;
     margin-bottom: 32px;
     text-align: center;
 }
@@ -899,49 +902,47 @@ footer {
     grid-column: 2;
 }
 
-/* Recruit Tabs style */
+/* Recruit Tabs style (明るい背景用の配色に調整) */
 .recruit-tabs {
-    margin-top: 32px;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(0, 0, 0, 0.02); /* 極薄のグレー背景 */
+    border: 1px solid rgba(0, 0, 0, 0.05); /* 極細のアウトライン線 */
     border-radius: var(--radius-lg);
+    margin-top: 32px;
     padding: 24px;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
 }
 
 .tab-buttons {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08); /* 線の不透明度を調整 */
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 8px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-    padding-bottom: 16px;
     margin-bottom: 24px;
+    padding-bottom: 16px;
 }
 
 .tab-btn {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(0, 0, 0, 0.04);
     border-radius: var(--radius-md);
-    color: rgba(255, 255, 255, 0.8);
-    padding: 10px 4px;
+    color: var(--clr-text-light); /* 白透過からスレートグレーへ */
+    cursor: pointer;
     font-size: 0.85rem;
     font-weight: 600;
-    cursor: pointer;
-    transition: var(--transition);
+    padding: 10px 4px;
     text-align: center;
+    transition: var(--transition);
 }
 
 .tab-btn:hover {
-    background: rgba(255, 255, 255, 0.15);
-    color: var(--clr-white);
+    background: rgba(0, 0, 0, 0.06);
+    color: var(--clr-blue);
 }
 
 .tab-btn.active {
     background: var(--clr-white);
-    color: var(--clr-blue);
-    border-color: var(--clr-white);
+    border-color: rgba(0, 0, 0, 0.08);
     box-shadow: var(--shadow-sm);
+    color: var(--clr-blue); /* アクティブ時は深い青 */
 }
 
 .tab-contents {
@@ -949,9 +950,9 @@ footer {
 }
 
 .tab-content {
-    display: none;
     animation: fadeIn 0.4s ease;
-    color: rgba(255, 255, 255, 0.95);
+    color: var(--clr-text); /* 白から通常のダークグレーへ変更して読みやすく */
+    display: none;
 }
 
 .tab-content.active {
@@ -964,56 +965,56 @@ footer {
 }
 
 .tab-content h4 {
+    align-items: center;
+    color: var(--clr-blue); /* 白から、深い青へ */
+    display: flex;
     font-size: 1.25rem;
     font-weight: 800;
-    color: var(--clr-white);
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
     gap: 8px;
+    margin-bottom: 16px;
 }
 
 .tab-content p {
+    color: var(--clr-text-light); /* スレートグレーへ */
     font-size: 0.95rem;
     line-height: 1.6;
     margin-bottom: 16px;
-    color: rgba(255, 255, 255, 0.9);
 }
 
 .tab-content strong {
-    color: #ffd275;
+    color: var(--clr-red); /* 黄色から、くすんだテラコッタへ（上品さの統一） */
 }
 
 .tab-sub-title {
+    border-left: 3px solid var(--clr-blue); /* オレンジから深い青へ */
+    color: var(--clr-blue);
     font-size: 1.05rem;
     font-weight: 700;
-    color: var(--clr-white);
     margin: 20px 0 10px 0;
-    border-left: 3px solid var(--clr-orange);
     padding-left: 8px;
 }
 
 .tab-content ul {
     list-style: none;
-    padding-left: 0;
     margin-bottom: 16px;
+    padding-left: 0;
 }
 
 .tab-content ul li {
+    color: var(--clr-text-light);
     font-size: 0.95rem;
     margin-bottom: 8px;
-    position: relative;
     padding-left: 20px;
-    color: rgba(255, 255, 255, 0.9);
+    position: relative;
 }
 
 .tab-content ul li::before {
+    color: var(--clr-red); /* オレンジからテラコッタへ */
     content: '•';
+    font-size: 1.2rem;
+    font-weight: bold;
     position: absolute;
     left: 6px;
-    color: var(--clr-orange);
-    font-weight: bold;
-    font-size: 1.2rem;
     top: -2px;
 }
 
@@ -1026,24 +1027,26 @@ footer {
 }
 
 .schedule-item {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: var(--clr-white); /* 透過白から、ソリッドな白カードへ */
+    border: 1px solid rgba(0, 0, 0, 0.05); /* 極細アウトライン */
     border-radius: var(--radius-md);
-    padding: 8px 12px;
-    text-align: center;
+    color: var(--clr-text);
     font-size: 0.85rem;
     font-weight: 600;
+    padding: 8px 12px;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
     transition: var(--transition);
 }
 
 .schedule-item:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: var(--clr-bg-alt);
     transform: translateY(-2px);
 }
 
 .schedule-note {
+    color: var(--clr-text-light) !important;
     font-size: 0.8rem !important;
-    color: rgba(255, 255, 255, 0.7) !important;
     margin-top: 12px;
 }
 

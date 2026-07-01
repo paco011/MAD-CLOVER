@@ -260,14 +260,17 @@
             </div>
         </section>
 
-       <section class="recruit" id="recruit">
+      <!-- index.html メンバー募集セクション（ライトトーン調整版） -->
+<section class="recruit" id="recruit">
     <div class="container">
         <div class="recruit-wrapper">
             <!-- 左側：情報エリア -->
             <div class="recruit-content slide-in-left">
                 <div class="section-header left-align">
-                    <!-- 修正後 -->
-<h2 class="section-title text-white">Join Our Team <span class="sr-only">（女子プレイヤー募集、女性マネージャー歓迎、初心者・ブランク歓迎の体験参加案内）</span></h2>                    <p class="section-subtitle text-light">メンバー・マネージャー募集</p>
+                    <!-- ★ text-white を消去し、通常の見出しカラーに変更しました -->
+                    <h2 class="section-title">Join Our Team <span class="sr-only">（女子プレイヤー募集、女性マネージャー歓迎、初心者・ブランク歓迎の体験参加案内）</span></h2>
+                    <!-- ★ text-light を消去し、通常のサブタイトルカラーに変更しました -->
+                    <p class="section-subtitle">メンバー・マネージャー募集</p>
                 </div>
                 
                 <!-- インタラクティブタブ -->
@@ -326,7 +329,8 @@
             <div class="recruit-action slide-in-right">
                 <div class="contact-form-card" id="contact">
                     <!-- 初期表示：スマートな入り口 -->
-<div id="form-cta-container" style="text-align: center; transition: max-height 0.6s cubic-bezier(0.9, 0, 0.1, 1), opacity 0.4s ease, margin 0.4s ease;">                        <span style="font-size: 2.5rem; color: var(--clr-blue); display: inline-block; margin-bottom: 16px;"><i class="ph ph-envelope-open"></i></span>
+                    <div id="form-cta-container" style="text-align: center; transition: max-height 0.6s cubic-bezier(0.9, 0, 0.1, 1), opacity 0.4s ease, margin 0.4s ease;">
+                        <span style="font-size: 2.5rem; color: var(--clr-blue); display: inline-block; margin-bottom: 16px;"><i class="ph ph-envelope-open"></i></span>
                         <h3 style="font-size: 1.5rem; margin-bottom: 12px; font-weight: 800;">体験・参加を申し込む</h3>
                         <p style="color: var(--clr-text-light); font-size: 0.9rem; margin-bottom: 24px; line-height: 1.5;">
                             ニックネームや質問だけの簡単なご連絡でも大歓迎です。<br>まずはお気軽にお問い合わせください。
@@ -345,72 +349,73 @@
                             <input type="checkbox" name="botcheck" class="hidden-honeypot" style="display: none;">
                             <input type="hidden" name="subject" value="【MAD CLOVER】ホームページから体験・参加申し込み">
                             <input type="hidden" name="from_name" value="MAD CLOVER 公式ホームページ">
-<input type="hidden" name="Privacy_Policy_Consent" value="送信時に合意済み（2026/06/14公開版）">                            
-                           <!-- index.html のフォーム部分差し替え用 -->
-<div class="form-group">
-    <label for="name">お名前（ニックネーム・イニシャル可）</label>
-    <input type="text" id="name" name="name" required placeholder="例：マック、Y.T、山田など">
-</div>
+                            <input type="hidden" name="プライバシーポリシーへの合意" value="送信時に合意済み（2026/06/14公開版）">
+                            
+                            <!-- index.html のフォーム部分スリム版 -->
+                            <div class="form-group">
+                                <label for="name">お名前（ニックネーム・イニシャル可）</label>
+                                <input type="text" id="name" name="name" required placeholder="例：マック、Y.T、山田など">
+                            </div>
 
-<div class="form-group">
-    <label for="email">メールアドレス（連絡先）</label>
-    <input type="email" id="email" name="email" required placeholder="example@example.com">
-</div>
+                            <div class="form-group">
+                                <label for="email">メールアドレス（連絡先）</label>
+                                <input type="email" id="email" name="email" required placeholder="example@example.com">
+                            </div>
 
-<!-- 性別とご年齢（プルダウン）を2列でスッキリ並べます -->
-<div class="form-grid-2">
-    <div class="form-group">
-        <label for="gender">性別</label>
-        <select id="gender" name="gender" required>
-            <option value="" disabled selected>選択してください</option>
-            <option value="男性">男性</option>
-            <option value="女性（プレイヤー）">女性（プレイヤー）</option>
-            <option value="女性（マネージャー希望）">女性（マネージャー希望）</option>
-            <option value="その他">その他</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="age">ご年齢</label>
-        <select id="age" name="age" required>
-            <option value="" disabled selected>選択してください</option>
-            <option value="10代">10代</option> <!-- ★ 追加：10代 -->
-            <option value="20代">20代</option>
-            <option value="30代">30代</option>
-            <option value="40代">40代</option>
-            <option value="50代">50代</option>
-            <option value="60代">60代</option>
-            <option value="その他">その他</option> <!-- ★ 追加：その他 -->
-        </select>
-    </div>
-</div>
+                            <!-- 性別とご年齢（プルダウン）を2列でスッキリ並べます -->
+                            <div class="form-grid-2">
+                                <div class="form-group">
+                                    <label for="gender">性別</label>
+                                    <select id="gender" name="gender" required>
+                                        <option value="" disabled selected>選択してください</option>
+                                        <option value="男性">男性</option>
+                                        <option value="女性（プレイヤー）">女性（プレイヤー）</option>
+                                        <option value="女性（マネージャー希望）">女性（マネージャー希望）</option>
+                                        <option value="その他">その他</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="age">ご年齢</label>
+                                    <select id="age" name="age" required>
+                                        <option value="" disabled selected>選択してください</option>
+                                        <option value="10代">10代</option>
+                                        <option value="20代">20代</option>
+                                        <option value="30代">30代</option>
+                                        <option value="40代">40代</option>
+                                        <option value="50代">50代</option>
+                                        <option value="60代">60代</option>
+                                        <option value="その他">その他</option>
+                                    </select>
+                                </div>
+                            </div>
 
-<!-- 年齢が抜けたため、お住まい・ご職業（任意）に変更しました -->
-<div class="form-group">
-    <label for="profile">お住まい・ご職業（任意）</label>
-    <input type="text" id="profile" name="profile" placeholder="例：ふじみ野、会社員など">
-</div>
+                            <!-- お住まい・ご職業（任意） -->
+                            <div class="form-group">
+                                <label for="profile">お住まい・ご職業（任意）</label>
+                                <input type="text" id="profile" name="profile" placeholder="例：ふじみ野、会社員など">
+                            </div>
 
-<div class="form-group">
-    <label for="start_date">参加開始希望日時（任意）</label>
-    <input type="text" id="start_date" name="start_date" placeholder="例：なるべく早く、1ヶ月後からなど">
-</div>
+                            <div class="form-group">
+                                <label for="start_date">参加開始希望日時（任意）</label>
+                                <input type="text" id="start_date" name="start_date" placeholder="例：なるべく早く、1ヶ月後からなど">
+                            </div>
 
-<div class="form-group">
-    <label for="message">メッセージ・質問など（任意）</label>
-    <textarea id="message" name="message" rows="2" placeholder="質問などがあればご記入ください。"></textarea>
-</div>
+                            <div class="form-group">
+                                <label for="message">メッセージ・質問など（任意）</label>
+                                <textarea id="message" name="message" rows="2" placeholder="質問などがあればご記入ください。"></textarea>
+                            </div>
 
                             <button type="submit" class="btn-submit">確認画面へ進む</button>
 
-<!-- 1. 同意注釈文をボタンのすぐ直下に配置して繋げます -->
-<p class="form-privacy-note" style="font-size: 0.75rem; color: var(--clr-text-light); text-align: center; margin-top: 14px; line-height: 1.4;">
-    ※「確認画面へ進む」を押すことで、当チームの<a href="javascript:void(0)" id="link-privacy-inline" style="color: var(--clr-blue); text-decoration: underline; font-weight: 700;">プライバシーポリシー（免責事項）</a>に同意したものとみなされます。
-</p>
+                            <!-- 1. 同意注釈文 -->
+                            <p class="form-privacy-note" style="font-size: 0.75rem; color: var(--clr-text-light); text-align: center; margin-top: 14px; line-height: 1.4;">
+                                ※「確認画面へ進む」を押すことで、当チームの<a href="javascript:void(0)" id="link-privacy-inline" style="color: var(--clr-blue); text-decoration: underline; font-weight: 700;">プライバシーポリシー（免責事項）</a>に同意したものとみなされます。
+                            </p>
 
-<!-- 2. キャンセル（閉じる）リンクを最下部に配置して美しく締めくくります -->
-<p style="text-align: center; margin-top: 16px; font-size: 0.85rem; margin-bottom: 0;">
-    <a href="javascript:void(0)" id="btn-close-form" style="color: var(--clr-text-light); text-decoration: underline; font-weight: 500;">申し込みフォームを閉じる</a>
-</p>
+                            <!-- 2. キャンセル（閉じる）リンク -->
+                            <p style="text-align: center; margin-top: 16px; font-size: 0.85rem; margin-bottom: 0;">
+                                <a href="javascript:void(0)" id="btn-close-form" style="color: var(--clr-text-light); text-decoration: underline; font-weight: 500;">申し込みフォームを閉じる</a>
+                            </p>
                         </form>
                     </div>
 
