@@ -633,76 +633,40 @@ header.scrolled .nav-menu a:not(.btn-primary):hover {
     line-height: 1.5;
 }
 
-/* Footer */
+/* Footer (フッターを明るいオフホワイトに統一し、静寂を演出します) */
 footer {
-    background: #0f172a;
-    color: var(--clr-white);
-    padding: 80px 0 24px;
+    background: var(--clr-bg); /* 暗いネイビーから、標準のオフホワイトに変更 */
+    color: var(--clr-text-light);
+    padding: 60px 0 24px; /* 上下の余白を少し小ぶりにスリム化 */
 }
 
 .footer-content {
     display: flex;
-    flex-direction: column; /* ★ 縦一列に並べます */
-    align-items: center;    /* ★ 中央に寄せます */
-    text-align: center;     /* ★ 文字も中央揃えにします */
-    margin-bottom: 64px;
-    gap: 32px;              /* ロゴとリンクの縦の間隔 */
+    flex-direction: column; /* 縦一列に並べます */
+    align-items: center;    /* 中央に寄せます */
+    text-align: center;     /* 文字も中央揃えにします */
+    margin-bottom: 48px;    /* コピーライトとの間隔 */
+    gap: 16px;              /* ロゴとサブタイトルの間隔をスマートに */
 }
 
 .footer-logo h2 {
-    font-size: 1.8rem;      /* ★ 少しスマートに */
-    font-weight: 700;       /* ★ 700へ落とします */
-    color: var(--clr-white);
-    letter-spacing: 0.12em; /* ★ 文字間隔をゆったりと広げてフッターの品格を高めます */
+    font-size: 1.8rem;
+    font-weight: 700;  /* 800から700へ少し細く */
+    color: var(--clr-blue); /* 白から、メインの深い青へ変更 */
+    letter-spacing: 0.12em; /* 文字間隔をゆったりと広げてフッターの品格を高めます */
 }
 
 .footer-logo p {
     color: var(--clr-text-light);
-    font-size: 0.9rem;
-}
-
-.footer-links {
-    display: flex;
-    gap: 32px;
-    justify-content: center; /* ★ リンクの並びも中央寄せにします */
-    flex-wrap: wrap;
-}
-
-.footer-links a {
-    color: #cbd5e1;
-    transition: var(--transition);
-}
-
-.footer-links a:hover {
-    color: var(--clr-white);
-}
-
-.footer-social {
-    display: flex;
-    gap: 16px;
-}
-
-.social-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: var(--transition);
-}
-
-.social-icon:hover {
-    background: var(--clr-blue);
+    font-size: 0.85rem; /* 少し小ぶりにして控えめに */
 }
 
 .footer-bottom {
     text-align: center;
     padding-top: 24px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    color: #64748b;
-    font-size: 0.9rem;
+    border-top: 1px solid rgba(45, 55, 72, 0.08); /* 極細・極薄の区切り線に変更 */
+    color: var(--clr-text-light);
+    font-size: 0.8rem; /* 少し小さくして存在感を一歩引かせます */
 }
 
 /* ==========================================================================
