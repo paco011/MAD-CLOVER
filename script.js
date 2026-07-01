@@ -265,15 +265,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
 
-            // 3. 年齢の妥当性チェック
-            if (id === 'age' && val !== '') {
-                const ageNum = parseInt(val, 10);
-                if (isNaN(ageNum) || ageNum < 15 || ageNum > 85) {
-                    showError(input, '15歳から85歳までの半角数字（整数）で入力してください。');
-                    return false;
-                }
-            }
-
             // 4. メッセージ欄のURLスパム判定
             if (id === 'message' && val !== '') {
                 const urlCount = (val.match(/https?:\/\//gi) || []).length;
