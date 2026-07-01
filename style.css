@@ -638,12 +638,12 @@ header.scrolled {
     line-height: 1.5;
 }
 
-/* Footer (フッターをごく薄いライトグレーに変更し、上品に引き締めます) */
+/* Footer (フッターを明るいオフホワイトに戻し、FAQとの境界を作ります) */
 footer {
-    background: var(--clr-bg-alt); /* ★ var(--clr-bg-alt) に変更 */
+    background: var(--clr-bg); /* ★ var(--clr-bg) に変更 */
     color: var(--clr-text-light);
     padding: 60px 0 24px;
-    border-top: 1px solid rgba(0, 0, 0, 0.02); /* 境界線をさらに淡く、自然に馴染ませます */
+    border-top: 1px solid rgba(45, 55, 72, 0.08); /* 境界線を上品な細線に戻します */
 }
 
 .footer-content {
@@ -1624,9 +1624,10 @@ footer {
    FAQセクション全体の一括開閉（中央寄せ ＋ 大幅な省スペーススリム化）
    ========================================================================== */
 
-/* ① FAQエリア全体の上下の広がりを半分（60px）に削減してスリム化 */
+/* ① FAQエリア全体の上下の広がりを半分（60px）にし、背景をライトグレーに変更 */
 .faq {
     padding: 60px 0 !important;
+    background-color: var(--clr-bg-alt) !important; /* ★ 追加：ライトグレー背景 */
 }
 
 .faq .section-header {
