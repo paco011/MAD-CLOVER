@@ -866,10 +866,10 @@ footer {
     grid-column: 2;
 }
 
-/* Recruit Tabs style (明るい背景用の配色に調整) */
+/* Recruit Tabs style (明るい背景用の配色 ＋ 押せる感の強化) */
 .recruit-tabs {
-    background: rgba(0, 0, 0, 0.02); /* 極薄のグレー背景 */
-    border: 1px solid rgba(0, 0, 0, 0.05); /* 極細のアウトライン線 */
+    background: rgba(0, 0, 0, 0.015); /* 極薄のグレー背景 */
+    border: 1px solid rgba(0, 0, 0, 0.04); /* 極細のアウトライン線 */
     border-radius: var(--radius-lg);
     margin-top: 32px;
     padding: 24px;
@@ -885,28 +885,31 @@ footer {
 }
 
 .tab-btn {
-    background: rgba(0, 0, 0, 0.02);
-    border: 1px solid rgba(0, 0, 0, 0.04);
+    background: var(--clr-white); /* ★ボタンらしさを出すため、白ベースに変更 */
+    border: 1px solid rgba(0, 0, 0, 0.08); /* ★極細の枠線をつけてボタンとして認識させます */
     border-radius: var(--radius-md);
-    color: var(--clr-text-light); /* 白透過からスレートグレーへ */
+    color: var(--clr-text-light); 
     cursor: pointer;
     font-size: 0.85rem;
     font-weight: 600;
     padding: 10px 4px;
     text-align: center;
     transition: var(--transition);
+    box-shadow: var(--shadow-sm); /* ★ごく薄い影をつけて立体感をだします */
 }
 
 .tab-btn:hover {
-    background: rgba(0, 0, 0, 0.06);
-    color: var(--clr-blue);
+    background: var(--clr-bg-alt);
+    border-color: rgba(0, 0, 0, 0.15);
+    transform: translateY(-1px); /* ★ホバー時にかすかに浮き上がらせて、ボタンであることをアピール */
+    box-shadow: var(--shadow-md);
 }
 
 .tab-btn.active {
-    background: var(--clr-white);
-    border-color: rgba(0, 0, 0, 0.08);
-    box-shadow: var(--shadow-sm);
-    color: var(--clr-blue); /* アクティブ時は深い青 */
+    background: var(--clr-blue); /* ★アクティブ時は「深い青」に反転させて力強くアピール */
+    border-color: var(--clr-blue);
+    color: var(--clr-white);     /* ★文字は白に変更 */
+    box-shadow: var(--shadow-md);
 }
 
 .tab-contents {
@@ -915,7 +918,7 @@ footer {
 
 .tab-content {
     animation: fadeIn 0.4s ease;
-    color: var(--clr-text); /* 白から通常のダークグレーへ変更して読みやすく */
+    color: var(--clr-text);
     display: none;
 }
 
@@ -930,7 +933,7 @@ footer {
 
 .tab-content h4 {
     align-items: center;
-    color: var(--clr-blue); /* 白から、深い青へ */
+    color: var(--clr-blue); /* 深い青 */
     display: flex;
     font-size: 1.25rem;
     font-weight: 800;
@@ -939,18 +942,19 @@ footer {
 }
 
 .tab-content p {
-    color: var(--clr-text-light); /* スレートグレーへ */
+    color: var(--clr-text-light); /* スレートグレー */
     font-size: 0.95rem;
     line-height: 1.6;
     margin-bottom: 16px;
 }
 
+/* 太字テキストのカラーをオレンジから、最も上品な「深い青」に統一します */
 .tab-content strong {
-    color: var(--clr-red); /* 黄色から、くすんだテラコッタへ（上品さの統一） */
+    color: var(--clr-blue); /* ★深い青に統一して大人っぽさを最大化 */
 }
 
 .tab-sub-title {
-    border-left: 3px solid var(--clr-blue); /* オレンジから深い青へ */
+    border-left: 3px solid var(--clr-blue); /* 深い青のアクセント線 */
     color: var(--clr-blue);
     font-size: 1.05rem;
     font-weight: 700;
@@ -972,8 +976,9 @@ footer {
     position: relative;
 }
 
+/* 箇条書きドットは、上品なくすんだテラコッタ（赤）にして、可愛らしいアクセントにします */
 .tab-content ul li::before {
-    color: var(--clr-red); /* オレンジからテラコッタへ */
+    color: var(--clr-red); /* テラコッタ */
     content: '•';
     font-size: 1.2rem;
     font-weight: bold;
@@ -991,7 +996,7 @@ footer {
 }
 
 .schedule-item {
-    background: var(--clr-white); /* 透過白から、ソリッドな白カードへ */
+    background: var(--clr-white); /* ソリッドな白カード */
     border: 1px solid rgba(0, 0, 0, 0.05); /* 極細アウトライン */
     border-radius: var(--radius-md);
     color: var(--clr-text);
