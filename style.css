@@ -908,10 +908,20 @@ footer {
     box-shadow: var(--shadow-md);
 }
 
+/* 選択中のタブボタン（通常時はスレートグレー） */
 .tab-btn.active {
-    background: var(--clr-blue); /* ★深い青に統一 */
-    border-color: var(--clr-blue);
+    background: var(--clr-text-light);
+    border-color: var(--clr-text-light);
     color: var(--clr-white);
+    box-shadow: var(--shadow-md);
+}
+
+/* ★ 追加：選択中のタブを触った（ホバーした）瞬間も、他のボタンと同じく「深い青」へ滑らかに変化させます */
+.tab-btn.active:hover {
+    background: var(--clr-blue) !important; /* タッチした瞬間に、深い青（主役の色）へ */
+    border-color: var(--clr-blue) !important;
+    color: var(--clr-white) !important;
+    transform: translateY(-1px);
     box-shadow: var(--shadow-md);
 }
 
