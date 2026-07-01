@@ -519,12 +519,25 @@ header.scrolled {
 }
 
 .recruit-wrapper {
-    align-items: center;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 64px;
+    align-items: stretch; /* ★ center から stretch（高さを同期）に変更 */
     position: relative;
     z-index: 1;
+}
+
+/* 左右のエリアの中身を縦並びのflexに設定 */
+.recruit-content,
+.recruit-action {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ★ 左右のカードが自動的に同じ高さまで引き伸ばし合うように設定 */
+.recruit-tabs,
+.contact-form-card {
+    flex-grow: 1; 
 }
 
 .recruit-desc {
