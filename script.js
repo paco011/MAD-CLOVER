@@ -13,38 +13,48 @@ const DISPLAY_SCHEDULE_COUNT = 6;
 
 
 // ==========================================================================
-// 2. ホームページ基本動作ロジック（ここより下は通常書き換える必要はありません）
+// 2. ホームページ基本動作ロジック
 // ==========================================================================
 document.addEventListener('DOMContentLoaded', () => {
-    // Header Scroll Effect
-    const header = document.getElementById('header');
     
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-    });
+    // ----------------------------------------------------------------------
+    // Header Scroll Effect
+    // ----------------------------------------------------------------------
+    const header = document.getElementById('header');
+    if (header) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    }
 
+    // ----------------------------------------------------------------------
     // Mobile Menu Toggle
+    // ----------------------------------------------------------------------
     const menuToggle = document.querySelector('.mobile-menu-toggle');
     const navMenu = document.querySelector('.nav-menu');
     
-    menuToggle.addEventListener('click', () => {
-        menuToggle.classList.toggle('active');
-        navMenu.classList.toggle('active');
-    });
-
-    // Close mobile menu on link click
-    document.querySelectorAll('.nav-menu a').forEach(link => {
-        link.addEventListener('click', () => {
-            menuToggle.classList.remove('active');
-            navMenu.classList.remove('active');
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
         });
-    });
 
+        // Close mobile menu on link click
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+    }
+
+    // ----------------------------------------------------------------------
     // Intersection Observer for Scroll Animations
+    // ----------------------------------------------------------------------
     const observerOptions = {
         threshold: 0.1,
         rootMargin: "0px 0px -50px 0px"
@@ -61,7 +71,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const animatedElements = document.querySelectorAll('.fade-in-up, .slide-in-left, .slide-in-right');
     animatedElements.forEach(el => observer.observe(el));
 
+    // ----------------------------------------------------------------------
     // Recruit Section Tabs Switching
+    // ----------------------------------------------------------------------
     const tabButtons = document.querySelectorAll('.tab-btn');
     const tabContents = document.querySelectorAll('.tab-content');
     
@@ -79,11 +91,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // FAQ Accordion Toggle
+    // ----------------------------------------------------------------------
+    // FAQ Accordion Toggle (Individual Items)
+    // ----------------------------------------------------------------------
     const faqQuestions = document.querySelectorAll('.faq-question');
     
     faqQuestions.forEach(question => {
-        question.addEventListener('click', () => {
+        question.addEventListener('click', (e) => {
+            // 親のアコーディオン全体の開閉イベントへのバブリングを防ぐ
+            e.stopPropagation();
+
             const item = question.parentElement;
             const answer = item.querySelector('.faq-answer');
             const isActive = item.classList.contains('active');
@@ -110,7 +127,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // ----------------------------------------------------------------------
     // 開催予定（土曜日）の自動生成機能
+    // ----------------------------------------------------------------------
     const scheduleGrid = document.getElementById('schedule-grid');
     if (scheduleGrid) {
         const upcomingSaturdays = getUpcomingSaturdays(DISPLAY_SCHEDULE_COUNT, INACTIVE_DATES);
@@ -133,7 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 日付フォーマット正規化用関数（スラッシュや一桁月日を統一する）
+    // 日付フォーマット正規化用関数
     function normalizeDateStr(dateInput) {
         if (!dateInput) return '';
         
@@ -144,7 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
             dateTarget = dateInput.date;
         }
 
-        const cleanStr = dateTarget.replace(/-/g, '/'); // ハイフン区切りをスラッシュに
+        const cleanStr = dateTarget.replace(/-/g, '/');
         const parts = cleanStr.split('/');
         if (parts.length !== 3) return '';
 
@@ -159,16 +178,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const today = new Date();
         const current = new Date(today.getFullYear(), today.getMonth(), today.getDate());
         
-        // 直近の土曜日までの日数を計算
         let daysToSaturday = (6 - current.getDay() + 7) % 7;
-        // 土曜日の21時を過ぎていたら、次の週の土曜日を基準にする
         if (today.getDay() === 6 && today.getHours() >= 21) {
             daysToSaturday = 7;
         }
         
         current.setDate(current.getDate() + daysToSaturday);
         
-        // 比較用にお休みリストをパース・正規化してマップ化
         const inactiveMap = {};
         inactiveList.forEach(item => {
             const normKey = normalizeDateStr(item);
@@ -197,9 +213,9 @@ document.addEventListener('DOMContentLoaded', () => {
         return schedules;
     }
 
-    // ==========================================================================
-    // Form Submission & Confirmation Modal Logic (バリデーション強化版)
-    // ==========================================================================
+    // ----------------------------------------------------------------------
+    // Form Submission & Confirmation Modal Logic
+    // ----------------------------------------------------------------------
     const contactForm = document.getElementById('contact-form');
     const confirmModal = document.getElementById('confirm-modal');
     const successModal = document.getElementById('success-modal');
@@ -209,13 +225,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnModalSubmit = document.getElementById('btn-modal-submit');
     const btnModalCloseOk = document.getElementById('btn-modal-close-ok');
     
-// script.js 内の formFields（年齢復活＆お住まい・ご職業ラベル修正版）
     const formFields = [
         { id: 'name', confirmId: 'confirm-name', label: 'お名前' },
         { id: 'email', confirmId: 'confirm-email', label: 'メールアドレス' },
         { id: 'gender', confirmId: 'confirm-gender', label: '性別' },
-        { id: 'age', confirmId: 'confirm-age', label: 'ご年齢' }, // ★ ageを復活
-        { id: 'profile', confirmId: 'confirm-profile', label: 'お住まい・ご職業等' }, // ★ ラベルを修正
+        { id: 'age', confirmId: 'confirm-age', label: 'ご年齢' },
+        { id: 'profile', confirmId: 'confirm-profile', label: 'お住まい・ご職業等' },
         { id: 'start_date', confirmId: 'confirm-start-date', label: '参加希望日時' },
         { id: 'message', confirmId: 'confirm-message', label: 'メッセージ' }
     ];
@@ -251,12 +266,12 @@ document.addEventListener('DOMContentLoaded', () => {
             // 1. 必須チェック
             if (input.hasAttribute('required') && val === '') {
                 const labelEl = contactForm.querySelector(`label[for="${id}"]`);
-                const name = labelEl ? labelEl.textContent.replace('（ふりがな）', '').replace('（連絡先）', '') : '項目';
+                const name = labelEl ? labelEl.textContent.replace('（連絡先）', '') : '項目';
                 showError(input, `${name}を入力してください。`);
                 return false;
             }
 
-            // 2. メールアドレス形式チェック（正規表現）
+            // 2. メールアドレス形式チェック
             if (id === 'email' && val !== '') {
                 const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
                 if (!emailRegex.test(val)) {
@@ -265,16 +280,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
 
-            // 4. メッセージ欄のURLスパム判定
+            // 3. メッセージ欄のURLスパム判定
             if (id === 'message' && val !== '') {
                 const urlCount = (val.match(/https?:\/\//gi) || []).length;
-                if (urlCount > 1) { // 複数のURLリンクがある場合は自動スパムと判定
+                if (urlCount > 1) {
                     showError(input, 'セキュリティ保護のため、リンク（URL）の複数貼り付けは禁止されています。');
                     return false;
                 }
             }
 
-            // エラーがない場合はクリア
             clearError(input);
             return true;
         };
@@ -282,15 +296,13 @@ document.addEventListener('DOMContentLoaded', () => {
         // --- リアルタイム判定のバインド ---
         const inputsToValidate = contactForm.querySelectorAll('input, select, textarea');
         inputsToValidate.forEach(input => {
-            // フォーカスが外れたとき（blur）
             input.addEventListener('blur', () => {
                 validateField(input);
             });
-            // 選択式項目や入力が変更されたとき（input / change）
             input.addEventListener('input', () => {
                 const errorEl = input.parentNode.querySelector('.error-text');
                 if (errorEl) {
-                    validateField(input); // すでにエラーが出ている場合はリアルタイムにエラー消去を走らせる
+                    validateField(input);
                 }
             });
         });
@@ -302,7 +314,6 @@ document.addEventListener('DOMContentLoaded', () => {
             let isAllValid = true;
             let firstInvalidInput = null;
 
-            // すべての入力項目を一斉に検査
             inputsToValidate.forEach(input => {
                 const isValid = validateField(input);
                 if (!isValid) {
@@ -313,7 +324,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
             
-            // エラーが存在する場合は、最初のエラー項目へフォーカスを当ててスムーズスクロール
             if (!isAllValid) {
                 if (firstInvalidInput) {
                     firstInvalidInput.focus();
@@ -322,7 +332,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
             
-            // 確認モーダル（テーブル）へデータを挿入
+            // 確認モーダルへデータを挿入
             formFields.forEach(field => {
                 const inputEl = document.getElementById(field.id);
                 const confirmEl = document.getElementById(field.confirmId);
@@ -333,21 +343,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     } else if (field.id === 'gender') {
                         val = inputEl.options[inputEl.selectedIndex].text;
                     }
-                    
-                    if (field.suffix && val !== '（未入力）') {
-                        val += field.suffix;
-                    }
-                    
                     confirmEl.textContent = val;
                 }
             });
             
-            // 確認モーダルを開く
             confirmModal.style.display = 'flex';
             document.body.style.overflow = 'hidden';
         });
 
-        // 確認モーダルを閉じる処理
+        // 確認モーダルを閉じる
         const closeConfirmModal = () => {
             confirmModal.style.display = 'none';
             document.body.style.overflow = '';
@@ -412,60 +416,63 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
         
-       window.addEventListener('click', (e) => {
-        if (e.target === confirmModal) {
-            closeConfirmModal();
-        } else if (e.target === successModal) {
-            successModal.style.display = 'none';
-            document.body.style.overflow = '';
-        }
-    });
+        window.addEventListener('click', (e) => {
+            if (e.target === confirmModal) {
+                closeConfirmModal();
+            } else if (e.target === successModal) {
+                successModal.style.display = 'none';
+                document.body.style.overflow = '';
+            }
+        });
+    }
 
-    // --- スケジュールと持ち物のセクション一括開閉（アコーディオン）制御（全デバイス対応） ---
+    // ----------------------------------------------------------------------
+    // スケジュールと持ち物のセクション一括開閉（アコーディオン）制御
+    // ----------------------------------------------------------------------
     const sectionTitles = document.querySelectorAll('.details-title');
     sectionTitles.forEach(title => {
         title.addEventListener('click', () => {
-            // PCでもスマホでも、クリックされたら親コンテナに開閉クラスを切り替える
             const container = title.parentElement;
             if (container) {
                 container.classList.toggle('is-expanded');
             }
         });
-       // --- スマホ・PC共通：応募フォームカードの双方向開閉（スライド）制御 ---
+    });
+
+    // ----------------------------------------------------------------------
+    // 応募フォームカードの双方向開閉（スライド）制御
+    // ----------------------------------------------------------------------
     const btnOpenForm = document.getElementById('btn-open-form');
-    const btnCloseForm = document.getElementById('btn-close-form'); // ★ 閉じるボタンを取得
+    const btnCloseForm = document.getElementById('btn-close-form');
     const formCtaContainer = document.getElementById('form-cta-container');
     const formExpandContainer = document.getElementById('form-expand-container');
 
     if (btnOpenForm && btnCloseForm && formCtaContainer && formExpandContainer) {
-        // ① フォームを開く動作
         btnOpenForm.addEventListener('click', () => {
             formCtaContainer.style.maxHeight = '0';
             formCtaContainer.style.opacity = '0';
             formCtaContainer.style.overflow = 'hidden';
             formCtaContainer.style.marginBottom = '0';
 
-            formExpandContainer.style.maxHeight = '1500px'; /* フォーム全体が収まる高さ */
+            formExpandContainer.style.maxHeight = '1500px';
             formExpandContainer.style.opacity = '1';
         });
 
-        // ② フォームを閉じて元の案内画面に戻す動作
         btnCloseForm.addEventListener('click', () => {
             formExpandContainer.style.maxHeight = '0';
             formExpandContainer.style.opacity = '0';
 
-            // 元の案内画面（CTA）を滑らかに再表示します
-            formCtaContainer.style.maxHeight = '500px'; /* 元のコンテンツの最大高さ */
+            formCtaContainer.style.maxHeight = '500px';
             formCtaContainer.style.opacity = '1';
-            formCtaContainer.style.marginBottom = ''; /* デフォルト値に戻す */
+            formCtaContainer.style.marginBottom = '';
         });
     }
-    });
 
-   // --- プライバシーポリシーモーダルの開閉制御（フッター整理後） ---
+    // ----------------------------------------------------------------------
+    // プライバシーポリシーモーダルの開閉制御
+    // ----------------------------------------------------------------------
     const privacyModal = document.getElementById('privacy-modal');
     const linkPrivacyInline = document.getElementById('link-privacy-inline');
-    // ★ linkPrivacyFooter の変数定義を削除しました
     const btnClosePrivacy = document.getElementById('btn-close-privacy');
     const btnPrivacyOk = document.getElementById('btn-privacy-ok');
 
@@ -480,7 +487,6 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         if (linkPrivacyInline) linkPrivacyInline.addEventListener('click', openPrivacy);
-        // ★ linkPrivacyFooter のイベントリスナーを削除しました
         if (btnClosePrivacy) btnClosePrivacy.addEventListener('click', closePrivacy);
         if (btnPrivacyOk) btnPrivacyOk.addEventListener('click', closePrivacy);
 
@@ -491,7 +497,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-// --- FAQセクション全体の開閉（アコーディオン）制御（全デバイス対応） ---
+    // ----------------------------------------------------------------------
+    // FAQセクション全体の開閉（アコーディオン）制御
+    // ----------------------------------------------------------------------
     const faqSection = document.getElementById('faq');
     if (faqSection) {
         const faqHeader = faqSection.querySelector('.section-header');
@@ -501,5 +509,4 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     }
-} // 元の 433 行目のカッコ
-}); // 元の 434 行目のカッコ
+});
