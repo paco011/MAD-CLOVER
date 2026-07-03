@@ -430,7 +430,7 @@ background-image: url('hero-bg.webp');    background-size: cover;
 }
 
 /* ==========================================================================
-   About Us Section Logo (どす黒さを排除した、淡く透明感のあるフェード効果)
+   About Us Section Logo (プレーンな状態に戻しました)
    ========================================================================== */
 .about-logo-img {
     width: 150px;
@@ -438,20 +438,9 @@ background-image: url('hero-bg.webp');    background-size: cover;
     object-fit: cover;
     border-radius: 50%;
     overflow: hidden;
-    
-    /* ★ 修正：どす黒くなる grayscale を廃止し、背景に優しく溶け込む不透明度に切り替えます */
-    opacity: 0.72;             /* 普段は72%の不透明度で、背景の白に上品に馴染ませます */
-    filter: brightness(1.06);   /* 明るさを6%だけ上げることで、より淡く透明感のあるクリーンな色彩に */
-    
-    /* 滑らかなフェード移行 */
-    transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), filter 1.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* マウスを乗せた時に、じわっと本来の鮮やかな発色と100%の不透明度に戻る */
-.about-logo-img:hover {
-    opacity: 1;
-    filter: brightness(1);
-}
+/* ※これより下の、末尾に新しく追加していた「#logo-img」や「.logo:hover #logo-img」のコードはすべて削除します */
 
 .card-info h4 {
     font-size: 1.3rem;      /* ★ 1.5から1.3へ、一回りスマートに */
@@ -1743,20 +1732,4 @@ footer {
         /* PCでアクセスした際、ブラウザの拡大率を自動的に「120%（1.2倍）」に設定します */
         zoom: 1.2; 
     }
-}
-
-/* ==========================================================================
-   Header Logo (ヘッダーロゴも同様の淡くクリーンなエフェクトに統一)
-   ========================================================================== */
-#logo-img {
-    /* 普段はふんわりと淡いトーンに */
-    opacity: 0.72;
-    filter: brightness(1.06);
-    transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), filter 1s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-/* マウスが近づいた時に、優しく本来の姿に */
-.logo:hover #logo-img {
-    opacity: 1;
-    filter: brightness(1);
 }
