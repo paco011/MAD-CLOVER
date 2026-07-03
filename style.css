@@ -430,7 +430,7 @@ background-image: url('hero-bg.webp');    background-size: cover;
 }
 
 /* ==========================================================================
-   About Us Section Logo (静寂なモノトーンと滑らかな発色エフェクト)
+   About Us Section Logo (どす黒さを排除した、淡く透明感のあるフェード効果)
    ========================================================================== */
 .about-logo-img {
     width: 150px;
@@ -439,15 +439,18 @@ background-image: url('hero-bg.webp');    background-size: cover;
     border-radius: 50%;
     overflow: hidden;
     
-    /* ★ 追加：普段は彩度を25%落とし、コントラストを極わずかに抑えて美術館のような静けさに */
-    filter: grayscale(25%) contrast(98%);
-    /* 1.2秒かけて極めて優雅に減速しながら発色させるイージング */
-    transition: filter 1.2s cubic-bezier(0.16, 1, 0.3, 1); 
+    /* ★ 修正：どす黒くなる grayscale を廃止し、背景に優しく溶け込む不透明度に切り替えます */
+    opacity: 0.72;             /* 普段は72%の不透明度で、背景の白に上品に馴染ませます */
+    filter: brightness(1.06);   /* 明るさを6%だけ上げることで、より淡く透明感のあるクリーンな色彩に */
+    
+    /* 滑らかなフェード移行 */
+    transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), filter 1.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* ★ 追加：マウスを乗せた時に、じわっと本来の美しい色彩が蘇る設定 */
+/* マウスを乗せた時に、じわっと本来の鮮やかな発色と100%の不透明度に戻る */
 .about-logo-img:hover {
-    filter: grayscale(0%) contrast(100%);
+    opacity: 1;
+    filter: brightness(1);
 }
 
 .card-info h4 {
@@ -1743,15 +1746,17 @@ footer {
 }
 
 /* ==========================================================================
-   Header Logo (ヘッダーロゴにも同様の上質な連動エフェクトを適用)
+   Header Logo (ヘッダーロゴも同様の淡くクリーンなエフェクトに統一)
    ========================================================================== */
 #logo-img {
-    /* 普段は少し落ち着いたトーン */
-    filter: grayscale(25%);
-    transition: filter 1s cubic-bezier(0.16, 1, 0.3, 1);
+    /* 普段はふんわりと淡いトーンに */
+    opacity: 0.72;
+    filter: brightness(1.06);
+    transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), filter 1s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* ヘッダーのロゴエリア（a.logo）にマウスが近づいた時に、優しく発色 */
+/* マウスが近づいた時に、優しく本来の姿に */
 .logo:hover #logo-img {
-    filter: grayscale(0%);
+    opacity: 1;
+    filter: brightness(1);
 }
