@@ -1693,7 +1693,7 @@ footer {
 /* --- 5. スマホ表示（768px以下）での微調整（レスポンシブ用のカラム数など） --- */
 @media (max-width: 768px) {
     .belongings-container.is-expanded .belongings-grid {
-        /* スマホ時はスッキリ見せるため2列グリッドで展開する */
+        /* スマホ時はスッキリ見せるため2列グリッドで展開 */
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 12px;
