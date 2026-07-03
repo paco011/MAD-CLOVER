@@ -429,13 +429,25 @@ background-image: url('hero-bg.webp');    background-size: cover;
     max-width: 400px;
 }
 
-/* About Section Logo */
+/* ==========================================================================
+   About Us Section Logo (静寂なモノトーンと滑らかな発色エフェクト)
+   ========================================================================== */
 .about-logo-img {
     width: 150px;
     height: 150px;
-    object-fit: cover; /* ★ contain から cover に変更し、枠いっぱいに広げます */
-    border-radius: 50%; /* これで、枠いっぱいの白い四隅が完全に丸く切り落とされます */
+    object-fit: cover;
+    border-radius: 50%;
     overflow: hidden;
+    
+    /* ★ 追加：普段は彩度を25%落とし、コントラストを極わずかに抑えて美術館のような静けさに */
+    filter: grayscale(25%) contrast(98%);
+    /* 1.2秒かけて極めて優雅に減速しながら発色させるイージング */
+    transition: filter 1.2s cubic-bezier(0.16, 1, 0.3, 1); 
+}
+
+/* ★ 追加：マウスを乗せた時に、じわっと本来の美しい色彩が蘇る設定 */
+.about-logo-img:hover {
+    filter: grayscale(0%) contrast(100%);
 }
 
 .card-info h4 {
@@ -1728,4 +1740,18 @@ footer {
         /* PCでアクセスした際、ブラウザの拡大率を自動的に「120%（1.2倍）」に設定します */
         zoom: 1.2; 
     }
+}
+
+/* ==========================================================================
+   Header Logo (ヘッダーロゴにも同様の上質な連動エフェクトを適用)
+   ========================================================================== */
+#logo-img {
+    /* 普段は少し落ち着いたトーン */
+    filter: grayscale(25%);
+    transition: filter 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ヘッダーのロゴエリア（a.logo）にマウスが近づいた時に、優しく発色 */
+.logo:hover #logo-img {
+    filter: grayscale(0%);
 }
