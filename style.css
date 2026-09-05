@@ -199,6 +199,9 @@ header.scrolled {
     font-weight: 800;
     color: var(--clr-blue);
     gap: 12px;
+    position: relative;
+    left: -1cm; /* MAD CLOVER文字の左端と垂直位置を完全に揃える */
+    transition: var(--transition);
 }
 
 .logo img {
@@ -1478,6 +1481,7 @@ footer {
     .mobile-menu-toggle.active span:nth-child(2) { opacity: 0; }
     .mobile-menu-toggle.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
     
+    .logo { left: 0; }
     .hero-brand-block { left: 0; top: 0.5cm; }
     .hero-eyebrow { font-size: 0.85rem; letter-spacing: 0.16em; margin-bottom: 10px; }
     .hero-title { font-size: 2.7rem; margin-bottom: 12px; }
