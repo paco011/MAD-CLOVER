@@ -318,20 +318,20 @@ background-image: url('hero-bg.png');    background-size: cover;
 
 .hero-eyebrow {
     font-family: 'Source Serif 4', 'Source Serif Pro', Georgia, serif;
-    font-size: 0.95rem;
+    font-size: 1.1rem; /* 0.95remから若干大きく調整 */
     font-weight: 500;
     letter-spacing: 0.22em;
     text-transform: uppercase;
     color: var(--clr-blue);
-    margin-bottom: 12px;
+    margin-bottom: 14px;
 }
 
 .hero-title {
     font-family: 'Source Serif 4', 'Source Serif Pro', Georgia, serif;
-    font-size: 3.8rem;
+    font-size: 4.5rem; /* 3.8remから若干大きく調整 */
     font-weight: 600;
-    line-height: 1.08;
-    margin-bottom: 16px;
+    line-height: 1.05;
+    margin-bottom: 18px;
     color: #0d1117;
     letter-spacing: 0.05em;
     /* スクショの浮かび上がる立体感シャドウ */
@@ -343,7 +343,7 @@ background-image: url('hero-bg.png');    background-size: cover;
 .hero-tagline {
     font-family: 'Source Serif 4', 'Source Serif Pro', Georgia, serif;
     font-style: italic;
-    font-size: 1.35rem;
+    font-size: 1.55rem; /* 1.35remから若干大きく調整 */
     font-weight: 400;
     color: var(--clr-blue);
     letter-spacing: 0.03em;
@@ -1419,7 +1419,7 @@ footer {
     .nav-menu ul { gap: 28px; }
     .nav-menu a { font-size: 1.05rem; }
     .about-grid, .recruit-wrapper { grid-template-columns: 1fr; gap: 40px; }
-    .hero-title { font-size: 3.4rem; }
+    .hero-title { font-size: 3.9rem; }
     .section-title { font-size: 2.2rem; }
     .about-text h3 { font-size: 2rem; }
     
@@ -1486,9 +1486,9 @@ footer {
     
     .logo { left: 0; }
     .hero-brand-block { left: 0; top: 0.5cm; }
-    .hero-eyebrow { font-size: 0.85rem; letter-spacing: 0.16em; margin-bottom: 10px; }
-    .hero-title { font-size: 2.7rem; margin-bottom: 12px; }
-    .hero-tagline { font-size: 1.15rem; }
+    .hero-eyebrow { font-size: 0.95rem; letter-spacing: 0.16em; margin-bottom: 10px; }
+    .hero-title { font-size: 3.1rem; margin-bottom: 14px; }
+    .hero-tagline { font-size: 1.3rem; }
     .section-title { font-size: 1.8rem; }
     .about-text h3 { font-size: 1.6rem; }
     
@@ -1520,9 +1520,9 @@ footer {
         grid-template-columns: 1fr;
     }
     
-    .hero-eyebrow { font-size: 0.75rem; letter-spacing: 0.12em; margin-bottom: 8px; }
-    .hero-title { font-size: 2.1rem; margin-bottom: 10px; }
-    .hero-tagline { font-size: 1rem; }
+    .hero-eyebrow { font-size: 0.85rem; letter-spacing: 0.12em; margin-bottom: 8px; }
+    .hero-title { font-size: 2.4rem; margin-bottom: 10px; }
+    .hero-tagline { font-size: 1.1rem; }
     .section-title { font-size: 1.6rem; }
     .about-text h3 { font-size: 1.4rem; }
     .about-logo-img { width: 220px; height: auto; }
