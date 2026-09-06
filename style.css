@@ -1822,9 +1822,11 @@ footer {
         padding: 0 32px;
     }
     
-    /* 右側のイラストサイズを一回り小さくして全体の余白と調和 */
+    /* 右側のイラストサイズを一回り小さくし、位置を1cm下に移動 */
     .about-logo-img {
         width: 290px;
+        position: relative;
+        top: 1cm; /* PC表示時のみ1センチ下に移動 */
     }
     
     /* About Usの左右グリッドの間隔にも適度なゆとりを確保 */
