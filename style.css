@@ -469,7 +469,7 @@ background-image: url('hero-bg.png');    background-size: cover;
    About Us Section Illustration
    ========================================================================== */
 .about-logo-img {
-    width: 320px;
+    width: 270px; /* 一回り小さく調整 */
     max-width: 100%;
     height: auto;
     object-fit: contain;
@@ -1568,7 +1568,7 @@ footer {
     .hero-tagline { font-size: 1.1rem; }
     .section-title { font-size: 1.6rem; }
     .about-text h3 { font-size: 1.4rem; }
-    .about-logo-img { width: 220px; height: auto; }
+    .about-logo-img { width: 190px; height: auto; }
     .activity-cards { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
 }
 
@@ -1822,9 +1822,9 @@ footer {
         padding: 0 32px;
     }
     
-    /* 右側のイラストサイズも以前のカードと同等の存在感に調整 */
+    /* 右側のイラストサイズを一回り小さくして全体の余白と調和 */
     .about-logo-img {
-        width: 380px;
+        width: 290px;
     }
     
     /* About Usの左右グリッドの間隔にも適度なゆとりを確保 */
