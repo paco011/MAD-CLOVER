@@ -1509,6 +1509,8 @@ footer {
     .hero-tagline { font-size: 1.3rem; }
     .section-title { font-size: 1.8rem; }
     .about-text h3 { font-size: 1.6rem; }
+    .stat-val { font-size: 1.35rem; font-weight: 500; }
+    .stat-lbl { font-size: 0.75rem; }
     
     .contact-form-card { padding: 32px 24px; }
     .footer-content { flex-direction: column; text-align: center; }
@@ -1521,18 +1523,30 @@ footer {
 @media (max-width: 576px) {
     .stats-grid {
         grid-template-columns: 1fr;
-        gap: 16px;
-        padding: 16px 0;
+        gap: 12px;
+        padding: 12px 0;
+        margin: 24px 0;
     }
     
     .stat-card {
         border-left: 2px solid rgba(0, 0, 0, 0.08);
-        padding: 4px 0 4px 16px;
+        padding: 2px 0 2px 14px;
     }
     
     .stat-card:first-child {
         border-left: 2px solid rgba(0, 0, 0, 0.08);
-        padding-left: 16px;
+        padding-left: 14px;
+    }
+    
+    .stat-val {
+        font-size: 1.25rem; /* About Us（1.6rem）より一回り控えめなサイズに調整 */
+        font-weight: 500;  /* 600から500へ落として太さを解消 */
+        line-height: 1.2;
+    }
+    
+    .stat-lbl {
+        font-size: 0.72rem;
+        margin-top: 2px;
     }
     
     .tab-buttons {
