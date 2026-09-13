@@ -230,9 +230,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { id: 'email', confirmId: 'confirm-email', label: 'メールアドレス' },
         { id: 'gender', confirmId: 'confirm-gender', label: '性別' },
         { id: 'age', confirmId: 'confirm-age', label: 'ご年齢' },
-        { id: 'profile', confirmId: 'confirm-profile', label: 'お住まい・ご職業等' },
-        { id: 'start_date', confirmId: 'confirm-start-date', label: '参加希望日時' },
-        { id: 'message', confirmId: 'confirm-message', label: 'メッセージ' }
+        { id: 'message', confirmId: 'confirm-message', label: '参加希望日時・メッセージ等' }
     ];
 
     if (contactForm && confirmModal && successModal) {
