@@ -29,36 +29,105 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "SportsTeam",
-  "name": "MAD CLOVER",
-  "sport": "Basketball",
-"description": "埼玉県ふじみ野周辺（富士見、三芳、川越、新座、志木、さいたま等）で活動する、男女MIX・女性大歓迎のバスケットボールチームです。安全に配慮したバスケ大人のバスケのため、女性プレイヤーや初心者・ブランクのある方も安心です。プレイヤー・女性マネージャー募集中。",  "url": "https://paco011.github.io/MAD-CLOVER/",
-  "image": "https://paco011.github.io/MAD-CLOVER/logo.png",
-  "foundingDate": "2016",
-  "areaServed": [
-    { "@type": "AdministrativeArea", "name": "ふじみ野市" },
-    { "@type": "AdministrativeArea", "name": "富士見市" },
-    { "@type": "AdministrativeArea", "name": "三芳町" },
-    { "@type": "AdministrativeArea", "name": "川越市" },
-    { "@type": "AdministrativeArea", "name": "志木市" },
-    { "@type": "AdministrativeArea", "name": "新座市" },
-    { "@type": "AdministrativeArea", "name": "さいたま市" },
-    { "@type": "AdministrativeArea", "name": "埼玉県" }
-  ],
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "ふじみ野",
-    "addressRegion": "埼玉県",
-    "addressCountry": "JP"
-  },
-  "subOrganization": {
-    "@type": "SportsClub",
-    "name": "MAD CLOVER バスケットボールチーム"
-  }
+  "@graph": [
+    {
+      "@type": "SportsTeam",
+      "name": "MAD CLOVER",
+      "sport": "Basketball",
+      "description": "埼玉県ふじみ野周辺（富士見、三芳、川越、新座、志木、さいたま等）で活動する、男女MIX・女性大歓迎のバスケットボールチームです。安全に配慮した大人のバスケのため、女性プレイヤーや初心者・ブランクのある方も安心です。プレイヤー・女性マネージャー募集中。",
+      "url": "https://paco011.github.io/MAD-CLOVER/",
+      "image": "https://paco011.github.io/MAD-CLOVER/logo.png",
+      "foundingDate": "2016",
+      "areaServed": [
+        { "@type": "AdministrativeArea", "name": "ふじみ野市" },
+        { "@type": "AdministrativeArea", "name": "富士見市" },
+        { "@type": "AdministrativeArea", "name": "三芳町" },
+        { "@type": "AdministrativeArea", "name": "川越市" },
+        { "@type": "AdministrativeArea", "name": "志木市" },
+        { "@type": "AdministrativeArea", "name": "新座市" },
+        { "@type": "AdministrativeArea", "name": "さいたま市" },
+        { "@type": "AdministrativeArea", "name": "埼玉県" }
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "ふじみ野",
+        "addressRegion": "埼玉県",
+        "addressCountry": "JP"
+      },
+      "subOrganization": {
+        "@type": "SportsClub",
+        "name": "MAD CLOVER バスケットボールチーム"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "基本的に途中参加になってしまうと思いますが、応募は可能でしょうか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "途中参加は全く問題ありません。お仕事やご都合に合わせてご参加いただけるよう、可能な限り柔軟に対応させていただきます。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "体育館はどこでやることが多いですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ふじみ野総合体育館、駒林体育館、上野台体育館などになります。川越市のなぐわし公園体育館になることもあります。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "学生は参加難しいでしょうか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "18歳以上であれば学生でも参加可能です。また、中学生・高校生の場合でも、一定の諸条件（部活経験、保護者の同意等）を満たせば参加可能な場合があります。個別にご相談ください。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "人数が少ない時はどんなことしてますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "当チームは、基本的には常にフルコートでのゲームが成立しています。もし人数が10人を下回る場合は、3対3などのハーフコートゲームを行う予定です。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "女性プレイヤーの参加比率はどのくらいですか？また、更衣室などの設備はありますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "現在、女性プレイヤーは7名在籍しており、毎回の活動に数名が参加しています。活動場所であるふじみ野市周辺の体育館には、男女別の更衣室が完備されていますので、女性の方も安心してご参加いただけます。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "ふじみ野市外（川越市、三芳町、志木市、新座市、さいたま市、富士見市など）からの参加でも大丈夫ですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "はい、大歓迎です。メンバーはふじみ野市だけでなく、富士見市、三芳町、川越市、志木市、新座市、さいたま市など周辺の市町村から幅広く集まっています。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "未経験やブランクが長くても大丈夫でしょうか？また、強引な勧誘などはありますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "当チームは「安全第一・全員が心地よく楽しめること」を最優先にしている社会人チームです。ミスを責めずにお互いカバーし合う温かい雰囲気ですので、初心者の方やブランクのある方も心配いりません。また、見学や体験参加のあとに入会を迫るような勧誘は一切ありませんので、まずはお気軽にお越しください。"
+          }
+        }
+      ]
+    }
+  ]
 }
 </script>
 
-<link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=Inter:wght@400;600;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=Inter:wght@400;600;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/@phosphor-icons/web" defer></script>
 <!-- 末尾に ?v=2.5 を付けて、世界中のブラウザキャッシュを強制リフレッシュします -->
 <link rel="stylesheet" href="style.css?v=2.5"></head>
 <body>
@@ -90,13 +159,8 @@
             <div class="hero-content">
                 <div class="hero-brand-block fade-in-up">
                     <p class="hero-eyebrow">BASKETBALL CLUB / EST. 2016</p>
-                    <h1 class="hero-title">
-                        <span class="sr-only">MAD CLOVER（マッドクローバー）- 埼玉県ふじみ野の社会人バスケットボールチーム</span>
-                        MAD CLOVER
-                    </h1>
+                    <h1 class="hero-title">MAD CLOVER</h1>
                     <p class="hero-tagline">Play Smart, Enjoy More.</p>
-                    <!-- ★ Google用の隠しワード（画面上は見えません） -->
-                    <span class="sr-only">埼玉県ふじみ野周辺を拠点に活動する、男女MIXの社会人バスケットボールサークル（チーム）です。新規メンバー募集中。</span>
                 </div>
             </div>
             <div class="scroll-indicator">
@@ -108,15 +172,11 @@
         <section class="about" id="about">
             <div class="container">
                 <div class="section-header">
-                    <!-- ★ 見出しに隠しSEOキーワードを仕込みました -->
-<h2 class="section-title">About Us <span class="sr-only">（ふじみ野、富士見、三芳、川越、志木、新座、さいたま周辺の、女性歓迎・男女MIX社会人バスケチーム紹介）</span></h2>                </div>
+                    <h2 class="section-title">About Us</h2>
+                </div>
                 <div class="about-grid">
                     <div class="about-text slide-in-left">
-<p>
-    <!-- ★ Google用の隠しワード（画面上は見えません） -->
-    <span class="sr-only">MAD CLOVER（マッドクローバー）は、埼玉県ふじみ野周辺を拠点に活動している男女MIXの社会人バスケットボールチーム（サークル）です。</span>
-    MAD CLOVER は、埼玉県ふじみ野市を拠点に活動している男女MIXのバスケットボールチームです。
-</p>                        
+                        <p>MAD CLOVER は、埼玉県ふじみ野市を拠点に活動している男女MIXのバスケットボールチームです。</p>                        
                         <div class="stats-grid">
                             <div class="stat-card">
                                 <span class="stat-icon"><i class="ph ph-calendar"></i></span>
@@ -155,8 +215,7 @@
         <section class="activity" id="activity">
             <div class="container">
                 <div class="section-header">
-                    <!-- 修正後 -->
-                    <h2 class="section-title">Activity <span class="sr-only">（ふじみ野周辺での活動場所・練習日程）</span></h2>
+                    <h2 class="section-title">Activity</h2>
                     <p class="section-subtitle">活動内容</p>
                 </div>
                 <div class="activity-cards">
@@ -258,8 +317,9 @@
     <div class="container">
         <!-- ★ 見出し行をグリッド（recruit-wrapper）の外側に引っ越ししました -->
         <div class="section-header left-align">
-            <h2 class="section-title">Join Our Team <span class="sr-only">（女子プレイヤー募集、女性マネージャー歓迎、初心者・ブランク歓迎の体験参加案内）</span></h2>
-<p class="section-subtitle">メンバー・マネージャー募集</p>        </div>
+            <h2 class="section-title">Join Our Team</h2>
+            <p class="section-subtitle">メンバー・マネージャー募集</p>
+        </div>
 
         <div class="recruit-wrapper">
             <!-- 左側：情報エリア -->
@@ -422,8 +482,7 @@
         <section class="faq" id="faq">
             <div class="container">
                 <div class="section-header">
-                    <!-- 修正後 -->
-                    <h2 class="section-title">FAQ <span class="sr-only">（ふじみ野バスケチームに関するよくある質問）</span></h2>
+                    <h2 class="section-title">FAQ</h2>
                     <p class="section-subtitle">よくあるご質問</p>
                 </div>
                 <div class="faq-accordion-container">
