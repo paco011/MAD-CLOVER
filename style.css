@@ -866,7 +866,7 @@ footer {
 }
 
 .timeline-item .event h4 {
-    font-size: 1.05rem;
+    font-size: 0.9rem;
     font-weight: 700;
     color: var(--clr-text);
     margin-bottom: 4px;
