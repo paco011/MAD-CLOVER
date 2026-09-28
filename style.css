@@ -771,10 +771,10 @@ footer {
 
 .stat-val {
     font-family: 'Source Serif 4', 'Source Serif Pro', Georgia, serif;
-    font-size: 2.1rem;
+    font-size: 1.65rem;
     font-weight: 600;
-    color: #0d1117;
-    line-height: 1.1;
+    color: var(--clr-blue);
+    line-height: 1.2;
     letter-spacing: 0.02em;
 }
 
@@ -1510,7 +1510,7 @@ footer {
     .hero-tagline { font-size: 1.3rem; }
     .section-title { font-size: 1.8rem; }
     .about-text h3 { font-size: 1.6rem; }
-    .stat-val { font-size: 1.55rem; font-weight: 600; }
+    .stat-val { font-size: 1.4rem; font-weight: 600; }
     .stat-lbl { font-size: 0.78rem; }
     
     .contact-form-card { padding: 32px 24px; }
@@ -1540,9 +1540,9 @@ footer {
     }
     
     .stat-val {
-        font-size: 1.5rem; /* 1.25remから程よく存在感を戻す（見出し1.6remとのバランスを両立） */
-        font-weight: 600;  /* 輪郭とメリハリをしっかり出す */
-        line-height: 1.15;
+        font-size: 1.3rem;
+        font-weight: 600;
+        line-height: 1.2;
     }
     
     .stat-lbl {
