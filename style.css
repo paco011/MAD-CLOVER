@@ -470,7 +470,7 @@ background-image: url('hero-bg.webp');    background-size: cover;
    About Us Section Illustration
    ========================================================================== */
 .about-logo-img {
-    width: 360px;
+    width: 300px;
     max-width: 100%;
     height: auto;
     object-fit: contain;
@@ -1568,7 +1568,7 @@ footer {
     .hero-tagline { font-size: 1.1rem; }
     .section-title { font-size: 1.6rem; }
     .about-text h3 { font-size: 1.4rem; }
-    .about-logo-img { width: 250px; height: auto; }
+    .about-logo-img { width: 220px; height: auto; }
     .activity-cards { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
 }
 
@@ -1822,9 +1822,9 @@ footer {
         padding: 0 32px;
     }
     
-    /* 右側のイラストサイズを適正化（堂々とした上品なサイズへ） */
+    /* 右側のイラストサイズを一回り小さく調整（控えめで上品なサイズへ） */
     .about-logo-img {
-        width: 380px;
+        width: 320px;
         position: relative;
         top: 0;
     }
