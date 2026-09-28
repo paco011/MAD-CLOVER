@@ -425,8 +425,8 @@ background-image: url('hero-bg.webp');    background-size: cover;
     display: flex;
     align-items: center;
     gap: 14px;
-    font-size: 1.05rem;
-    font-weight: 500;
+    font-size: 1.02rem;
+    font-weight: 400;
     margin-bottom: 16px;
     color: var(--clr-text);
 }
