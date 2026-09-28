@@ -1364,7 +1364,7 @@ footer {
     border: none;
     text-align: left;
     font-family: inherit;
-    font-size: 1.05rem;
+    font-size: 0.95rem;
     font-weight: 500;
     color: var(--clr-text);
     cursor: pointer;
