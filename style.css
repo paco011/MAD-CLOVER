@@ -10,7 +10,7 @@
     --clr-bg: #fafafa;           /* 清潔感のある、ほんのり温かいオフホワイト */
     --clr-bg-alt: #f1f3f5;       /* 静かで洗練されたライトグレー */
     --clr-text: #1a202c;         /* 読みやすく、強すぎないダークグレー */
-    --clr-text-light: #5a6578;   /* 落ち着いたスレートグレー */
+    --clr-text-light: #334155;   /* 視認性を高めた深みのあるスレートグレー（かすれ解消） */
     --clr-white: #ffffff;
     
     /* Gradients (ギラギラ感をなくし、シックで滑らかなグラデーションに) */
@@ -1403,8 +1403,8 @@ footer {
 .faq-answer-content {
     padding: 24px;
     font-size: 0.95rem;
-    line-height: 1.6;
-    color: var(--clr-text-light);
+    line-height: 1.7;
+    color: #2d3748;
 }
 
 /* Animations */
