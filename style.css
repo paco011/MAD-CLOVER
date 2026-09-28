@@ -42,12 +42,13 @@ html {
 }
 
 body {
-    font-family: 'Inter', 'BIZ UDPGothic', sans-serif; /* ★ BIZ UDPゴシックに変更します */    background-color: var(--clr-bg);
+    font-family: 'Inter', 'Noto Sans JP', sans-serif;
+    background-color: var(--clr-bg);
     color: var(--clr-text);
-    line-height: 1.6;
+    line-height: 1.65;
     overflow-x: hidden;
     width: 100%;
-    letter-spacing: 0.04em; /* 全体にわずかな空気感を持たせます */
+    letter-spacing: 0.03em;
 }
 
 a {
