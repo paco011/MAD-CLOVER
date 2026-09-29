@@ -1570,7 +1570,7 @@ footer {
     .hero-tagline { font-size: 1.1rem; }
     .section-title { font-size: 1.6rem; }
     .about-text h3 { font-size: 1.4rem; }
-    .about-logo-img { width: 220px; height: auto; top: 0 !important; }
+    .about-logo-img { width: 180px; height: auto; top: 0 !important; }
     .activity-cards { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
 }
 
