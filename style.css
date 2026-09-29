@@ -109,7 +109,8 @@ ul {
     margin-bottom: 8px;
     position: relative;
     display: inline-block;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.16em; /* レターライクな広めの文字間で知的な静けさを演出 */
+    margin-right: -0.16em;  /* 末尾文字の余白を打ち消し完全な幾何学的中央配置を実現 */
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
 }
 
@@ -777,6 +778,14 @@ footer {
     color: var(--clr-blue);
     line-height: 1.2;
     letter-spacing: 0.02em;
+}
+
+.stat-val .unit {
+    font-size: 0.72em;
+    font-family: 'Zen Kaku Gothic New', sans-serif;
+    font-weight: 500;
+    margin-left: 2px;
+    letter-spacing: 0;
 }
 
 .stat-lbl {
@@ -1568,7 +1577,7 @@ footer {
     .hero-eyebrow { font-size: 0.85rem; letter-spacing: 0.12em; margin-bottom: 8px; }
     .hero-title { font-size: 2.4rem; margin-bottom: 10px; }
     .hero-tagline { font-size: 1.1rem; }
-    .section-title { font-size: 1.6rem; }
+    .section-title { font-size: 1.6rem; letter-spacing: 0.12em; margin-right: -0.12em; }
     .about-text h3 { font-size: 1.4rem; }
     .about-logo-img { width: 180px; height: auto; top: 0 !important; }
     .activity-cards { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
