@@ -475,7 +475,7 @@ background-image: url('hero-bg.webp');    background-size: cover;
     height: auto;
     object-fit: contain;
     position: relative;
-    top: 36px; /* 約1cm下に下げてテキストブロックと心地よく調和 */
+    top: 45px; /* 約1.2cm下に下げてテキストブロック下端と心地よく調和 */
 }
 
 /* ※これより下の、末尾に新しく追加していた「#logo-img」や「.logo:hover #logo-img」のコードはすべて削除します */
@@ -1570,7 +1570,7 @@ footer {
     .hero-tagline { font-size: 1.1rem; }
     .section-title { font-size: 1.6rem; }
     .about-text h3 { font-size: 1.4rem; }
-    .about-logo-img { width: 220px; height: auto; top: 0; }
+    .about-logo-img { width: 220px; height: auto; top: 0 !important; }
     .activity-cards { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
 }
 
@@ -1824,11 +1824,11 @@ footer {
         padding: 0 32px;
     }
     
-    /* 右側のイラストサイズを一回り小さく調整（控えめで上品なサイズへ）＆約1cm下に調整 */
+    /* 右側のイラストサイズを一回り小さく調整（控えめで上品なサイズへ）＆約1.2cm下に調整 */
     .about-logo-img {
         width: 320px;
         position: relative;
-        top: 36px;
+        top: 45px;
     }
     
     /* About Usの左右グリッドの間隔にも適度なゆとりを確保 */
