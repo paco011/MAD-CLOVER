@@ -510,7 +510,7 @@ background-image: url('hero-bg.webp');    background-size: cover;
 
 .activity-card {
     background: var(--clr-white);
-    padding: 34px 16px;
+    padding: 34px 12px;
     border-radius: var(--radius-md);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
     transition: var(--transition);
@@ -572,6 +572,7 @@ background-image: url('hero-bg.webp');    background-size: cover;
 
 .activity-desc {
     font-size: 0.95rem;
+    letter-spacing: -0.015em;
     color: #475569;
     line-height: 1.65;
     text-align: center;
