@@ -220,11 +220,12 @@ header.scrolled {
     gap: 44px; /* ゆとりを持たせた間隔 */
 }
 
-/* メニューのリンク文字（適度に大きくして視認性と上品さを両立） */
+/* メニューのリンク文字（セクション見出しと統一したクラシカルなセリフ体と上品な余白） */
 .nav-menu a {
-    font-weight: 600;
-    font-size: 1.15rem; /* 0.95remから適度に大きく調整 */
-    letter-spacing: 0.04em;
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-weight: 500;
+    font-size: 1.05rem;
+    letter-spacing: 0.1em;
     color: var(--clr-text-light); /* 柔らかいスレートグレー */
     transition: var(--transition);
     position: relative;
@@ -1446,7 +1447,7 @@ footer {
 /* Responsive */
 @media (max-width: 992px) {
     .nav-menu ul { gap: 28px; }
-    .nav-menu a { font-size: 1.05rem; }
+    .nav-menu a { font-size: 0.96rem; }
     .about-grid, .recruit-wrapper { grid-template-columns: 1fr; gap: 40px; }
     .hero-title { font-size: 3.9rem; }
     .section-title { font-size: 2.2rem; }
