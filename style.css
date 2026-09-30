@@ -224,7 +224,7 @@ header.scrolled {
 .nav-menu a {
     font-family: 'Source Serif 4', Georgia, serif;
     font-weight: 500;
-    font-size: 1.20rem; /* 大画面PCでの視認性と品格を両立 */
+    font-size: 1.15rem; /* 案A: 上品さと視認性を両立した約10%拡大サイズ */
     letter-spacing: 0.1em;
     color: var(--clr-text-light); /* 柔らかいスレートグレー */
     transition: var(--transition);
