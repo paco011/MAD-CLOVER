@@ -571,7 +571,7 @@ background-image: url('hero-bg.webp');    background-size: cover;
 }
 
 .activity-desc {
-    font-size: 0.84rem;
+    font-size: 0.95rem;
     color: #475569;
     line-height: 1.65;
     text-align: center;
@@ -1497,6 +1497,8 @@ footer {
 
 .faq-answer-text {
     flex: 1;
+    font-size: 0.95rem;
+    font-weight: 500;
     color: #334155;
     line-height: 1.8;
 }
