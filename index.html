@@ -130,8 +130,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
 <script src="https://unpkg.com/@phosphor-icons/web" defer></script>
-<!-- 末尾に ?v=6.0 を付けて、世界中のブラウザキャッシュを強制リフレッシュします -->
-<link rel="stylesheet" href="style.css?v=6.0"></head>
+<!-- 末尾に ?v=6.1 を付けて、世界中のブラウザキャッシュを強制リフレッシュします -->
+<link rel="stylesheet" href="style.css?v=6.1"></head>
 <body>
     <header id="header">
     <div class="header-container">
@@ -222,19 +222,31 @@
                 </div>
                 <div class="activity-cards">
                     <div class="activity-card fade-in-up">
-                        <div class="card-icon"><i class="ph ph-calendar-check"></i></div>
-                        <h3>活動日時</h3>
-                        <p>毎週土曜日 18:00〜21:00 に活動しています。<br>※19:00〜21:00となる場合もあります。</p>
+                        <span class="activity-cat-label">SCHEDULE</span>
+                        <div class="activity-main-val-ja">毎週土曜日</div>
+                        <span class="activity-sub-val">18:00 〜 21:00</span>
+                        <div class="activity-divider"></div>
+                        <p class="activity-desc">
+                            ※19:00〜21:00の場合あり。<br>ご都合に合わせた途中参加や早退も自由です。
+                        </p>
                     </div>
                     <div class="activity-card fade-in-up delay-1">
-                        <div class="card-icon"><i class="ph ph-map-trifold"></i></div>
-                        <h3>活動場所</h3>
-                        <p>ふじみ野総合体育館、<br>駒林体育館、上野台体育館など</p>
+                        <span class="activity-cat-label">LOCATION</span>
+                        <div class="activity-main-val-ja">ふじみ野市</div>
+                        <span class="activity-sub-val">総合体育館・駒林・上野台</span>
+                        <div class="activity-divider"></div>
+                        <p class="activity-desc">
+                            無料駐車場・更衣室あり。<br>近隣市町村（川越市PIKOA・富士見市など）の施設も利用します。
+                        </p>
                     </div>
                     <div class="activity-card fade-in-up delay-2">
-                        <div class="card-icon"><i class="ph ph-currency-jpy"></i></div>
-                        <h3>参加費</h3>
-                        <p>1回 300円（女性は 200円）<br><span style="display: block; margin-top: 6px; font-size: 0.85rem; color: var(--clr-text-light); line-height: 1.55;">※練習開始時に集金します（女性マネージャー無料）。<br>※参加費は体育館使用料、ボール代などの備品に使用いたします。</span></p>
+                        <span class="activity-cat-label">FEE</span>
+                        <div class="activity-main-val-en">¥300 <span class="activity-female-text">(女性 ¥200)</span></div>
+                        <span class="activity-sub-val">女性マネージャー無料</span>
+                        <div class="activity-divider"></div>
+                        <p class="activity-desc">
+                            練習開始時に集金します。<br>体育館使用料やボール代などの備品に使用いたします。
+                        </p>
                     </div>
                 </div>
 
