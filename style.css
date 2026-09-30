@@ -1935,30 +1935,23 @@ footer {
         gap: 80px;
     }
 
-    /* 各セクションをPCの1画面（ビューポート）に美しくフィットさせる設定 */
-    .about {
-        min-height: calc(100vh - 70px);
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 60px 0;
-    }
-    .about > .container {
-        width: 100%;
-    }
-
+    /* 各セクションをPCの1画面（ビューポート）に美しくフィットさせる設定（背景色エリアを1画面完全に引き延ばす） */
+    .about,
+    .activity,
     .recruit {
-        min-height: calc(100vh - 70px);
+        min-height: 100vh;
         box-sizing: border-box;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        padding: 50px 0;
+        padding: 80px 0;
     }
+    .about > .container,
+    .activity > .container,
     .recruit > .container {
         width: 100%;
     }
+
     .recruit .section-header.left-align {
         margin-bottom: 32px;
     }
