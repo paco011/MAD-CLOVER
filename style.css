@@ -682,8 +682,9 @@ background-image: url('hero-bg.webp');    background-size: cover;
     text-align: center;
 }
 
-.cta-phrase {
+.cta-line {
     display: inline-block;
+    white-space: nowrap;
 }
 
 .cta-notice-sep {
@@ -1572,10 +1573,6 @@ footer {
         grid-template-columns: 1fr;
         gap: 48px;
     }
-    
-    .pc-br {
-        display: none !important;
-    }
 }
 
 @media (max-width: 768px) {
@@ -1634,7 +1631,11 @@ footer {
     .stat-val { font-size: 1.4rem; font-weight: 600; }
     .stat-lbl { font-size: 0.78rem; }
     
-    .contact-form-card { padding: 32px 24px; }
+    .contact-form-card { padding: 32px 16px; }
+    .cta-notice-text {
+        font-size: clamp(0.70rem, 3.2vw, 0.88rem);
+        line-height: 1.7;
+    }
     .footer-content { flex-direction: column; text-align: center; }
     
     .schedule-grid {
@@ -1994,8 +1995,5 @@ footer {
         font-size: 0.88rem;
         line-height: 1.75;
         margin-bottom: 24px;
-    }
-    .pc-br {
-        display: inline;
     }
 }
