@@ -1445,6 +1445,8 @@ footer {
 
 .faq-question-text {
     flex: 1;
+    font-size: 0.95rem;
+    font-weight: 400;
     line-height: 1.8; /* A側の本文行間（1.8）と完全に統一 */
     padding-top: 0;
 }
@@ -1482,6 +1484,7 @@ footer {
     padding: 22px 24px 26px;
     line-height: 1.8;
     font-size: 0.95rem;
+    font-weight: 400;
     color: #334155;
 }
 
@@ -1498,7 +1501,7 @@ footer {
 .faq-answer-text {
     flex: 1;
     font-size: 0.95rem;
-    font-weight: 500;
+    font-weight: 400;
     color: #334155;
     line-height: 1.8;
 }
