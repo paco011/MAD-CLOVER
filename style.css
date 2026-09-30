@@ -1957,7 +1957,7 @@ footer {
     }
     .recruit-tabs,
     .contact-form-card {
-        min-height: 440px;
+        min-height: 480px;
     }
     .contact-form-card {
         padding: 36px 36px;
@@ -1967,10 +1967,11 @@ footer {
     }
     #form-cta-container h3 {
         font-size: 1.35rem;
-        margin-bottom: 10px;
+        margin-bottom: 12px;
     }
     #form-cta-container p {
-        font-size: 0.84rem;
-        margin-bottom: 20px;
+        font-size: 0.88rem;
+        line-height: 1.75;
+        margin-bottom: 24px;
     }
 }
