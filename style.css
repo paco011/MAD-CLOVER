@@ -1375,8 +1375,8 @@ footer {
     border: none;
     text-align: left;
     font-family: inherit;
-    font-size: 1.02rem;
-    font-weight: 400; /* 案3: 繊細ですっきりとした通常ウェイト */
+    font-size: 0.95rem; /* Aの本文サイズ（0.95rem）と完全に統一 */
+    font-weight: 400;
     color: var(--clr-text);
     cursor: pointer;
     transition: var(--transition);
@@ -1390,23 +1390,23 @@ footer {
     display: flex;
     align-items: flex-start;
     text-align: left;
-    gap: 12px;
+    gap: 14px; /* A側の余白（14px）と統一 */
     flex: 1;
 }
 
 .faq-q-badge {
     font-family: 'Source Serif 4', Georgia, serif;
-    font-size: 1.35rem;
-    font-weight: 400; /* 案3: 細身で上質なセリフ体 */
+    font-size: 1.3rem; /* A側のバッジサイズ（1.3rem）と完全に統一 */
+    font-weight: 400;
     color: var(--clr-blue);
     flex-shrink: 0;
-    line-height: 1.4;
+    line-height: 1.6;
 }
 
 .faq-question-text {
     flex: 1;
-    line-height: 1.5;
-    padding-top: 1px;
+    line-height: 1.8; /* A側の本文行間（1.8）と完全に統一 */
+    padding-top: 0;
 }
 
 .faq-icon {
