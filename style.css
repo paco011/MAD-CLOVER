@@ -674,6 +674,23 @@ background-image: url('hero-bg.webp');    background-size: cover;
     text-align: center;
 }
 
+.cta-notice-text {
+    color: var(--clr-text-light);
+    font-size: 0.88rem;
+    line-height: 1.75;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.cta-phrase {
+    display: inline-block;
+}
+
+.cta-notice-sep {
+    display: block;
+    height: 6px;
+}
+
 .form-group {
     margin-bottom: 24px;
 }
@@ -1555,6 +1572,10 @@ footer {
         grid-template-columns: 1fr;
         gap: 48px;
     }
+    
+    .pc-br {
+        display: none !important;
+    }
 }
 
 @media (max-width: 768px) {
@@ -1973,5 +1994,8 @@ footer {
         font-size: 0.88rem;
         line-height: 1.75;
         margin-bottom: 24px;
+    }
+    .pc-br {
+        display: inline;
     }
 }
