@@ -224,7 +224,7 @@ header.scrolled {
 .nav-menu a {
     font-family: 'Source Serif 4', Georgia, serif;
     font-weight: 500;
-    font-size: 1.05rem;
+    font-size: 1.20rem; /* 大画面PCでの視認性と品格を両立 */
     letter-spacing: 0.1em;
     color: var(--clr-text-light); /* 柔らかいスレートグレー */
     transition: var(--transition);
@@ -1447,7 +1447,7 @@ footer {
 /* Responsive */
 @media (max-width: 992px) {
     .nav-menu ul { gap: 28px; }
-    .nav-menu a { font-size: 0.96rem; }
+    .nav-menu a { font-size: 1.05rem; }
     .about-grid, .recruit-wrapper { grid-template-columns: 1fr; gap: 40px; }
     .hero-title { font-size: 3.9rem; }
     .section-title { font-size: 2.2rem; }
