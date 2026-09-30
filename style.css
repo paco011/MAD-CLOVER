@@ -1928,4 +1928,50 @@ footer {
     .about-grid {
         gap: 80px;
     }
+
+    /* 各セクションをPCの1画面（ビューポート）に美しくフィットさせる設定 */
+    .about {
+        min-height: calc(100vh - 70px);
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 60px 0;
+    }
+    .about > .container {
+        width: 100%;
+    }
+
+    .recruit {
+        min-height: calc(100vh - 70px);
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 50px 0;
+    }
+    .recruit > .container {
+        width: 100%;
+    }
+    .recruit .section-header.left-align {
+        margin-bottom: 32px;
+    }
+    .recruit-tabs,
+    .contact-form-card {
+        min-height: 440px;
+    }
+    .contact-form-card {
+        padding: 36px 36px;
+    }
+    #form-cta-container span i {
+        font-size: 2.2rem;
+    }
+    #form-cta-container h3 {
+        font-size: 1.35rem;
+        margin-bottom: 10px;
+    }
+    #form-cta-container p {
+        font-size: 0.84rem;
+        margin-bottom: 20px;
+    }
 }
