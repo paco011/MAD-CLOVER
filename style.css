@@ -966,6 +966,7 @@ footer {
     grid-template-columns: auto 1fr;
     gap: 16px;
     padding: 16px 20px;
+    align-items: center;
     transition: var(--transition);
 }
 
@@ -976,22 +977,26 @@ footer {
 }
 
 .belonging-card .b-icon {
-    font-size: 1.8rem;
-    background: rgba(0, 86, 151, 0.05);
-    color: var(--clr-blue);
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
+    width: 64px;
+    height: 64px;
+    background: transparent;
+    border-radius: 0;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
     transition: var(--transition);
-    width: 48px;
 }
 
 .belonging-card:hover .b-icon {
-    background: var(--gradient-primary);
-    color: var(--clr-white);
+    transform: scale(1.08) translateY(-2px);
+}
+
+.belonging-card .b-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.03));
 }
 
 .belonging-card h4 {
@@ -1914,9 +1919,8 @@ footer {
         justify-items: center;
     }
     .belonging-card .b-icon {
-        width: 40px;
-        height: 40px;
-        font-size: 1.4rem;
+        width: 56px;
+        height: 56px;
         margin-bottom: 8px;
     }
     .belonging-card h4 {
