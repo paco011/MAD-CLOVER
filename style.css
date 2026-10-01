@@ -10,7 +10,7 @@
     --clr-bg: #fafafa;           /* 清潔感のある、ほんのり温かいオフホワイト */
     --clr-bg-alt: #f1f3f5;       /* 静かで洗練されたライトグレー */
     --clr-text: #1a202c;         /* 読みやすく、強すぎないダークグレー */
-    --clr-text-light: #334155;   /* 視認性を高めた深みのあるスレートグレー（かすれ解消） */
+    --clr-text-light: #1e293b;   /* 深みのあるダークスレート（繊細さを保ちつつ視認性を向上） */
     --clr-white: #ffffff;
     
     /* Gradients (ギラギラ感をなくし、シックで滑らかなグラデーションに) */
@@ -49,6 +49,9 @@ body {
     overflow-x: hidden;
     width: 100%;
     letter-spacing: 0.03em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
 
 a {
@@ -558,7 +561,7 @@ background-image: url('hero-bg.webp');    background-size: cover;
 .activity-sub-val {
     font-size: 0.95rem;
     font-weight: 400;
-    color: #475569;
+    color: var(--clr-text-light);
     margin-bottom: 14px;
     display: block;
 }
@@ -573,7 +576,7 @@ background-image: url('hero-bg.webp');    background-size: cover;
 .activity-desc {
     font-size: 0.95rem;
     letter-spacing: -0.03em;
-    color: #475569;
+    color: var(--clr-text-light);
     line-height: 1.65;
     text-align: center;
     margin-top: auto;
@@ -1522,7 +1525,7 @@ footer {
     line-height: 1.8;
     font-size: 0.95rem;
     font-weight: 400;
-    color: #334155;
+    color: var(--clr-text-light);
 }
 
 .faq-a-badge {
@@ -1539,7 +1542,7 @@ footer {
     flex: 1;
     font-size: 0.95rem;
     font-weight: 400;
-    color: #334155;
+    color: var(--clr-text-light);
     line-height: 1.8;
 }
 
