@@ -9,8 +9,9 @@
     /* Theme Colors (背景を洗練されたソフトなトーンに) */
     --clr-bg: #fafafa;           /* 清潔感のある、ほんのり温かいオフホワイト */
     --clr-bg-alt: #f1f3f5;       /* 静かで洗練されたライトグレー */
-    --clr-text: #1a202c;         /* 読みやすく、強すぎないダークグレー */
-    --clr-text-light: #1e293b;   /* 深みのあるダークスレート（繊細さを保ちつつ視認性を向上） */
+    --clr-text: #0d1117;         /* 細字でもくっきり読める最も深いスレートブラック（視覚濃度の均一化） */
+    --clr-text-light: #0d1117;   /* 説明文・補足文も最濃色でかすれゼロ */
+    --clr-title: #2d3748;        /* 太字タイトルは上品なスレートグレー（面積効果を調和） */
     --clr-white: #ffffff;
     
     /* Gradients (ギラギラ感をなくし、シックで滑らかなグラデーションに) */
@@ -955,7 +956,7 @@ footer {
 .timeline-item .event h4 {
     font-size: 0.9rem;
     font-weight: 700;
-    color: var(--clr-text);
+    color: var(--clr-title); /* 上品なスレートグレーで太字の面積効果を調和 */
     margin-bottom: 4px;
 }
 
@@ -1017,7 +1018,7 @@ footer {
 .belonging-card h4 {
     font-size: 0.85rem;
     font-weight: 700;
-    color: var(--clr-text);
+    color: var(--clr-title); /* 上品なスレートグレーで太字の面積効果を調和 */
     margin-bottom: 3px;
 }
 
@@ -1145,6 +1146,11 @@ footer {
     margin-bottom: 8px;
     padding-left: 20px;
     position: relative;
+}
+
+.tab-content ul li strong {
+    color: var(--clr-title); /* 太字ラベルは上品なスレートグレー */
+    font-weight: 700;
 }
 
 /* 箇条書きドットを、全体の深い青に統一します */
