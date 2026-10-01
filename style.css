@@ -913,25 +913,26 @@ footer {
 .timeline-item::before {
     content: '';
     position: absolute;
-    left: -32px;
-    top: 8px;
-    width: 18px;
-    height: 18px;
+    left: -29px;
+    top: 2px;
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
     background: var(--clr-white);
-    border: 4px solid var(--clr-blue);
+    border: 2px solid var(--clr-blue);
     z-index: 1;
     transition: var(--transition);
 }
 
 .timeline-item:hover::before {
     border-color: var(--clr-red); /* ★ 派手なオレンジから、上品なくすんだテラコッタへ変更 */
-    transform: scale(1.15);       /* ★ 1.2から1.15へ、少し控えめなしなやかな拡大に変更 */
+    transform: scale(1.2);        /* ★ タイトルと同等サイズの○に合わせて軽やかに拡大 */
 }
 
 .timeline-item .time {
-    font-weight: 800;
-    font-size: 1.1rem;
+    font-weight: 700;
+    font-size: 0.9rem;
+    line-height: 1.2;
     color: var(--clr-blue);
     margin-bottom: 4px;
 }
