@@ -881,7 +881,7 @@ footer {
 .details-title-left {
     display: inline-flex;
     align-items: center;
-    gap: 12px;
+    gap: calc(12px + 1cm); /* アイコンと見出し文字の間隔を+1cm拡張（約50px） */
 }
 
 .details-title-icon {
