@@ -1000,10 +1000,10 @@ footer {
 }
 
 .belonging-card h4 {
-    font-size: 1rem;
+    font-size: 0.85rem;
     font-weight: 700;
     color: var(--clr-text);
-    margin-bottom: 2px;
+    margin-bottom: 3px;
 }
 
 .belonging-card p {
@@ -1924,8 +1924,9 @@ footer {
         margin-bottom: 8px;
     }
     .belonging-card h4 {
-        font-size: 0.9rem;
+        font-size: 0.8rem;
         font-weight: 700;
+        margin-bottom: 2px;
     }
     .belonging-card p {
         font-size: 0.8rem;
