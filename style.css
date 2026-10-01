@@ -1957,6 +1957,14 @@ footer {
         gap: 80px;
     }
 
+    /* About Usの実績・統計カード：文字量に合わせたカラム比率で「メンバーの年齢 (20〜50代)」などを1行に美しく収める */
+    .stats-grid {
+        grid-template-columns: 0.95fr 1.1fr 1.35fr;
+    }
+    .stat-card {
+        white-space: nowrap;
+    }
+
     /* 各セクションをPCの1画面（ビューポート）に美しくフィットさせる設定（背景色エリアを1画面完全に引き延ばす） */
     .about,
     .activity,
