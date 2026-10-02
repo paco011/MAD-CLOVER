@@ -588,11 +588,11 @@ background-image: url('hero-bg.webp');    background-size: cover;
 .activity-female-text {
     font-size: 0.92rem;
     font-weight: 400;
-    color: #64748b;
+    color: #2d3748;
 }
 
 .activity-manager-free {
-    color: #64748b;
+    color: #2d3748;
 }
 
 /* Recruit Section (明るいライトトーン対応版にリニューアル) */
