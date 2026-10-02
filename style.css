@@ -591,6 +591,10 @@ background-image: url('hero-bg.webp');    background-size: cover;
     color: #64748b;
 }
 
+.activity-manager-free {
+    color: #64748b;
+}
+
 /* Recruit Section (明るいライトトーン対応版にリニューアル) */
 .recruit {
     padding: 120px 0;
