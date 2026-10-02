@@ -592,6 +592,7 @@ background-image: url('hero-bg.webp');    background-size: cover;
 }
 
 .activity-manager-free {
+    font-size: 0.85rem;
     color: #2d3748;
 }
 
