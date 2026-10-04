@@ -737,6 +737,19 @@ background-image: url('hero-bg.webp');    background-size: cover;
     box-shadow: 0 0 0 3px rgba(0, 86, 151, 0.1);
 }
 
+#link-privacy-inline,
+#btn-close-form {
+    color: var(--clr-blue);
+    text-decoration: underline;
+    text-decoration-color: var(--clr-blue);
+    transition: opacity 0.2s ease;
+}
+
+#link-privacy-inline:hover,
+#btn-close-form:hover {
+    opacity: 0.8;
+}
+
 .english-support {
     border-top: 1px dashed rgba(0, 0, 0, 0.1);
     padding-top: 24px;
