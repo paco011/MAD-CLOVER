@@ -712,7 +712,7 @@ background-image: url('hero-bg.webp');    background-size: cover;
     display: block;
     font-weight: 600;
     margin-bottom: 8px;
-    color: var(--clr-text);
+    color: var(--clr-title);
 }
 
 .form-group input,
@@ -747,7 +747,7 @@ background-image: url('hero-bg.webp');    background-size: cover;
 .english-support h5 {
     font-size: 0.95rem;
     font-weight: 700;
-    color: var(--clr-text);
+    color: var(--clr-title);
     margin-bottom: 8px;
     display: flex;
     align-items: center;
