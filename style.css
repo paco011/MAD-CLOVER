@@ -680,7 +680,7 @@ background-image: url('hero-bg.webp');    background-size: cover;
 }
 
 .contact-form-card h3 {
-    color: var(--clr-text);
+    color: var(--clr-title);
     font-size: 1.8rem;
     margin-bottom: 32px;
     text-align: center;
