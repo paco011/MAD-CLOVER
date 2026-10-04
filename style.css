@@ -233,7 +233,7 @@ header.scrolled {
     font-weight: 500;
     font-size: 1.15rem; /* 案A: 上品さと視認性を両立した約10%拡大サイズ */
     letter-spacing: 0.1em;
-    color: var(--clr-text-light); /* 柔らかいスレートグレー */
+    color: var(--clr-title); /* 上品なスレートグレー（#334155） */
     transition: var(--transition);
     position: relative;
     padding: 6px 0;
@@ -271,7 +271,7 @@ header.scrolled {
 .mobile-menu-toggle span {
     width: 30px;
     height: 2px;
-    background-color: var(--clr-text);
+    background-color: var(--clr-title);
     transition: var(--transition);
 }
 
@@ -1654,7 +1654,7 @@ footer {
         display: block;
         font-size: 1.25rem;
         padding: 10px 0;
-        color: var(--clr-text);
+        color: var(--clr-title);
     }
     .nav-menu a.btn-primary {
         display: inline-block;
