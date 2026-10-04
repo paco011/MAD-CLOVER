@@ -141,11 +141,11 @@ ul {
     cursor: pointer;
 }
 
-/* --- ホバー時：触れた瞬間だけ、深い青（主役の色）へと変化させます --- */
+/* --- ホバー時：スレートグレー（#334155）を維持し、暗転させず軽やかに浮遊 --- */
 .btn-primary:hover {
-    background: #1e293b !important; /* ★ 触れた瞬間に一段深いダークトーンへ */
+    background: var(--clr-slate-btn) !important; /* ★ #334155を維持（暗転なし） */
     transform: translateY(-2px);
-    box-shadow: 0 6px 24px rgba(45, 55, 72, 0.12);
+    box-shadow: 0 6px 20px rgba(51, 65, 85, 0.2);
 }
 
 .btn-primary.large {
@@ -169,7 +169,9 @@ ul {
 
 /* --- ホバー時の送信ボタン --- */
 .btn-submit:hover {
-    background: #1e293b; /* ★ 触れた瞬間に一段深いダークトーンへ */
+    background: var(--clr-slate-btn); /* ★ #334155を維持（暗転なし） */
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
 }
 
 
@@ -1081,10 +1083,10 @@ footer {
     box-shadow: var(--shadow-md);
 }
 
-/* ★ 選択中のタブを触った（ホバーした）瞬間も、他のボタンと同じく一段深いダークトーンへ */
+/* ★ 選択中のタブホバー時：スレートグレー（#334155）を維持（暗転なし） */
 .tab-btn.active:hover {
-    background: #1e293b !important;
-    border-color: #1e293b !important;
+    background: var(--clr-slate-btn) !important;
+    border-color: var(--clr-slate-btn) !important;
     color: var(--clr-white) !important;
     transform: translateY(-1px);
     box-shadow: var(--shadow-md);
