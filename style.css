@@ -1,6 +1,6 @@
 :root {
     /* Logo Colors (モダンでシックな高級スポーツブランドを意識したカラー) */
-    --clr-blue: #2d3748;         /* 深みのあるダークスレート（知性と落ち着き） */
+    --clr-blue: #334155;         /* 上品なスレートグレー（ボタン・タブ背景・見出しと統一） */
     --clr-red: #cc7d6a;          /* くすんだテラコッタ（温かみとモダンさ） */
     --clr-orange: #e5a982;       /* 柔らかなソフトアプリコット（親しみやすさ） */
     --clr-yellow: #e2b65c;       /* 落ち着いたゴールドベージュ */
@@ -9,10 +9,10 @@
     /* Theme Colors (背景を洗練されたソフトなトーンに) */
     --clr-bg: #fafafa;           /* 清潔感のある、ほんのり温かいオフホワイト */
     --clr-bg-alt: #f1f3f5;       /* 静かで洗練されたライトグレー */
-    --clr-text: #1e293b;         /* 細字でもくっきり読め、上品な深みのあるダークスレート */
-    --clr-text-light: #1e293b;   /* 説明文・補足文も #1e293b で統一 */
-    --clr-title: #2d3748;        /* 太字タイトルは上品なスレートグレー（面積効果を調和） */
-    --clr-slate-btn: #334155;    /* 以前の上品なスレートグレー（ボタン通常時・選択中タブの背景） */
+    --clr-text: #0d1117;         /* 細字でもくっきり読める最高密度のスレートブラック（視認性MAX） */
+    --clr-text-light: #0d1117;   /* 説明文・補足文も #0d1117 で統一 */
+    --clr-title: #334155;        /* 大見出し・太字タイトルは上品なスレートグレー（面積効果を調和） */
+    --clr-slate-btn: #334155;    /* 上品なスレートグレー（ボタン通常時・選択中タブの背景） */
     --clr-white: #ffffff;
     
     /* Gradients (ギラギラ感をなくし、シックで滑らかなグラデーションに) */
@@ -110,7 +110,7 @@ ul {
     font-family: 'Source Serif 4', 'Source Serif Pro', Georgia, serif;
     font-size: 2.6rem;
     font-weight: 600;
-    color: #0d1117;
+    color: var(--clr-title);
     margin-bottom: 8px;
     position: relative;
     display: inline-block;
@@ -143,7 +143,7 @@ ul {
 
 /* --- ホバー時：触れた瞬間だけ、深い青（主役の色）へと変化させます --- */
 .btn-primary:hover {
-    background: var(--clr-blue) !important; /* ★ 触れた瞬間だけ、知的な青に変身します */
+    background: #1e293b !important; /* ★ 触れた瞬間に一段深いダークトーンへ */
     transform: translateY(-2px);
     box-shadow: 0 6px 24px rgba(45, 55, 72, 0.12);
 }
@@ -169,7 +169,7 @@ ul {
 
 /* --- ホバー時の送信ボタン --- */
 .btn-submit:hover {
-    background: var(--clr-blue); /* ★ 触れた瞬間に深い青へ */
+    background: #1e293b; /* ★ 触れた瞬間に一段深いダークトーンへ */
 }
 
 
@@ -342,7 +342,7 @@ background-image: url('hero-bg.webp');    background-size: cover;
     font-weight: 600;
     line-height: 1.05;
     margin-bottom: 18px;
-    color: #0d1117;
+    color: var(--clr-title);
     letter-spacing: 0.05em;
     /* スクショの浮かび上がる立体感シャドウ */
     text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2), 
@@ -546,7 +546,7 @@ background-image: url('hero-bg.webp');    background-size: cover;
     font-family: 'Zen Kaku Gothic New', sans-serif;
     font-size: 1.25rem;
     font-weight: 500;
-    color: #2d3748;
+    color: var(--clr-title);
     line-height: 1.3;
     margin-bottom: 6px;
 }
@@ -555,7 +555,7 @@ background-image: url('hero-bg.webp');    background-size: cover;
     font-family: 'Source Serif 4', Georgia, serif;
     font-size: 1.32rem;
     font-weight: 400;
-    color: #2d3748;
+    color: var(--clr-title);
     line-height: 1.3;
     margin-bottom: 6px;
 }
@@ -588,12 +588,12 @@ background-image: url('hero-bg.webp');    background-size: cover;
 .activity-female-text {
     font-size: 0.92rem;
     font-weight: 400;
-    color: #2d3748;
+    color: var(--clr-title);
 }
 
 .activity-manager-free {
     font-size: 0.85rem;
-    color: #2d3748;
+    color: var(--clr-title);
 }
 
 /* Recruit Section (明るいライトトーン対応版にリニューアル) */
@@ -784,7 +784,7 @@ footer {
     font-family: 'Source Serif 4', 'Source Serif Pro', Georgia, serif;
     font-size: 1.8rem;
     font-weight: 600;
-    color: #0d1117;
+    color: var(--clr-title);
     letter-spacing: 0.08em;
 }
 
@@ -877,7 +877,7 @@ footer {
 .details-title {
     font-family: 'Source Serif 4', 'Source Serif Pro', Georgia, serif;
     font-size: 1.35rem;
-    color: #0d1117;
+    color: var(--clr-title);
     font-weight: 600;
     margin-bottom: 32px;
     display: flex;
@@ -1081,10 +1081,10 @@ footer {
     box-shadow: var(--shadow-md);
 }
 
-/* ★ 追加：選択中のタブを触った（ホバーした）瞬間も、他のボタンと同じく「深い青」へ滑らかに変化させます */
+/* ★ 選択中のタブを触った（ホバーした）瞬間も、他のボタンと同じく一段深いダークトーンへ */
 .tab-btn.active:hover {
-    background: var(--clr-blue) !important; /* タッチした瞬間に、深い青（主役の色）へ */
-    border-color: var(--clr-blue) !important;
+    background: #1e293b !important;
+    border-color: #1e293b !important;
     color: var(--clr-white) !important;
     transform: translateY(-1px);
     box-shadow: var(--shadow-md);
