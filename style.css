@@ -1464,13 +1464,13 @@ footer {
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-sm);
     overflow: hidden;
-    transition: var(--transition);
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
 }
 
 .faq-item:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(51, 65, 85, 0.08);
-    border-color: rgba(51, 65, 85, 0.15);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(51, 65, 85, 0.12);
+    border-color: rgba(51, 65, 85, 0.2);
 }
 
 .faq-question {
