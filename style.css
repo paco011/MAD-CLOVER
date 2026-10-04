@@ -1468,8 +1468,9 @@ footer {
 }
 
 .faq-item:hover {
-    box-shadow: var(--shadow-md);
-    border-color: rgba(0, 86, 151, 0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(51, 65, 85, 0.08);
+    border-color: rgba(51, 65, 85, 0.15);
 }
 
 .faq-question {
@@ -1489,7 +1490,7 @@ footer {
     transition: var(--transition);
 }
 
-.faq-question:hover {
+.faq-item:hover .faq-icon {
     color: var(--clr-blue);
 }
 
