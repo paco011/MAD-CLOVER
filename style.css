@@ -1351,7 +1351,7 @@ footer {
 }
 
 .btn-modal-submit {
-    background: var(--gradient-primary);
+    background: var(--clr-slate-btn);
     color: var(--clr-white);
     border: none;
     border-radius: var(--radius-md);
@@ -1360,13 +1360,13 @@ footer {
     cursor: pointer;
     transition: var(--transition);
     text-align: center;
-    box-shadow: 0 4px 12px rgba(0, 86, 151, 0.2);
+    box-shadow: var(--shadow-md);
 }
 
 .btn-modal-submit:hover {
-    background: var(--clr-blue);
+    background: var(--clr-slate-btn);
     transform: translateY(-1px);
-    box-shadow: 0 6px 16px rgba(0, 86, 151, 0.3);
+    box-shadow: var(--shadow-md);
 }
 
 /* Success Modal specific styles */
@@ -1406,7 +1406,7 @@ footer {
 }
 
 .btn-modal-close {
-    background: var(--gradient-primary);
+    background: var(--clr-slate-btn);
     color: var(--clr-white);
     border: none;
     border-radius: var(--radius-md);
@@ -1417,7 +1417,7 @@ footer {
 }
 
 .btn-modal-close:hover {
-    background: var(--clr-blue);
+    background: var(--clr-slate-btn);
     transform: translateY(-1px);
 }
 
