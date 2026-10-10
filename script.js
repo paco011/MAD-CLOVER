@@ -39,8 +39,9 @@ document.addEventListener('DOMContentLoaded', () => {
     
     if (menuToggle && navMenu) {
         menuToggle.addEventListener('click', () => {
-            menuToggle.classList.toggle('active');
+            const isActive = menuToggle.classList.toggle('active');
             navMenu.classList.toggle('active');
+            menuToggle.setAttribute('aria-expanded', isActive ? 'true' : 'false');
         });
 
         // Close mobile menu on link click
@@ -48,6 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
             link.addEventListener('click', () => {
                 menuToggle.classList.remove('active');
                 navMenu.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
             });
         });
     }
@@ -79,10 +81,14 @@ document.addEventListener('DOMContentLoaded', () => {
     
     tabButtons.forEach(btn => {
         btn.addEventListener('click', () => {
-            tabButtons.forEach(b => b.classList.remove('active'));
+            tabButtons.forEach(b => {
+                b.classList.remove('active');
+                b.setAttribute('aria-selected', 'false');
+            });
             tabContents.forEach(c => c.classList.remove('active'));
             
             btn.classList.add('active');
+            btn.setAttribute('aria-selected', 'true');
             const tabId = btn.getAttribute('data-tab');
             const targetContent = document.getElementById(tabId);
             if (targetContent) {

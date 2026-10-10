@@ -266,6 +266,14 @@ header.scrolled {
     flex-direction: column;
     gap: 6px;
     cursor: pointer;
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+
+.mobile-menu-toggle:focus-visible {
+    outline: 2px solid var(--clr-blue);
+    outline-offset: 4px;
 }
 
 .mobile-menu-toggle span {
@@ -487,19 +495,6 @@ background-image: url('hero-bg.webp');    background-size: cover;
     top: 85px; /* 案B：約2.5cm下に下げて全体の重心を美しく安定 */
 }
 
-/* ※これより下の、末尾に新しく追加していた「#logo-img」や「.logo:hover #logo-img」のコードはすべて削除します */
-
-.card-info h4 {
-    font-size: 1.3rem;      /* ★ 1.5から1.3へ、一回りスマートに */
-    color: var(--clr-blue);
-    font-weight: 700;       /* ★ 700へ落とします */
-    letter-spacing: 0.12em; /* ★ 文字間隔を広げてロゴとしての美しさを最大化 */
-}
-
-.card-info p {
-    color: var(--clr-text-light);
-    font-size: 0.9rem;
-}
 
 /* Activity Section */
 .activity {
@@ -636,39 +631,6 @@ background-image: url('hero-bg.webp');    background-size: cover;
     min-height: 480px; /* 閉じている時は左右対称の高さに固定 */
 }
 
-.recruit-desc {
-    color: var(--clr-text-light); /* 白から、上品なスレートグレーへ */
-    font-size: 1.2rem;
-    margin-bottom: 40px;
-}
-
-.req-box {
-    background: rgba(0, 0, 0, 0.015); /* 白透過から、極薄グレー透過へ */
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    border-radius: var(--radius-md);
-    padding: 32px;
-}
-
-.req-box h4 {
-    color: var(--clr-blue); /* 白から、深い青へ */
-    font-size: 1.2rem;
-    margin-bottom: 16px;
-}
-
-.req-box ul li {
-    color: var(--clr-text-light); /* 白からスレートグレーへ */
-    margin-bottom: 12px;
-    padding-left: 20px;
-    position: relative;
-}
-
-.req-box ul li::before {
-    color: var(--clr-red); /* オレンジから、くすんだテラコッタへ */
-    content: '✓';
-    font-weight: bold;
-    position: absolute;
-    left: 0;
-}
 
 /* 申し込みフォームのカード */
 .contact-form-card {

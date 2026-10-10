@@ -197,7 +197,7 @@
 
     <!-- アイコンライブラリ（バージョンを固定してリダイレクト遅延と破損を防止） -->
     <script src="https://unpkg.com/@phosphor-icons/web@2.1.1" defer></script>
-    <link rel="stylesheet" href="style.css?v=10.8">
+    <link rel="stylesheet" href="style.css?v=10.9">
 </head>
 <body>
     <header id="header">
@@ -215,11 +215,11 @@
                     <li><a href="#faq">FAQ</a></li>
                 </ul>
             </nav>
-            <div class="mobile-menu-toggle">
+            <button type="button" class="mobile-menu-toggle" aria-label="ナビゲーションメニューを開閉" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </button>
         </div>
     </header>
 
@@ -274,7 +274,7 @@
                     <div class="about-image slide-in-right">
     <div class="glass-card">
         <div class="card-logo">
-            <img src="basketball-line-art.webp?v=2.0" alt="MAD CLOVER バスケットボールのラインアートイラスト" class="about-logo-img" width="320" height="215" loading="lazy" style="position: relative; top: 85px;">
+            <img src="basketball-line-art.webp?v=2.0" alt="MAD CLOVER バスケットボールのラインアートイラスト" class="about-logo-img" width="320" height="215" loading="lazy">
         </div>
     </div>
 </div>
@@ -430,15 +430,15 @@
             <div class="recruit-content slide-in-left">
                 <!-- インタラクティブタブ -->
                 <div class="recruit-tabs">
-                    <div class="tab-buttons">
-                        <button class="tab-btn active" data-tab="level">理念と安全</button>
-                        <button class="tab-btn" data-tab="rules">参加ルール</button>
-                        <button class="tab-btn" data-tab="manager">マネージャー</button>
-                        <button class="tab-btn" data-tab="schedule">活動日程</button>
+                    <div class="tab-buttons" role="tablist" aria-label="募集要項">
+                        <button class="tab-btn active" role="tab" id="tab-btn-level" aria-selected="true" aria-controls="level" data-tab="level">理念と安全</button>
+                        <button class="tab-btn" role="tab" id="tab-btn-rules" aria-selected="false" aria-controls="rules" data-tab="rules">参加ルール</button>
+                        <button class="tab-btn" role="tab" id="tab-btn-manager" aria-selected="false" aria-controls="manager" data-tab="manager">マネージャー</button>
+                        <button class="tab-btn" role="tab" id="tab-btn-schedule" aria-selected="false" aria-controls="schedule" data-tab="schedule">活動日程</button>
                     </div>
                     <div class="tab-contents">
                         <!-- 1. 理念と安全 -->
-                        <div class="tab-content active" id="level">
+                        <div class="tab-content active" id="level" role="tabpanel" aria-labelledby="tab-btn-level">
                             <h4>安全に心地よく楽しめる場所</h4>
                             <p>お互いの安全を最優先にする思いやりのあるプレーをお願いしています。</p>
                             <ul>
@@ -449,7 +449,7 @@
                         </div>
                         
                         <!-- 2. 参加ルール -->
-                        <div class="tab-content" id="rules">
+                        <div class="tab-content" id="rules" role="tabpanel" aria-labelledby="tab-btn-rules">
                             <h4>フラットな関係維持のために</h4>
                             <ul>
                                 <li><strong>ご参加について</strong>: 既存の輪にとらわれず全員が公平に楽しめるよう、原則お一人でのご参加をお願いしております（女性同士の複数参加は歓迎いたします）。</li>
@@ -459,7 +459,7 @@
                         </div>
                         
                         <!-- 3. マネージャー募集 -->
-                        <div class="tab-content" id="manager">
+                        <div class="tab-content" id="manager" role="tabpanel" aria-labelledby="tab-btn-manager">
                             <h4>チームのメンバーとして</h4>
                             <p>女性マネージャーを募集しています。競技の経験や詳しいルール知識がなくても問題ありません。メンバーが丁寧にお伝えいたします。</p>
                             <ul>
@@ -471,7 +471,7 @@
                         </div>
                         
                         <!-- 4. 活動日程 -->
-                        <div class="tab-content" id="schedule">
+                        <div class="tab-content" id="schedule" role="tabpanel" aria-labelledby="tab-btn-schedule">
                             <h4>今後の開催予定</h4>
                             <div class="schedule-grid" id="schedule-grid"></div>
                             <p class="schedule-note">※ふじみ野市以外の体育館になることもあります。</p>
@@ -556,12 +556,12 @@
 
                             <!-- 1. 同意注釈文 -->
                             <p class="form-privacy-note" style="font-size: 0.75rem; color: var(--clr-text-light); text-align: center; margin-top: 14px; line-height: 1.4;">
-                                ※「確認画面へ進む」を押すことで、当チームの<a href="javascript:void(0)" id="link-privacy-inline" style="color: var(--clr-blue); text-decoration: underline; text-decoration-color: var(--clr-blue); font-weight: 700;">プライバシーポリシー（免責事項）</a>に同意したものとみなされます。
+                                ※「確認画面へ進む」を押すことで、当チームの<a href="javascript:void(0)" id="link-privacy-inline" role="button" style="color: var(--clr-blue); text-decoration: underline; text-decoration-color: var(--clr-blue); font-weight: 700;">プライバシーポリシー（免責事項）</a>に同意したものとみなされます。
                             </p>
 
                             <!-- 2. キャンセル（閉じる）リンク -->
                             <p style="text-align: center; margin-top: 16px; font-size: 0.85rem; margin-bottom: 0;">
-                                <a href="javascript:void(0)" id="btn-close-form" style="color: var(--clr-blue); text-decoration: underline; text-decoration-color: var(--clr-blue); font-weight: 500;">申し込みフォームを閉じる</a>
+                                <a href="javascript:void(0)" id="btn-close-form" role="button" style="color: var(--clr-blue); text-decoration: underline; text-decoration-color: var(--clr-blue); font-weight: 500;">申し込みフォームを閉じる</a>
                             </p>
                         </form>
                     </div>
@@ -800,6 +800,6 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=2.1"></script>
 </body>
 </html>
