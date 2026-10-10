@@ -1,4 +1,4 @@
-﻿User-agent: *
+User-agent: *
 Allow: /
 
-Sitemap: https://paco011.github.io/MAD-CLOVER/sitemap.xml
+Sitemap: https://mad-clover.pages.dev/sitemap.xml
