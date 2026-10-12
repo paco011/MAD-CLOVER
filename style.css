@@ -6,12 +6,12 @@
     --clr-yellow: #E2B65C;       /* 落ち着いたゴールドベージュ */
     --clr-dark-green: #233527;   /* アースグリーン */
 
-    /* Theme Colors (Terracotta: 温かみのあるクリーム地と高コントラストインクブラウン) */
+    /* Theme Colors (オプティカル・バランシング色彩設計：細字を濃く、太字を一段薄く調和) */
     --clr-bg: #FAF6F0;           /* 温かみのあるオフホワイト・サンベイクドクリーム */
     --clr-bg-alt: #F3E9D8;       /* TypeUI Terracotta Secondary (Warm Cream) */
-    --clr-text: #111827;         /* TypeUI Terracotta Text (Ink-Brown / Deep Charcoal, WCAG 2.2 AA 準拠で抜群の可読性) */
-    --clr-text-light: #111827;   /* 説明文・補足文も #111827 で統一（視認性を完全維持） */
-    --clr-title: #1C140F;        /* 大見出し・太字タイトルは重厚なディープ・インクブラウン */
+    --clr-text: #111827;         /* 細字・本文用：最深インクチャコール（細い線でもクッキリ際立たせる） */
+    --clr-text-light: #111827;   /* 説明文・補足文も #111827 で統一（高い可読性を維持） */
+    --clr-title: #3A2E26;        /* 大見出し・太字用：上品なウォームセピア（太字の面積効果を調和し重さを抜く） */
     --clr-slate-btn: #C56A3C;    /* ボタン通常時・選択中タブの背景（テラコッタ） */
     --clr-white: #ffffff;
     
@@ -698,17 +698,30 @@ background-image: url('hero-bg.webp');    background-size: cover;
     box-shadow: 0 0 0 3px rgba(197, 106, 60, 0.15);
 }
 
-#link-privacy-inline,
-#btn-close-form {
-    color: var(--clr-blue);
+#link-privacy-inline {
+    color: var(--clr-title); /* 本文に近い落ち着いたセピアグレー */
     text-decoration: underline;
-    text-decoration-color: var(--clr-blue);
-    transition: opacity 0.2s ease;
+    text-decoration-color: rgba(58, 46, 38, 0.45);
+    transition: opacity 0.2s ease, color 0.2s ease, text-decoration-color 0.2s ease;
 }
 
-#link-privacy-inline:hover,
+#btn-close-form {
+    color: #5A4C42; /* 本文より少し薄い控えめな閉じるリンク */
+    text-decoration: underline;
+    text-decoration-color: rgba(90, 76, 66, 0.4);
+    transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+#link-privacy-inline:hover {
+    opacity: 0.8;
+    color: var(--clr-blue);
+    text-decoration-color: var(--clr-blue);
+}
+
 #btn-close-form:hover {
     opacity: 0.8;
+    color: var(--clr-blue);
+    text-decoration-color: var(--clr-blue);
 }
 
 .english-support {
@@ -823,7 +836,7 @@ footer {
     font-family: 'Source Serif 4', 'Source Serif Pro', Georgia, serif;
     font-size: 1.65rem;
     font-weight: 600;
-    color: var(--clr-blue);
+    color: var(--clr-title); /* #3A2E26（オプティカル・バランシングで太字数字を上品に調和） */
     line-height: 1.2;
     letter-spacing: 0.02em;
 }
@@ -891,8 +904,8 @@ footer {
 }
 
 .timeline::before {
-    /* テラコッタから、下に向かって極薄アース色へと消え入るように美しくグラデーションさせます */
-    background: linear-gradient(to bottom, var(--clr-blue) 0%, rgba(197, 106, 60, 0.04) 100%);
+    /* ウォームセピアから、下に向かって極薄アース色へと消え入るように美しくグラデーションさせます */
+    background: linear-gradient(to bottom, var(--clr-title) 0%, rgba(58, 46, 38, 0.04) 100%);
     bottom: 8px;
     content: '';
     left: 8px;
@@ -919,13 +932,13 @@ footer {
     height: 12px;
     border-radius: 50%;
     background: var(--clr-white);
-    border: 2px solid var(--clr-blue);
+    border: 2px solid var(--clr-title); /* #3A2E26 */
     z-index: 1;
     transition: var(--transition);
 }
 
 .timeline-item:hover::before {
-    border-color: var(--clr-red); /* ★ 派手なオレンジから、上品なくすんだテラコッタへ変更 */
+    border-color: var(--clr-title);
     transform: scale(1.2);        /* ★ タイトルと同等サイズの○に合わせて軽やかに拡大 */
 }
 
@@ -933,7 +946,7 @@ footer {
     font-weight: 700;
     font-size: 0.9rem;
     line-height: 1.2;
-    color: var(--clr-blue);
+    color: var(--clr-title); /* #3A2E26（オプティカル・バランシングで時間を落ち着いたトーンに調和） */
     margin-bottom: 4px;
 }
 
@@ -1089,7 +1102,7 @@ footer {
 
 .tab-content h4 {
     align-items: center;
-    color: var(--clr-blue); /* 深い青 */
+    color: var(--clr-title); /* 「コンセプト」と同じ上品なセピアグレー（太字の面積効果を調和） */
     display: flex;
     font-size: 1.25rem;
     font-weight: 800;
@@ -1098,20 +1111,20 @@ footer {
 }
 
 .tab-content p {
-    color: var(--clr-text-light); /* スレートグレー */
+    color: var(--clr-text-light);
     font-size: 0.95rem;
     line-height: 1.6;
     margin-bottom: 16px;
 }
 
-/* 太字テキストのカラーをオレンジから、最も上品な「深い青」に統一します */
+/* 太字テキストのカラーを「コンセプト」と同じ var(--clr-title) に統一します */
 .tab-content strong {
-    color: var(--clr-blue); /* ★深い青に統一して大人っぽさを最大化 */
+    color: var(--clr-title); /* 太字の面積効果を調和し大人っぽさを最大化 */
 }
 
 .tab-sub-title {
-    border-left: 3px solid var(--clr-blue); /* 深い青のアクセント線 */
-    color: var(--clr-blue);
+    border-left: 3px solid var(--clr-blue); /* テラコッタのアクセント線 */
+    color: var(--clr-title);
     font-size: 1.05rem;
     font-weight: 700;
     margin: 20px 0 10px 0;
@@ -1137,10 +1150,10 @@ footer {
     font-weight: 700;
 }
 
-/* 箇条書きドットを、全体の深い青に統一します */
+/* 箇条書きドットを、ウォームセピア（#3A2E26）に統一します */
 .tab-content ul li::before {
-    color: var(--clr-blue); /* ★深い青に統一 */
-    opacity: 0.7;           /* ★不透明度を70%にして優しく馴染ませます */
+    color: var(--clr-title); /* #3A2E26（コンセプト等のラベルと同色に調和） */
+    opacity: 0.8;           /* 柔らかく馴染ませます */
     content: '•';
     font-size: 1.2rem;
     font-weight: bold;
@@ -1233,7 +1246,7 @@ footer {
 .modal-header h3 {
     font-size: 1.25rem;
     font-weight: 800;
-    color: var(--clr-blue);
+    color: var(--clr-title); /* #3A2E26（ふじみ野市立総合体育館等のタイトルをウォームセピアに調和） */
 }
 
 .modal-close-btn {
@@ -1469,7 +1482,7 @@ footer {
     font-family: 'Source Serif 4', Georgia, serif;
     font-size: 1.3rem; /* A側のバッジサイズ（1.3rem）と完全に統一 */
     font-weight: 400;
-    color: var(--clr-blue);
+    color: var(--clr-title); /* #3A2E26（上品なウォームセピアに調和） */
     flex-shrink: 0;
     line-height: 1.6;
 }
@@ -2026,9 +2039,9 @@ footer {
 .gym-link {
     color: inherit;
     text-decoration: underline;
-    text-decoration-color: rgba(197, 106, 60, 0.35);
+    text-decoration-color: var(--clr-blue); /* くっきりと目立つテラコッタ下線 */
     text-underline-offset: 4px;
-    text-decoration-thickness: 1px;
+    text-decoration-thickness: 1.5px; /* 1pxから1.5pxにして存在感をアップ */
     background: transparent;
     border: none;
     padding: 0 1px;
@@ -2171,13 +2184,15 @@ footer {
     font-family: inherit;
     font-size: 0.85rem;
     font-weight: 500;
-    color: var(--clr-blue);
+    color: #5A4C42; /* 本文（#111827）より少し薄く上品な控えめトーン */
     text-decoration: underline;
-    text-decoration-color: var(--clr-blue);
+    text-decoration-color: rgba(90, 76, 66, 0.4);
     cursor: pointer;
-    transition: opacity 0.2s ease;
+    transition: opacity 0.2s ease, color 0.2s ease;
 }
 
 .gym-close-link:hover {
     opacity: 0.8;
+    color: var(--clr-blue);
+    text-decoration-color: var(--clr-blue);
 }
