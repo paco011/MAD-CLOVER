@@ -513,4 +513,115 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     }
+
+    // ----------------------------------------------------------------------
+    // 体育館アクセス案内モーダル制御
+    // ----------------------------------------------------------------------
+    const gymModal = document.getElementById('gym-modal');
+    const gymLinks = document.querySelectorAll('.gym-link');
+    const btnCloseGymX = document.getElementById('btn-close-gym-x');
+    const btnCloseGymBottom = document.getElementById('btn-close-gym-bottom');
+
+    const gymDataMap = {
+        sougou: {
+            name: "ふじみ野市立総合体育館",
+            address: "埼玉県ふじみ野市大井武蔵野1392-1",
+            parking: "無料駐車場あり（約150台・大型可）",
+            access: "東武東上線「ふじみ野駅」西口より路線バス、「鶴瀬駅」西口より市内循環ワゴン",
+            facility: "男女更衣室、ロッカー、温水シャワー、冷暖房完備",
+            mapUrl: "https://www.google.com/maps/search/?api=1&query=ふじみ野市立総合体育館"
+        },
+        komabayashi: {
+            name: "駒林体育館",
+            address: "埼玉県ふじみ野市駒林531-1",
+            parking: "無料駐車場あり（敷地内）",
+            access: "東武東上線「ふじみ野駅」東口より徒歩約15分、または循環バス",
+            facility: "男女更衣室完備",
+            mapUrl: "https://www.google.com/maps/search/?api=1&query=ふじみ野市駒林体育館"
+        },
+        uenodai: {
+            name: "上野台体育館",
+            address: "埼玉県ふじみ野市上野台1-7-1",
+            parking: "無料駐車場あり",
+            access: "東武東上線「上福岡駅」東口より徒歩約12分",
+            facility: "男女更衣室完備",
+            mapUrl: "https://www.google.com/maps/search/?api=1&query=ふじみ野市上野台体育館"
+        },
+        daini: {
+            name: "第二運動公園 体育館",
+            address: "埼玉県ふじみ野市大井武蔵野1392-1（総合体育館隣接）",
+            parking: "無料駐車場あり（運動公園共通）",
+            access: "東武東上線「ふじみ野駅」西口よりバス",
+            facility: "更衣室完備",
+            mapUrl: "https://www.google.com/maps/search/?api=1&query=ふじみ野市第二運動公園体育館"
+        },
+        fujimi: {
+            name: "富士見市民体育館",
+            address: "埼玉県富士見市大字鶴馬1880-1",
+            parking: "無料駐車場あり（約200台）",
+            access: "東武東上線「鶴瀬駅」東口より徒歩約20分、または市内循環バス",
+            facility: "更衣室、シャワー完備",
+            mapUrl: "https://www.google.com/maps/search/?api=1&query=富士見市民体育館"
+        },
+        pikoa: {
+            name: "川越市なぐわし公園 PIKOA",
+            address: "埼玉県川越市大字鯨井1217番地",
+            parking: "無料駐車場あり（約200台）",
+            access: "東武東上線「霞ヶ関駅」北口より徒歩約15分、JR川越線「的場駅」より徒歩約20分",
+            facility: "更衣室、温水シャワー、ロッカー完備",
+            mapUrl: "https://www.google.com/maps/search/?api=1&query=川越市なぐわし公園PIKOA"
+        }
+    };
+
+    if (gymModal) {
+        const titleEl = document.getElementById('gym-modal-title');
+        const addrEl = document.getElementById('gym-modal-address');
+        const parkingEl = document.getElementById('gym-modal-parking');
+        const accessEl = document.getElementById('gym-modal-access');
+        const facilityEl = document.getElementById('gym-modal-facility');
+        const mapBtnEl = document.getElementById('gym-modal-map-btn');
+
+        const openGymModal = (key) => {
+            const data = gymDataMap[key];
+            if (!data) return;
+
+            if (titleEl) titleEl.textContent = data.name;
+            if (addrEl) addrEl.textContent = data.address;
+            if (parkingEl) parkingEl.textContent = data.parking;
+            if (accessEl) accessEl.textContent = data.access;
+            if (facilityEl) facilityEl.textContent = data.facility;
+            if (mapBtnEl) mapBtnEl.href = data.mapUrl;
+
+            gymModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        };
+
+        const closeGymModal = () => {
+            gymModal.style.display = 'none';
+            document.body.style.overflow = '';
+        };
+
+        gymLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const gymKey = link.getAttribute('data-gym');
+                if (gymKey) openGymModal(gymKey);
+            });
+        });
+
+        if (btnCloseGymX) btnCloseGymX.addEventListener('click', closeGymModal);
+        if (btnCloseGymBottom) btnCloseGymBottom.addEventListener('click', closeGymModal);
+
+        window.addEventListener('click', (e) => {
+            if (e.target === gymModal) {
+                closeGymModal();
+            }
+        });
+
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && gymModal.style.display === 'flex') {
+                closeGymModal();
+            }
+        });
+    }
 });
