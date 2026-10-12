@@ -2149,16 +2149,10 @@ footer {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
     padding: 12px 20px;
     box-sizing: border-box;
     text-decoration: none;
     margin-top: 0;
-}
-
-.gym-map-arrow {
-    font-size: 0.85em;
-    opacity: 0.8;
 }
 
 .gym-modal-footer {
