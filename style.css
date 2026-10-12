@@ -1,28 +1,28 @@
 :root {
-    /* Logo Colors (モダンでシックな高級スポーツブランドを意識したカラー) */
-    --clr-blue: #334155;         /* 上品なスレートグレー（ボタン・タブ背景・見出しと統一） */
-    --clr-red: #cc7d6a;          /* くすんだテラコッタ（温かみとモダンさ） */
-    --clr-orange: #e5a982;       /* 柔らかなソフトアプリコット（親しみやすさ） */
-    --clr-yellow: #e2b65c;       /* 落ち着いたゴールドベージュ */
-    --clr-dark-green: #1a3a2a;
+    /* Logo Colors / Key Terracotta Colors (TypeUI Terracotta) */
+    --clr-blue: #C56A3C;         /* TypeUI Terracotta Accent (陶器・素焼きの温かみのある赤土色) */
+    --clr-red: #C56A3C;          /* テラコッタ */
+    --clr-orange: #E5A982;       /* 柔らかなソフトアプリコット・オーカー */
+    --clr-yellow: #E2B65C;       /* 落ち着いたゴールドベージュ */
+    --clr-dark-green: #233527;   /* アースグリーン */
 
-    /* Theme Colors (背景を洗練されたソフトなトーンに) */
-    --clr-bg: #fafafa;           /* 清潔感のある、ほんのり温かいオフホワイト */
-    --clr-bg-alt: #f1f3f5;       /* 静かで洗練されたライトグレー */
-    --clr-text: #1e293b;         /* 細字でもくっきり読める上質なダークスレート（視認性と上品さの両立） */
-    --clr-text-light: #1e293b;   /* 説明文・補足文も #1e293b で統一 */
-    --clr-title: #334155;        /* 大見出し・太字タイトルは上品なスレートグレー（面積効果を調和） */
-    --clr-slate-btn: #334155;    /* 上品なスレートグレー（ボタン通常時・選択中タブの背景） */
+    /* Theme Colors (Terracotta: 温かみのあるクリーム地と高コントラストインクブラウン) */
+    --clr-bg: #FAF6F0;           /* 温かみのあるオフホワイト・サンベイクドクリーム */
+    --clr-bg-alt: #F3E9D8;       /* TypeUI Terracotta Secondary (Warm Cream) */
+    --clr-text: #111827;         /* TypeUI Terracotta Text (Ink-Brown / Deep Charcoal, WCAG 2.2 AA 準拠で抜群の可読性) */
+    --clr-text-light: #111827;   /* 説明文・補足文も #111827 で統一（視認性を完全維持） */
+    --clr-title: #1C140F;        /* 大見出し・太字タイトルは重厚なディープ・インクブラウン */
+    --clr-slate-btn: #C56A3C;    /* ボタン通常時・選択中タブの背景（テラコッタ） */
     --clr-white: #ffffff;
     
-    /* Gradients (ギラギラ感をなくし、シックで滑らかなグラデーションに) */
-    --gradient-primary: linear-gradient(135deg, var(--clr-blue), #1a202c);
+    /* Gradients (シックで滑らかなグラデーション) */
+    --gradient-primary: linear-gradient(135deg, var(--clr-blue), #8C401B);
     --gradient-accent: linear-gradient(135deg, var(--clr-orange), var(--clr-red));
 
     /* UI Elements (影をより薄く、よりフラットでシンプルに) */
-    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.02);
-    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.04);
-    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.04);
+    --shadow-sm: 0 2px 8px rgba(60, 40, 30, 0.04);
+    --shadow-md: 0 4px 16px rgba(60, 40, 30, 0.06);
+    --shadow-lg: 0 8px 32px rgba(60, 40, 30, 0.08);
     
     /* 角の丸み（大人っぽさを出すため、丸すぎず適度な丸みに微調整） */
     --radius-md: 12px;           
@@ -141,11 +141,11 @@ ul {
     cursor: pointer;
 }
 
-/* --- ホバー時：スレートグレー（#334155）を維持し、暗転させず軽やかに浮遊 --- */
+/* --- ホバー時：テラコッタを維持し、暗転させず軽やかに浮遊 --- */
 .btn-primary:hover {
-    background: var(--clr-slate-btn) !important; /* ★ #334155を維持（暗転なし） */
+    background: var(--clr-slate-btn) !important;
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(51, 65, 85, 0.2);
+    box-shadow: 0 6px 20px rgba(197, 106, 60, 0.25);
 }
 
 .btn-primary.large {
@@ -187,7 +187,7 @@ header {
 }
 
 header.scrolled {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(250, 246, 240, 0.94);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     padding: 12px 0;
@@ -311,7 +311,7 @@ background-image: url('hero-bg.webp');    background-size: cover;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to right, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.7) 50%, rgba(255,255,255,0.4) 100%);
+    background: linear-gradient(to right, rgba(250, 246, 240, 0.92) 0%, rgba(250, 246, 240, 0.65) 50%, rgba(250, 246, 240, 0.35) 100%);
     z-index: -1;
 }
 
@@ -525,7 +525,7 @@ background-image: url('hero-bg.webp');    background-size: cover;
 .activity-card:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
-    border-color: rgba(45, 55, 72, 0.15);
+    border-color: rgba(197, 106, 60, 0.3);
 }
 
 .activity-cat-label {
@@ -533,7 +533,7 @@ background-image: url('hero-bg.webp');    background-size: cover;
     font-size: 0.78rem;
     font-weight: 600;
     letter-spacing: 0.12em;
-    color: #64748b;
+    color: var(--clr-blue);
     text-transform: uppercase;
     margin-bottom: 12px;
     display: block;
@@ -602,8 +602,7 @@ background-image: url('hero-bg.webp');    background-size: cover;
 }
 
 .recruit::before {
-    /* 背景が明るくなったため、装飾用の円の不透明度をさらに極薄（0.015）に下げて、静かなテクスチャにします */
-    background: radial-gradient(circle, rgba(45, 55, 72, 0.015) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(197, 106, 60, 0.03) 0%, transparent 70%);
     border-radius: 50%;
     content: '';
     height: 1000px;
@@ -682,12 +681,12 @@ background-image: url('hero-bg.webp');    background-size: cover;
 .form-group textarea {
     width: 100%;
     padding: 12px 16px;
-    border: 1px solid #cbd5e1;
+    border: 1px solid #D9CDC4;
     border-radius: var(--radius-md);
     font-family: inherit;
     font-size: 1rem;
     transition: var(--transition);
-    background-color: #f8fafc;
+    background-color: #FAF6F0;
 }
 
 .form-group input:focus,
@@ -696,7 +695,7 @@ background-image: url('hero-bg.webp');    background-size: cover;
     outline: none;
     border-color: var(--clr-blue);
     background-color: var(--clr-white);
-    box-shadow: 0 0 0 3px rgba(0, 86, 151, 0.1);
+    box-shadow: 0 0 0 3px rgba(197, 106, 60, 0.15);
 }
 
 #link-privacy-inline,
@@ -742,19 +741,19 @@ background-image: url('hero-bg.webp');    background-size: cover;
 
 /* Footer (フッターを明るいオフホワイトに戻し、FAQとの境界を作ります) */
 footer {
-    background: var(--clr-bg); /* ★ var(--clr-bg) に変更 */
+    background: var(--clr-bg);
     color: var(--clr-text-light);
     padding: 60px 0 24px;
-    border-top: 1px solid rgba(45, 55, 72, 0.08); /* 境界線を上品な細線に戻します */
+    border-top: 1px solid rgba(60, 40, 30, 0.08);
 }
 
 .footer-content {
     display: flex;
-    flex-direction: column; /* 縦一列に並べます */
-    align-items: center;    /* 中央に寄せます */
-    text-align: center;     /* 文字も中央揃えにします */
-    margin-bottom: 48px;    /* コピーライトとの間隔 */
-    gap: 16px;              /* ロゴとサブタイトルの間隔をスマートに */
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 48px;
+    gap: 16px;
 }
 
 .footer-logo h2,
@@ -769,15 +768,15 @@ footer {
 
 .footer-logo p:not(.footer-title) {
     color: var(--clr-text-light);
-    font-size: 0.85rem; /* 少し小ぶりにして控えめに */
+    font-size: 0.85rem;
 }
 
 .footer-bottom {
     text-align: center;
     padding-top: 24px;
-    border-top: 1px solid rgba(45, 55, 72, 0.08); /* 極細・極薄の区切り線に変更 */
+    border-top: 1px solid rgba(60, 40, 30, 0.08);
     color: var(--clr-text-light);
-    font-size: 0.8rem; /* 少し小さくして存在感を一歩引かせます */
+    font-size: 0.8rem;
 }
 
 /* ==========================================================================
@@ -862,7 +861,7 @@ footer {
     display: flex;
     align-items: center;
     gap: 12px;
-    border-bottom: 1px solid rgba(45, 55, 72, 0.12);
+    border-bottom: 1px solid rgba(60, 40, 30, 0.12);
     padding-bottom: 12px;
     letter-spacing: 0.04em;
 }
@@ -892,8 +891,8 @@ footer {
 }
 
 .timeline::before {
-    /* 深い青から、下に向かって極薄グレーへと消え入るように美しくグラデーションさせます */
-    background: linear-gradient(to bottom, var(--clr-blue) 0%, rgba(45, 55, 72, 0.04) 100%);
+    /* テラコッタから、下に向かって極薄アース色へと消え入るように美しくグラデーションさせます */
+    background: linear-gradient(to bottom, var(--clr-blue) 0%, rgba(197, 106, 60, 0.04) 100%);
     bottom: 8px;
     content: '';
     left: 8px;
@@ -974,7 +973,7 @@ footer {
 .belonging-card:hover {
     transform: translateX(4px);
     box-shadow: var(--shadow-md);
-    border-color: rgba(0, 86, 151, 0.1);
+    border-color: rgba(197, 106, 60, 0.2);
 }
 
 .belonging-card .b-icon {
@@ -1196,7 +1195,7 @@ footer {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(15, 23, 42, 0.6);
+    background: rgba(28, 20, 15, 0.6);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     z-index: 2000;
@@ -1225,7 +1224,7 @@ footer {
 
 .modal-header {
     padding: 20px 24px;
-    border-bottom: 1px solid #e2e8f0;
+    border-bottom: 1px solid #E5DCD2;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -1264,7 +1263,7 @@ footer {
 }
 
 .confirm-table-container {
-    border: 1px solid #e2e8f0;
+    border: 1px solid #E5DCD2;
     border-radius: var(--radius-md);
     overflow: hidden;
     background: var(--clr-bg-alt);
@@ -1280,7 +1279,7 @@ footer {
 .confirm-table th, 
 .confirm-table td {
     padding: 12px 16px;
-    border-bottom: 1px solid #e2e8f0;
+    border-bottom: 1px solid #E5DCD2;
 }
 
 .confirm-table tr:last-child th,
@@ -1289,11 +1288,11 @@ footer {
 }
 
 .confirm-table th {
-    background: rgba(0, 86, 151, 0.03);
+    background: rgba(197, 106, 60, 0.05);
     color: var(--clr-blue);
     font-weight: 700;
     width: 150px;
-    border-right: 1px solid #e2e8f0;
+    border-right: 1px solid #E5DCD2;
 }
 
 .confirm-table td {
@@ -1304,7 +1303,7 @@ footer {
 
 .modal-footer {
     padding: 16px 24px;
-    border-top: 1px solid #e2e8f0;
+    border-top: 1px solid #E5DCD2;
     display: grid;
     grid-template-columns: 1fr 1.5fr;
     gap: 16px;
@@ -1312,9 +1311,9 @@ footer {
 }
 
 .btn-modal-back {
-    background: #e2e8f0;
+    background: #E8DFD5;
     color: var(--clr-text);
-    border: 1px solid #cbd5e1;
+    border: 1px solid #D9CDC4;
     border-radius: var(--radius-md);
     padding: 12px;
     font-weight: 600;
@@ -1324,7 +1323,7 @@ footer {
 }
 
 .btn-modal-back:hover {
-    background: #cbd5e1;
+    background: #DECFC0;
 }
 
 .btn-modal-submit {
@@ -1357,7 +1356,7 @@ footer {
 .success-icon {
     font-size: 4rem;
     color: var(--clr-blue);
-    background: rgba(0, 86, 151, 0.05);
+    background: rgba(197, 106, 60, 0.08);
     width: 96px;
     height: 96px;
     border-radius: 50%;
@@ -1433,8 +1432,8 @@ footer {
 
 .faq-item:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 28px rgba(51, 65, 85, 0.12);
-    border-color: rgba(51, 65, 85, 0.2);
+    box-shadow: 0 12px 28px rgba(197, 106, 60, 0.12);
+    border-color: rgba(197, 106, 60, 0.25);
 }
 
 .faq-question {
@@ -1524,7 +1523,7 @@ footer {
     font-family: 'Source Serif 4', Georgia, serif;
     font-size: 1.3rem;
     font-weight: 400; /* 案3: Qと揃えて細身・繊細に */
-    color: #64748b;
+    color: #7D6B60;
     margin-right: 14px;
     flex-shrink: 0;
     line-height: 1.6;
@@ -1665,12 +1664,12 @@ footer {
     }
     
     .stat-card {
-        border-left: 2px solid rgba(45, 55, 72, 0.12);
+        border-left: 2px solid rgba(60, 40, 30, 0.12);
         padding: 3px 0 3px 16px;
     }
     
     .stat-card:first-child {
-        border-left: 2px solid rgba(45, 55, 72, 0.12);
+        border-left: 2px solid rgba(60, 40, 30, 0.12);
         padding-left: 16px;
     }
     
@@ -1714,7 +1713,7 @@ footer {
 .input-error {
     border-color: var(--clr-red) !important;
     background-color: #fffaf9 !important; /* 入力エラー時に薄い赤背景 */
-    box-shadow: 0 0 0 3px rgba(204, 125, 106, 0.1) !important;
+    box-shadow: 0 0 0 3px rgba(197, 106, 60, 0.15) !important;
 }
 
 .error-text {
@@ -1828,7 +1827,7 @@ footer {
 
 /* --- 1. テキスト選択時のハイライトカラーをチームカラーに変更 --- */
 ::selection {
-    background-color: rgba(45, 55, 72, 0.15); /* チームのダークスレート色の薄い背景 */
+    background-color: rgba(197, 106, 60, 0.18); /* テラコッタの上品なハイライト */
     color: var(--clr-blue);
 }
 
@@ -1843,7 +1842,7 @@ footer {
     background: var(--clr-bg-alt);
 }
 ::-webkit-scrollbar-thumb {
-    background: #cbd5e1; /* スレートグレー of 細いバー */
+    background: #DECFC0; /* テラコッタ・ウォームグレー of 細いバー */
     border-radius: 10px;
 }
 .scroll-indicator .arrow {
@@ -2027,7 +2026,7 @@ footer {
 .gym-link {
     color: inherit;
     text-decoration: underline;
-    text-decoration-color: rgba(51, 65, 85, 0.35);
+    text-decoration-color: rgba(197, 106, 60, 0.35);
     text-underline-offset: 4px;
     text-decoration-thickness: 1px;
     background: transparent;
@@ -2043,7 +2042,7 @@ footer {
 .gym-link:hover {
     color: var(--clr-blue);
     text-decoration-color: var(--clr-blue);
-    background-color: rgba(51, 65, 85, 0.05);
+    background-color: rgba(197, 106, 60, 0.08);
     border-radius: 2px;
 }
 
@@ -2126,7 +2125,7 @@ footer {
 .gym-item-label {
     font-size: 0.72rem;
     font-weight: 700;
-    color: #64748b;
+    color: #8C7A70;
     letter-spacing: 0.08em;
     display: block;
 }
