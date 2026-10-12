@@ -1,28 +1,28 @@
 :root {
-    /* Logo Colors / Key Terracotta Colors (TypeUI Terracotta) */
-    --clr-blue: #C56A3C;         /* TypeUI Terracotta Accent (陶器・素焼きの温かみのある赤土色) */
-    --clr-red: #C56A3C;          /* テラコッタ */
-    --clr-orange: #E5A982;       /* 柔らかなソフトアプリコット・オーカー */
-    --clr-yellow: #E2B65C;       /* 落ち着いたゴールドベージュ */
-    --clr-dark-green: #233527;   /* アースグリーン */
+    /* Logo Colors (モダンでシックな高級スポーツブランドを意識したカラー) */
+    --clr-blue: #334155;         /* 上品なスレートグレー（ボタン・タブ背景・見出しと統一） */
+    --clr-red: #cc7d6a;          /* くすんだテラコッタ（温かみとモダンさ） */
+    --clr-orange: #e5a982;       /* 柔らかなソフトアプリコット（親しみやすさ） */
+    --clr-yellow: #e2b65c;       /* 落ち着いたゴールドベージュ */
+    --clr-dark-green: #1a3a2a;
 
-    /* Theme Colors (オプティカル・バランシング色彩設計：細字を濃く、太字を一段薄く調和) */
-    --clr-bg: #FAF6F0;           /* 温かみのあるオフホワイト・サンベイクドクリーム */
-    --clr-bg-alt: #F3E9D8;       /* TypeUI Terracotta Secondary (Warm Cream) */
-    --clr-text: #111827;         /* 細字・本文用：最深インクチャコール（細い線でもクッキリ際立たせる） */
-    --clr-text-light: #111827;   /* 説明文・補足文も #111827 で統一（高い可読性を維持） */
-    --clr-title: #3A2E26;        /* 大見出し・太字用：上品なウォームセピア（太字の面積効果を調和し重さを抜く） */
-    --clr-slate-btn: #C56A3C;    /* ボタン通常時・選択中タブの背景（テラコッタ） */
+    /* Theme Colors (背景を洗練されたソフトなトーンに) */
+    --clr-bg: #fafafa;           /* 清潔感のある、ほんのり温かいオフホワイト */
+    --clr-bg-alt: #f1f3f5;       /* 静かで洗練されたライトグレー */
+    --clr-text: #1e293b;         /* 細字でもくっきり読める上質なダークスレート（視認性と上品さの両立） */
+    --clr-text-light: #1e293b;   /* 説明文・補足文も #1e293b で統一 */
+    --clr-title: #334155;        /* 大見出し・太字タイトルは上品なスレートグレー（面積効果を調和） */
+    --clr-slate-btn: #334155;    /* 上品なスレートグレー（ボタン通常時・選択中タブの背景） */
     --clr-white: #ffffff;
     
-    /* Gradients (シックで滑らかなグラデーション) */
-    --gradient-primary: linear-gradient(135deg, var(--clr-blue), #8C401B);
+    /* Gradients (ギラギラ感をなくし、シックで滑らかなグラデーションに) */
+    --gradient-primary: linear-gradient(135deg, var(--clr-blue), #1a202c);
     --gradient-accent: linear-gradient(135deg, var(--clr-orange), var(--clr-red));
 
     /* UI Elements (影をより薄く、よりフラットでシンプルに) */
-    --shadow-sm: 0 2px 8px rgba(60, 40, 30, 0.04);
-    --shadow-md: 0 4px 16px rgba(60, 40, 30, 0.06);
-    --shadow-lg: 0 8px 32px rgba(60, 40, 30, 0.08);
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.02);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.04);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.04);
     
     /* 角の丸み（大人っぽさを出すため、丸すぎず適度な丸みに微調整） */
     --radius-md: 12px;           
@@ -141,11 +141,11 @@ ul {
     cursor: pointer;
 }
 
-/* --- ホバー時：テラコッタを維持し、暗転させず軽やかに浮遊 --- */
+/* --- ホバー時：スレートグレー（#334155）を維持し、暗転させず軽やかに浮遊 --- */
 .btn-primary:hover {
-    background: var(--clr-slate-btn) !important;
+    background: var(--clr-slate-btn) !important; /* ★ #334155を維持（暗転なし） */
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(197, 106, 60, 0.25);
+    box-shadow: 0 6px 20px rgba(51, 65, 85, 0.2);
 }
 
 .btn-primary.large {
@@ -187,7 +187,7 @@ header {
 }
 
 header.scrolled {
-    background: rgba(250, 246, 240, 0.94);
+    background: rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     padding: 12px 0;
@@ -311,7 +311,7 @@ background-image: url('hero-bg.webp');    background-size: cover;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to right, rgba(250, 246, 240, 0.92) 0%, rgba(250, 246, 240, 0.65) 50%, rgba(250, 246, 240, 0.35) 100%);
+    background: linear-gradient(to right, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.7) 50%, rgba(255,255,255,0.4) 100%);
     z-index: -1;
 }
 
@@ -525,7 +525,7 @@ background-image: url('hero-bg.webp');    background-size: cover;
 .activity-card:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
-    border-color: rgba(197, 106, 60, 0.3);
+    border-color: rgba(45, 55, 72, 0.15);
 }
 
 .activity-cat-label {
@@ -533,7 +533,7 @@ background-image: url('hero-bg.webp');    background-size: cover;
     font-size: 0.78rem;
     font-weight: 600;
     letter-spacing: 0.12em;
-    color: var(--clr-blue);
+    color: #64748b;
     text-transform: uppercase;
     margin-bottom: 12px;
     display: block;
@@ -602,7 +602,8 @@ background-image: url('hero-bg.webp');    background-size: cover;
 }
 
 .recruit::before {
-    background: radial-gradient(circle, rgba(197, 106, 60, 0.03) 0%, transparent 70%);
+    /* 背景が明るくなったため、装飾用の円の不透明度をさらに極薄（0.015）に下げて、静かなテクスチャにします */
+    background: radial-gradient(circle, rgba(45, 55, 72, 0.015) 0%, transparent 70%);
     border-radius: 50%;
     content: '';
     height: 1000px;
@@ -681,12 +682,12 @@ background-image: url('hero-bg.webp');    background-size: cover;
 .form-group textarea {
     width: 100%;
     padding: 12px 16px;
-    border: 1px solid #D9CDC4;
+    border: 1px solid #cbd5e1;
     border-radius: var(--radius-md);
     font-family: inherit;
     font-size: 1rem;
     transition: var(--transition);
-    background-color: #FAF6F0;
+    background-color: #f8fafc;
 }
 
 .form-group input:focus,
@@ -695,33 +696,20 @@ background-image: url('hero-bg.webp');    background-size: cover;
     outline: none;
     border-color: var(--clr-blue);
     background-color: var(--clr-white);
-    box-shadow: 0 0 0 3px rgba(197, 106, 60, 0.15);
+    box-shadow: 0 0 0 3px rgba(0, 86, 151, 0.1);
 }
 
-#link-privacy-inline {
-    color: var(--clr-title); /* 本文に近い落ち着いたセピアグレー */
-    text-decoration: underline;
-    text-decoration-color: rgba(58, 46, 38, 0.45);
-    transition: opacity 0.2s ease, color 0.2s ease, text-decoration-color 0.2s ease;
-}
-
+#link-privacy-inline,
 #btn-close-form {
-    color: #5A4C42; /* 本文より少し薄い控えめな閉じるリンク */
-    text-decoration: underline;
-    text-decoration-color: rgba(90, 76, 66, 0.4);
-    transition: opacity 0.2s ease, color 0.2s ease;
-}
-
-#link-privacy-inline:hover {
-    opacity: 0.8;
     color: var(--clr-blue);
+    text-decoration: underline;
     text-decoration-color: var(--clr-blue);
+    transition: opacity 0.2s ease;
 }
 
+#link-privacy-inline:hover,
 #btn-close-form:hover {
     opacity: 0.8;
-    color: var(--clr-blue);
-    text-decoration-color: var(--clr-blue);
 }
 
 .english-support {
@@ -754,19 +742,19 @@ background-image: url('hero-bg.webp');    background-size: cover;
 
 /* Footer (フッターを明るいオフホワイトに戻し、FAQとの境界を作ります) */
 footer {
-    background: var(--clr-bg);
+    background: var(--clr-bg); /* ★ var(--clr-bg) に変更 */
     color: var(--clr-text-light);
     padding: 60px 0 24px;
-    border-top: 1px solid rgba(60, 40, 30, 0.08);
+    border-top: 1px solid rgba(45, 55, 72, 0.08); /* 境界線を上品な細線に戻します */
 }
 
 .footer-content {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin-bottom: 48px;
-    gap: 16px;
+    flex-direction: column; /* 縦一列に並べます */
+    align-items: center;    /* 中央に寄せます */
+    text-align: center;     /* 文字も中央揃えにします */
+    margin-bottom: 48px;    /* コピーライトとの間隔 */
+    gap: 16px;              /* ロゴとサブタイトルの間隔をスマートに */
 }
 
 .footer-logo h2,
@@ -781,15 +769,15 @@ footer {
 
 .footer-logo p:not(.footer-title) {
     color: var(--clr-text-light);
-    font-size: 0.85rem;
+    font-size: 0.85rem; /* 少し小ぶりにして控えめに */
 }
 
 .footer-bottom {
     text-align: center;
     padding-top: 24px;
-    border-top: 1px solid rgba(60, 40, 30, 0.08);
+    border-top: 1px solid rgba(45, 55, 72, 0.08); /* 極細・極薄の区切り線に変更 */
     color: var(--clr-text-light);
-    font-size: 0.8rem;
+    font-size: 0.8rem; /* 少し小さくして存在感を一歩引かせます */
 }
 
 /* ==========================================================================
@@ -836,7 +824,7 @@ footer {
     font-family: 'Source Serif 4', 'Source Serif Pro', Georgia, serif;
     font-size: 1.65rem;
     font-weight: 600;
-    color: var(--clr-title); /* #3A2E26（オプティカル・バランシングで太字数字を上品に調和） */
+    color: var(--clr-blue);
     line-height: 1.2;
     letter-spacing: 0.02em;
 }
@@ -874,7 +862,7 @@ footer {
     display: flex;
     align-items: center;
     gap: 12px;
-    border-bottom: 1px solid rgba(60, 40, 30, 0.12);
+    border-bottom: 1px solid rgba(45, 55, 72, 0.12);
     padding-bottom: 12px;
     letter-spacing: 0.04em;
 }
@@ -904,8 +892,8 @@ footer {
 }
 
 .timeline::before {
-    /* ウォームセピアから、下に向かって極薄アース色へと消え入るように美しくグラデーションさせます */
-    background: linear-gradient(to bottom, var(--clr-title) 0%, rgba(58, 46, 38, 0.04) 100%);
+    /* 深い青から、下に向かって極薄グレーへと消え入るように美しくグラデーションさせます */
+    background: linear-gradient(to bottom, var(--clr-blue) 0%, rgba(45, 55, 72, 0.04) 100%);
     bottom: 8px;
     content: '';
     left: 8px;
@@ -932,13 +920,13 @@ footer {
     height: 12px;
     border-radius: 50%;
     background: var(--clr-white);
-    border: 2px solid var(--clr-title); /* #3A2E26 */
+    border: 2px solid var(--clr-blue);
     z-index: 1;
     transition: var(--transition);
 }
 
 .timeline-item:hover::before {
-    border-color: var(--clr-title);
+    border-color: var(--clr-red); /* ★ 派手なオレンジから、上品なくすんだテラコッタへ変更 */
     transform: scale(1.2);        /* ★ タイトルと同等サイズの○に合わせて軽やかに拡大 */
 }
 
@@ -946,7 +934,7 @@ footer {
     font-weight: 700;
     font-size: 0.9rem;
     line-height: 1.2;
-    color: var(--clr-title); /* #3A2E26（オプティカル・バランシングで時間を落ち着いたトーンに調和） */
+    color: var(--clr-blue);
     margin-bottom: 4px;
 }
 
@@ -986,7 +974,7 @@ footer {
 .belonging-card:hover {
     transform: translateX(4px);
     box-shadow: var(--shadow-md);
-    border-color: rgba(197, 106, 60, 0.2);
+    border-color: rgba(0, 86, 151, 0.1);
 }
 
 .belonging-card .b-icon {
@@ -1102,7 +1090,7 @@ footer {
 
 .tab-content h4 {
     align-items: center;
-    color: var(--clr-title); /* 「コンセプト」と同じ上品なセピアグレー（太字の面積効果を調和） */
+    color: var(--clr-blue); /* 深い青 */
     display: flex;
     font-size: 1.25rem;
     font-weight: 800;
@@ -1111,20 +1099,20 @@ footer {
 }
 
 .tab-content p {
-    color: var(--clr-text-light);
+    color: var(--clr-text-light); /* スレートグレー */
     font-size: 0.95rem;
     line-height: 1.6;
     margin-bottom: 16px;
 }
 
-/* 太字テキストのカラーを「コンセプト」と同じ var(--clr-title) に統一します */
+/* 太字テキストのカラーをオレンジから、最も上品な「深い青」に統一します */
 .tab-content strong {
-    color: var(--clr-title); /* 太字の面積効果を調和し大人っぽさを最大化 */
+    color: var(--clr-blue); /* ★深い青に統一して大人っぽさを最大化 */
 }
 
 .tab-sub-title {
-    border-left: 3px solid var(--clr-blue); /* テラコッタのアクセント線 */
-    color: var(--clr-title);
+    border-left: 3px solid var(--clr-blue); /* 深い青のアクセント線 */
+    color: var(--clr-blue);
     font-size: 1.05rem;
     font-weight: 700;
     margin: 20px 0 10px 0;
@@ -1150,10 +1138,10 @@ footer {
     font-weight: 700;
 }
 
-/* 箇条書きドットを、ウォームセピア（#3A2E26）に統一します */
+/* 箇条書きドットを、全体の深い青に統一します */
 .tab-content ul li::before {
-    color: var(--clr-title); /* #3A2E26（コンセプト等のラベルと同色に調和） */
-    opacity: 0.8;           /* 柔らかく馴染ませます */
+    color: var(--clr-blue); /* ★深い青に統一 */
+    opacity: 0.7;           /* ★不透明度を70%にして優しく馴染ませます */
     content: '•';
     font-size: 1.2rem;
     font-weight: bold;
@@ -1208,7 +1196,7 @@ footer {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(28, 20, 15, 0.6);
+    background: rgba(15, 23, 42, 0.6);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     z-index: 2000;
@@ -1237,7 +1225,7 @@ footer {
 
 .modal-header {
     padding: 20px 24px;
-    border-bottom: 1px solid #E5DCD2;
+    border-bottom: 1px solid #e2e8f0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -1246,7 +1234,7 @@ footer {
 .modal-header h3 {
     font-size: 1.25rem;
     font-weight: 800;
-    color: var(--clr-title); /* #3A2E26（ふじみ野市立総合体育館等のタイトルをウォームセピアに調和） */
+    color: var(--clr-blue);
 }
 
 .modal-close-btn {
@@ -1276,7 +1264,7 @@ footer {
 }
 
 .confirm-table-container {
-    border: 1px solid #E5DCD2;
+    border: 1px solid #e2e8f0;
     border-radius: var(--radius-md);
     overflow: hidden;
     background: var(--clr-bg-alt);
@@ -1292,7 +1280,7 @@ footer {
 .confirm-table th, 
 .confirm-table td {
     padding: 12px 16px;
-    border-bottom: 1px solid #E5DCD2;
+    border-bottom: 1px solid #e2e8f0;
 }
 
 .confirm-table tr:last-child th,
@@ -1301,11 +1289,11 @@ footer {
 }
 
 .confirm-table th {
-    background: rgba(197, 106, 60, 0.05);
+    background: rgba(0, 86, 151, 0.03);
     color: var(--clr-blue);
     font-weight: 700;
     width: 150px;
-    border-right: 1px solid #E5DCD2;
+    border-right: 1px solid #e2e8f0;
 }
 
 .confirm-table td {
@@ -1316,7 +1304,7 @@ footer {
 
 .modal-footer {
     padding: 16px 24px;
-    border-top: 1px solid #E5DCD2;
+    border-top: 1px solid #e2e8f0;
     display: grid;
     grid-template-columns: 1fr 1.5fr;
     gap: 16px;
@@ -1324,9 +1312,9 @@ footer {
 }
 
 .btn-modal-back {
-    background: #E8DFD5;
+    background: #e2e8f0;
     color: var(--clr-text);
-    border: 1px solid #D9CDC4;
+    border: 1px solid #cbd5e1;
     border-radius: var(--radius-md);
     padding: 12px;
     font-weight: 600;
@@ -1336,7 +1324,7 @@ footer {
 }
 
 .btn-modal-back:hover {
-    background: #DECFC0;
+    background: #cbd5e1;
 }
 
 .btn-modal-submit {
@@ -1369,7 +1357,7 @@ footer {
 .success-icon {
     font-size: 4rem;
     color: var(--clr-blue);
-    background: rgba(197, 106, 60, 0.08);
+    background: rgba(0, 86, 151, 0.05);
     width: 96px;
     height: 96px;
     border-radius: 50%;
@@ -1445,8 +1433,8 @@ footer {
 
 .faq-item:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 28px rgba(197, 106, 60, 0.12);
-    border-color: rgba(197, 106, 60, 0.25);
+    box-shadow: 0 12px 28px rgba(51, 65, 85, 0.12);
+    border-color: rgba(51, 65, 85, 0.2);
 }
 
 .faq-question {
@@ -1482,7 +1470,7 @@ footer {
     font-family: 'Source Serif 4', Georgia, serif;
     font-size: 1.3rem; /* A側のバッジサイズ（1.3rem）と完全に統一 */
     font-weight: 400;
-    color: var(--clr-title); /* #3A2E26（上品なウォームセピアに調和） */
+    color: var(--clr-blue);
     flex-shrink: 0;
     line-height: 1.6;
 }
@@ -1536,7 +1524,7 @@ footer {
     font-family: 'Source Serif 4', Georgia, serif;
     font-size: 1.3rem;
     font-weight: 400; /* 案3: Qと揃えて細身・繊細に */
-    color: #7D6B60;
+    color: #64748b;
     margin-right: 14px;
     flex-shrink: 0;
     line-height: 1.6;
@@ -1677,12 +1665,12 @@ footer {
     }
     
     .stat-card {
-        border-left: 2px solid rgba(60, 40, 30, 0.12);
+        border-left: 2px solid rgba(45, 55, 72, 0.12);
         padding: 3px 0 3px 16px;
     }
     
     .stat-card:first-child {
-        border-left: 2px solid rgba(60, 40, 30, 0.12);
+        border-left: 2px solid rgba(45, 55, 72, 0.12);
         padding-left: 16px;
     }
     
@@ -1726,7 +1714,7 @@ footer {
 .input-error {
     border-color: var(--clr-red) !important;
     background-color: #fffaf9 !important; /* 入力エラー時に薄い赤背景 */
-    box-shadow: 0 0 0 3px rgba(197, 106, 60, 0.15) !important;
+    box-shadow: 0 0 0 3px rgba(204, 125, 106, 0.1) !important;
 }
 
 .error-text {
@@ -1840,7 +1828,7 @@ footer {
 
 /* --- 1. テキスト選択時のハイライトカラーをチームカラーに変更 --- */
 ::selection {
-    background-color: rgba(197, 106, 60, 0.18); /* テラコッタの上品なハイライト */
+    background-color: rgba(45, 55, 72, 0.15); /* チームのダークスレート色の薄い背景 */
     color: var(--clr-blue);
 }
 
@@ -1855,7 +1843,7 @@ footer {
     background: var(--clr-bg-alt);
 }
 ::-webkit-scrollbar-thumb {
-    background: #DECFC0; /* テラコッタ・ウォームグレー of 細いバー */
+    background: #cbd5e1; /* スレートグレー of 細いバー */
     border-radius: 10px;
 }
 .scroll-indicator .arrow {
@@ -2039,9 +2027,9 @@ footer {
 .gym-link {
     color: inherit;
     text-decoration: underline;
-    text-decoration-color: var(--clr-blue); /* くっきりと目立つテラコッタ下線 */
+    text-decoration-color: rgba(51, 65, 85, 0.35);
     text-underline-offset: 4px;
-    text-decoration-thickness: 1.5px; /* 1pxから1.5pxにして存在感をアップ */
+    text-decoration-thickness: 1px;
     background: transparent;
     border: none;
     padding: 0 1px;
@@ -2055,7 +2043,7 @@ footer {
 .gym-link:hover {
     color: var(--clr-blue);
     text-decoration-color: var(--clr-blue);
-    background-color: rgba(197, 106, 60, 0.08);
+    background-color: rgba(51, 65, 85, 0.05);
     border-radius: 2px;
 }
 
@@ -2138,7 +2126,7 @@ footer {
 .gym-item-label {
     font-size: 0.72rem;
     font-weight: 700;
-    color: #8C7A70;
+    color: #64748b;
     letter-spacing: 0.08em;
     display: block;
 }
@@ -2184,15 +2172,13 @@ footer {
     font-family: inherit;
     font-size: 0.85rem;
     font-weight: 500;
-    color: #5A4C42; /* 本文（#111827）より少し薄く上品な控えめトーン */
+    color: var(--clr-blue);
     text-decoration: underline;
-    text-decoration-color: rgba(90, 76, 66, 0.4);
+    text-decoration-color: var(--clr-blue);
     cursor: pointer;
-    transition: opacity 0.2s ease, color 0.2s ease;
+    transition: opacity 0.2s ease;
 }
 
 .gym-close-link:hover {
     opacity: 0.8;
-    color: var(--clr-blue);
-    text-decoration-color: var(--clr-blue);
 }
