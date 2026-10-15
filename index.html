@@ -24,7 +24,7 @@
 <meta property="og:locale" content="ja_JP">
 
 <!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary">
 <meta name="twitter:url" content="https://mad-clover.pages.dev/">
 <meta name="twitter:title" content="ふじみ野の社会人バスケ MAD CLOVER｜男女MIX・初心者歓迎">
 <meta name="twitter:description" content="埼玉県ふじみ野市を中心に富士見・川越・三芳・志木・新座・さいたま市周辺で活動する男女MIX社会人バスケットボールチーム「MAD CLOVER」公式HP。思いやりと安全を最優先にした大人のバスケで女性やブランク・初心者も安心です。体験・見学はお気軽にどうぞ。">
@@ -73,6 +73,7 @@
           "name": "ふじみ野市立総合体育館",
           "address": {
             "@type": "PostalAddress",
+            "streetAddress": "大井武蔵野1392-1",
             "addressLocality": "ふじみ野市",
             "addressRegion": "埼玉県",
             "addressCountry": "JP"
@@ -83,6 +84,7 @@
           "name": "駒林体育館",
           "address": {
             "@type": "PostalAddress",
+            "streetAddress": "駒林531-1",
             "addressLocality": "ふじみ野市",
             "addressRegion": "埼玉県",
             "addressCountry": "JP"
@@ -93,6 +95,7 @@
           "name": "上野台体育館",
           "address": {
             "@type": "PostalAddress",
+            "streetAddress": "上野台1-7-1",
             "addressLocality": "ふじみ野市",
             "addressRegion": "埼玉県",
             "addressCountry": "JP"
@@ -103,6 +106,7 @@
           "name": "ふじみ野市第二運動公園 体育館",
           "address": {
             "@type": "PostalAddress",
+            "streetAddress": "大井武蔵野1392-1",
             "addressLocality": "ふじみ野市",
             "addressRegion": "埼玉県",
             "addressCountry": "JP"
@@ -113,6 +117,7 @@
           "name": "富士見市民体育館",
           "address": {
             "@type": "PostalAddress",
+            "streetAddress": "大字鶴馬1880-1",
             "addressLocality": "富士見市",
             "addressRegion": "埼玉県",
             "addressCountry": "JP"
@@ -123,6 +128,7 @@
           "name": "川越市なぐわし公園 PIKOA",
           "address": {
             "@type": "PostalAddress",
+            "streetAddress": "大字鯨井1217番地",
             "addressLocality": "川越市",
             "addressRegion": "埼玉県",
             "addressCountry": "JP"
@@ -188,7 +194,7 @@
 </script>
 
     <!-- Core Web Vitals: ヒーロー背景画像のプリロード -->
-    <link rel="preload" as="image" href="hero-bg.webp">
+    <link rel="preload" as="image" href="hero-bg.webp" fetchpriority="high">
 
     <!-- Web Fonts 最適化（使用ウェイトのみに絞り込み） -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -588,7 +594,7 @@
                 <div class="faq-accordion-container">
                     <!-- Q1：女性の参加状況・雰囲気（安心感・チームの強み） -->
                     <div class="faq-item fade-in-up">
-                        <button class="faq-question">
+                        <button class="faq-question" aria-expanded="false">
                             <span class="faq-question-inner">
                                 <span class="faq-q-badge">Q.</span>
                                 <span class="faq-question-text">女性の参加状況や、チームの雰囲気はどうですか？</span>
@@ -607,7 +613,7 @@
 
                     <!-- Q2：勧誘や迷惑行為の禁止（健全性・安全性） -->
                     <div class="faq-item fade-in-up delay-1">
-                        <button class="faq-question">
+                        <button class="faq-question" aria-expanded="false">
                             <span class="faq-question-inner">
                                 <span class="faq-q-badge">Q.</span>
                                 <span class="faq-question-text">勧誘や迷惑行為への対策（健全性）はどうなっていますか？</span>
@@ -626,7 +632,7 @@
 
                     <!-- Q3：初心者・ブランク（怪我防止・安心感） -->
                     <div class="faq-item fade-in-up delay-2">
-                        <button class="faq-question">
+                        <button class="faq-question" aria-expanded="false">
                             <span class="faq-question-inner">
                                 <span class="faq-q-badge">Q.</span>
                                 <span class="faq-question-text">初心者やブランクがあっても大丈夫ですか？</span>
@@ -645,7 +651,7 @@
 
                     <!-- Q4：活動場所・市外からの参加（地理的条件） -->
                     <div class="faq-item fade-in-up delay-3">
-                        <button class="faq-question">
+                        <button class="faq-question" aria-expanded="false">
                             <span class="faq-question-inner">
                                 <span class="faq-q-badge">Q.</span>
                                 <span class="faq-question-text">活動場所はどこですか？市外からも参加できますか？</span>
@@ -664,7 +670,7 @@
 
                     <!-- Q5：途中参加や早退（参加のしやすさ） -->
                     <div class="faq-item fade-in-up">
-                        <button class="faq-question">
+                        <button class="faq-question" aria-expanded="false">
                             <span class="faq-question-inner">
                                 <span class="faq-q-badge">Q.</span>
                                 <span class="faq-question-text">途中参加や早退は可能ですか？</span>
@@ -683,7 +689,7 @@
 
                     <!-- Q6：学生の参加（属性・対象条件） -->
                     <div class="faq-item fade-in-up delay-1">
-                        <button class="faq-question">
+                        <button class="faq-question" aria-expanded="false">
                             <span class="faq-question-inner">
                                 <span class="faq-q-badge">Q.</span>
                                 <span class="faq-question-text">学生の参加は可能ですか？</span>
@@ -935,6 +941,6 @@
         </div>
     </div>
 
-    <script src="script.js?v=2.4"></script>
+    <script src="script.js?v=2.5"></script>
 </body>
 </html>

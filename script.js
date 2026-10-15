@@ -115,6 +115,8 @@ document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('.faq-item').forEach(otherItem => {
                 if (otherItem !== item) {
                     otherItem.classList.remove('active');
+                    const otherBtn = otherItem.querySelector('.faq-question');
+                    if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
                     const otherAnswer = otherItem.querySelector('.faq-answer');
                     if (otherAnswer) {
                         otherAnswer.style.maxHeight = null;
@@ -125,9 +127,11 @@ document.addEventListener('DOMContentLoaded', () => {
             // Toggle active state
             if (isActive) {
                 item.classList.remove('active');
+                question.setAttribute('aria-expanded', 'false');
                 if (answer) answer.style.maxHeight = null;
             } else {
                 item.classList.add('active');
+                question.setAttribute('aria-expanded', 'true');
                 if (answer) answer.style.maxHeight = answer.scrollHeight + 'px';
             }
         });
