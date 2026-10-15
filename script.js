@@ -536,7 +536,7 @@ document.addEventListener('DOMContentLoaded', () => {
             address: "埼玉県ふじみ野市駒林531-1",
             parking: "無料駐車場あり（敷地内）",
             access: "東武東上線「ふじみ野駅」東口より徒歩約15分、または循環バス",
-            facility: "男女更衣室完備",
+            facility: "男女更衣室、冷暖房完備",
             mapUrl: "https://www.google.com/maps/search/?api=1&query=ふじみ野市駒林体育館"
         },
         uenodai: {
@@ -544,7 +544,7 @@ document.addEventListener('DOMContentLoaded', () => {
             address: "埼玉県ふじみ野市上野台1-7-1",
             parking: "無料駐車場あり",
             access: "東武東上線「上福岡駅」東口より徒歩約12分",
-            facility: "男女更衣室完備",
+            facility: "男女更衣室、冷暖房完備",
             mapUrl: "https://www.google.com/maps/search/?api=1&query=ふじみ野市上野台体育館"
         },
         daini: {
